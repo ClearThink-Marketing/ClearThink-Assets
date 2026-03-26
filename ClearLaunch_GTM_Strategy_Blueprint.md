@@ -1,6 +1,6 @@
 # ClearLaunch GTM Strategy Blueprint
 
-**ClearThink Marketing | Version 1.0 | March 2026**
+**ClearThink Marketing | Version 2.0 | March 2026**
 
 ---
 
@@ -27,26 +27,25 @@ The ClearLaunch System is an 8-week, industry-agnostic go-to-market strategy spr
 
 **The core promise:** Eliminate marketing guesswork by building a data-backed strategic foundation before spending on campaigns. The client walks away knowing exactly who to target, what message resonates, and where to focus their budget.
 
-### The 7 Deliverables
+### The 6 Steps & Their Deliverables
 
-| # | Deliverable | What The Client Receives |
+| Step | Focus | Deliverables Produced |
 |---|---|---|
-| 1 | Ideal Customer Profile Analysis | Complete ICP discovery with 1-3 prioritized customer segments, pain point mapping, decision-making criteria, and objection analysis |
-| 2 | Unique Value Proposition Development | Strategic positioning framework, core messaging architecture, value proposition validation |
-| 3 | Market Intelligence & Competitive Analysis | Digital competitive landscape assessment, keyword research report (10-30 high-priority targets), content gap analysis |
-| 4 | Offer Engineering | MICRO offer creation (lead magnets), MACRO offer optimization (core revenue offer), strategic offer positioning |
-| 5 | Customer Journey Mapping | Complete journey visualization (awareness to advocacy), touchpoint identification, channel strategy matrix with budget recommendations |
-| 6 | Success Metrics & KPI Framework | Custom KPI dashboard with 5-10 priority metrics, measurement cadence, baseline benchmarks |
-| 7 | Implementation Roadmap & Next Steps | 90-day tactical plan with specific tasks, timelines, prioritized actions, and clear ownership |
+| 1 | Ideal Customer Profile | ICP Analysis document (.docx) + ICP Summary Deck (.pptx) — 1-3 prioritized customer segments, pain point mapping, decision-making criteria, qualifying/disqualifying criteria |
+| 2 | Market Landscape Analysis | Market Research document (.docx) + Market Research Summary Deck (.pptx) — keyword research (up to 50 keywords), competitive analysis, audience intelligence, content gap analysis |
+| 3 | Value Proposition & Offer Engineering | Value Proposition document (.docx) + Offer Engineering document (.docx) — strategic positioning, core messaging, MICRO offer (lead magnets), MACRO offer (core revenue offer) |
+| 4 | Channel Strategy & Customer Journey | Customer Journey document (.docx) — journey mapping (awareness to advocacy), channel strategy matrix, budget allocation recommendations |
+| 5 | Success Metrics & KPIs | KPI Framework document (.docx) — 5-10 priority metrics, measurement cadence, baseline benchmarks, reporting structure |
+| 6 | Implementation Roadmap | Launch Roadmap document (.docx) — 90-day tactical plan with weekly milestones, budget allocation, prioritized actions, clear ownership |
 
 ### The 4-Phase Timeline
 
-| Phase | Weeks | Focus |
-|---|---|---|
-| Phase 1: Discovery & Research | 1-2 | ICP discovery sessions, competitor analysis, market research, customer profile validation |
-| Phase 2: Strategy Development | 3-4 | Value proposition, messaging framework, offer engineering, customer journey mapping, channel identification |
-| Phase 3: Framework & Roadmap Creation | 5-6 | Measurement system, budget optimization, 90-day blueprint, success metrics |
-| Phase 4: Strategy Delivery & Launch Prep | 7-8 | Complete strategy delivery, priority recommendations, tracking activation, first campaign launch support |
+| Phase | Weeks | Steps | Focus |
+|---|---|---|---|
+| Phase 1: Discovery & Research | 1-2 | Steps 1-2 | ICP discovery sessions, market research, keyword analysis, competitive landscape |
+| Phase 2: Strategy Development | 3-4 | Steps 3-4 | Value proposition, messaging framework, offer engineering, customer journey mapping, channel identification |
+| Phase 3: Framework & Roadmap Creation | 5-6 | Steps 5-6 | Success metrics, KPI framework, budget optimization, 90-day implementation roadmap |
+| Phase 4: Strategy Delivery & Launch Prep | 7-8 | Delivery | Complete strategy delivery, priority recommendations, tracking activation, first campaign launch support |
 
 ---
 
@@ -90,7 +89,7 @@ This process synthesizes ClearThink's own methodology with GTM best practices. E
 - Transcripts DB: `collection://0f372290-8993-4c7e-b303-13afca181721`
 - Client Portals DB: `collection://30e821ad-7ba9-8080-8f38-000ba9c44ad0`
 
-**Skill file:** `Skills/ICP_Skill.md` — contains the complete workflow, extraction fields for B2B and B2C, fallback handling, and template references.
+**Skill file:** `Skills/ClearLaunch_ICP_Skill_v2.md` — contains the complete workflow, Notion integration, extraction fields for B2B and B2C, fallback handling, tiering logic, and template references. Also mirrored in `Skills/Claude-Desktop-Skills/clearlaunch-icp/SKILL.md` for the Claude desktop app.
 
 **ICP tiering approach:**
 - **Tier 1 (High Priority):** Maximum investment — direct outreach, personalized campaigns, highest LTV potential. This is the beachhead market the client should dominate first.
@@ -104,14 +103,14 @@ This process synthesizes ClearThink's own methodology with GTM best practices. E
 - `Frameworks/ClearLaunch_B2C_ICP_Summary_Deck.pptx`
 
 **Remaining items:**
-- ICP Summary Deck has design issues (150+ layout problems documented in `Frameworks/DESIGN_ISSUES_REPORT.txt`) — needs redesign work before client presentation
-- Zapier zap needs the notification step added (after Notion write, send Slack/email to Terry)
+- Zapier notification step has been added — Slack notification fires to `#internal-notifications` via "Digital VA" bot when a transcript lands in Notion
+- ICP Summary Decks were rebuilt on March 24, 2026 — all layout issues resolved (0 remaining). Build script at `Frameworks/rebuild_icp_decks.py`
 
 ---
 
 ### Step 2: Analyze Market Landscape
 
-**Status: PARTIALLY BUILT** (templates complete, agent skill not started)
+**Status: PARTIALLY BUILT** (templates complete, agent skill v2 in progress)
 
 **What it accomplishes:** Researches the client's target market size, growth trajectory, competitive landscape, keyword opportunities, and content gaps. Validates that there's real demand for what the client offers and identifies where they have the best chance of winning.
 
@@ -155,9 +154,9 @@ This process synthesizes ClearThink's own methodology with GTM best practices. E
 - `Frameworks/ClearLaunch_B2C_Market_Research_Summary_Deck.pptx`
 
 **Open items:**
-- Market Research Skill needs to be built from scratch — SKILL.md exists at `/tmp/clearlaunch-market-research/SKILL.md` but has no browser workflows yet
-- Need to determine which specific Ahrefs reports Terry typically pulls (which tabs, which export formats)
-- Need to determine which SimilarWeb sections are most used
+- Market Research Skill v2 needs to be built — will replace the outdated `Skills/Claude-Desktop-Skills/clearlaunch-market-research/SKILL.md`
+- Ahrefs and SimilarWeb workflows are now defined by the template structure (15 tables across the .docx templates specify exactly which data to pull from which tool)
+- Browser workflows for Ahrefs (Keywords Explorer, Site Explorer, Content Gap, Top Pages, Backlinks, Paid Keywords), SimilarWeb (Traffic Sources, Audience, Social), and Meta Ad Library need to be written into the skill
 
 ---
 
@@ -369,8 +368,7 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 | File | Purpose |
 |---|---|
 | `ClearLaunch_Skill_Update_Session_Notes.md` | Session notes from March 24, 2026 — current build status, open questions |
-| `Frameworks/DESIGN_ISSUES_REPORT.txt` | Documents 150+ design issues in the ICP Summary Deck |
-| `Frameworks/QUICK_REFERENCE_ISSUES.txt` | Quick reference for design issues |
+| `Frameworks/rebuild_icp_decks.py` | Python script that rebuilds ICP Summary Decks with ClearThink brand styling |
 | `SEO Retainer Model.xlsx` | P&L model for the SEO retainer service |
 | `ClearThink Model Projections.xlsx` | Business model projections |
 | `SEO_Retainer_Preview.html` | HTML preview of the SEO retainer economics |
@@ -384,34 +382,33 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 | Component | Status | Notes |
 |---|---|---|
 | ICP Templates (B2B + B2C) | COMPLETE | 4 files built and branded |
-| ICP Agent Skill | PARTIALLY BUILT | Needs Fathom→Notion flow update. Working copy at `/tmp/clearlaunch-icp/SKILL.md` |
-| Market Research Templates (B2B + B2C) | COMPLETE | 4 files built and branded |
-| Market Research Agent Skill | NOT STARTED | Working copy at `/tmp/clearlaunch-market-research/SKILL.md`, needs browser workflows |
+| ICP Summary Decks (B2B + B2C) | COMPLETE | Rebuilt March 24, 2026 — 0 layout issues, ClearThink brand applied |
+| ICP Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_ICP_Skill_v2.md` — full Notion integration, Fathom→Notion flow, tiering logic |
+| Market Research Templates (B2B + B2C) | COMPLETE | 4 files built and branded (15 data tables each) |
+| Market Research Agent Skill | IN PROGRESS | Old skill in Claude Desktop is outdated — v2 being built to match current templates |
 | Value Proposition Template | NOT STARTED | No template exists |
 | Offer Engineering Template | NOT STARTED | No template exists |
 | Customer Journey Template | NOT STARTED | No template exists |
 | Metrics/KPI Template | NOT STARTED | No template exists |
 | Implementation Roadmap Template | NOT STARTED | No template exists |
-| ICP Summary Deck Design Fix | NEEDS WORK | 150+ layout issues per DESIGN_ISSUES_REPORT.txt |
 
 ### Build Priority (Recommended Order)
 
-1. **Finalize ICP Skill** — update the Fathom→Notion data flow so the skill checks Notion first for transcripts
-2. **Build Market Research Skill** — add Ahrefs and SimilarWeb browser workflows to the skill
-3. **Fix ICP Summary Deck design** — resolve layout issues before using with clients
-4. **Build Value Proposition Template** — design the .docx structure for Step 3
-5. **Build Value Prop Skill** — automate Step 3 using ICP + MR output
-6. **Build Customer Journey Template** — design the .docx structure for Step 4
-7. **Build Journey Mapping Skill** — automate Step 4
-8. **Build Metrics/Budget + Roadmap Templates** — design .docx structures for Steps 5-6
+1. **Build Market Research Skill v2** — map to the 15 template tables, add Ahrefs/SimilarWeb/Meta Ad Library browser workflows, Notion data flow
+2. **Build Value Proposition Template** — design the .docx structure for Step 3
+3. **Build Offer Engineering Template** — design the .docx structure for Step 3
+4. **Build Value Prop + Offer Skill** — automate Step 3 using ICP + MR output
+5. **Build Customer Journey Template** — design the .docx structure for Step 4
+6. **Build Channel Strategy + Journey Skill** — automate Step 4
+7. **Build Metrics/KPI Template** — design .docx structure for Step 5
+8. **Build Implementation Roadmap Template** — design .docx structure for Step 6
 9. **Build final skills for Steps 5-6** — complete the automation chain
 
-### Open Questions (Carried Forward from Session Notes)
+### Open Questions
 
-1. **Fathom → Notion flow:** What's the current Zapier schedule/trigger setup? What does the Notion destination look like (database? page per call?)? Once finalized, the ICP skill gets updated.
-2. **Ahrefs workflow specifics:** Which Ahrefs reports does Terry typically pull? (Site Explorer → Organic Keywords? Content Gap? Backlink Profile?) Needed to write precise browser instructions for the Market Research skill.
-3. **SimilarWeb workflow specifics:** Which SimilarWeb sections are most used? (Traffic Overview? Audience? Competitors?)
-4. **Competitor Analysis Framework:** Terry explicitly said this hasn't been discussed yet — do NOT start building it until ready.
+1. **Onboarding → Client Portal automation:** Tally form → Zapier → Notion Client Portal creation. Exists conceptually but needs to be confirmed/built.
+2. **Client relation on transcripts is manual:** Fathom doesn't pass client identity, so the Client relation field on the Notion transcript record is set manually by Terry before processing. Future: Zapier lookup step to match client name from Fathom call title.
+3. **Competitor Analysis Framework:** Terry explicitly said this hasn't been discussed yet — do NOT start building it until ready.
 
 ---
 
@@ -484,4 +481,4 @@ The ClearLaunch → Retainer conversion funnel is critical. ClearLaunch must pro
 
 ---
 
-*Last updated: March 24, 2026*
+*Last updated: March 24, 2026 (v2.0 — aligned deliverables with 6-step process, updated all build statuses, cleared stale references)*
