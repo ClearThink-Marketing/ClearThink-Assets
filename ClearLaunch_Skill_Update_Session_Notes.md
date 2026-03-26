@@ -1,84 +1,171 @@
 # ClearLaunch Skill Update — Session Notes
-**Last Updated:** March 24, 2026
-**Status:** ICP Skill v1.0 Complete — Market Research Skill Next
+**Last Updated:** March 26, 2026
+**Status:** ICP Skill v2.0 Complete | Market Research Skill v2.0 Complete | Upstream infrastructure needs attention before progressing
 
 ---
 
-## What We Accomplished Today
+## Current Build Status
 
-### 1. Market Research Frameworks — COMPLETE
-All 8 ClearLaunch framework files are built, branded, and living in `ClearThink/Frameworks/`:
+| Component | Status | Location |
+|---|---|---|
+| ICP Templates (B2B + B2C) | COMPLETE | `Frameworks/` (4 files) |
+| ICP Summary Decks (B2B + B2C) | COMPLETE (rebuilt) | `Frameworks/` (0 layout issues, brand applied) |
+| ICP Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_ICP_Skill_v2.md` |
+| Market Research Templates (B2B + B2C) | COMPLETE | `Frameworks/` (4 files, 15 tables each) |
+| Market Research Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_Market_Research_Skill_v2.md` |
+| GTM Strategy Blueprint | COMPLETE (v2.0) | `ClearLaunch_GTM_Strategy_Blueprint.md` |
+| Value Proposition Template | NOT STARTED | — |
+| Offer Engineering Template | NOT STARTED | — |
+| Customer Journey Template | NOT STARTED | — |
+| Metrics/KPI Template | NOT STARTED | — |
+| Implementation Roadmap Template | NOT STARTED | — |
 
-| File | Status |
+---
+
+## What Was Accomplished (March 24-26, 2026)
+
+### Session: March 24
+
+1. **Market Research Frameworks** — All 8 ClearLaunch framework files built, branded, living in `Frameworks/`
+2. **ICP Skill v1.0** — Built from scratch with Notion data flow, B2B/B2C extraction, tiering logic
+3. **Client Portal Template** — Reports section added in Notion with subsections for each deliverable type
+4. **GTM Blueprint** — Step 1 updated with Notion structure, database IDs, trigger flow
+5. **Skill Architecture** — Clarified: Onboarding (Skill 1) → ICP (Skill 2) → Market Research (Skill 3, separate)
+6. **Zapier notification** — Slack notification added to Fathom→Notion zap (`#internal-notifications` via "Digital VA" bot)
+
+### Session: March 24-26
+
+1. **ICP Summary Decks rebuilt** — Both B2B and B2C decks regenerated from scratch using python-pptx. Fixed 16 zero-height shapes, cramped Slide 10, Slide 9 gap, missing brand colors. Result: 0 issues. Build script at `Frameworks/rebuild_icp_decks.py`
+2. **ICP file permissions fixed** — All 4 ICP files were read-only, now editable
+3. **Stale QA files deleted** — `DESIGN_ISSUES_REPORT.txt` and `QUICK_REFERENCE_ISSUES.txt` removed from Frameworks
+4. **GTM Blueprint updated to v2.0** — Replaced "7 Deliverables" with "6 Steps & Their Deliverables" to match current process. Cleared all stale references. Updated build statuses. Pushed to `GTM-Strategy` branch.
+5. **ICP Skill upgraded to v2.0** — `Skills/ClearLaunch_ICP_Skill_v2.md` with full Notion integration, workshop follow-up flow, fallback handling
+6. **Market Research Skill v2.0 built** — `Skills/ClearLaunch_Market_Research_Skill_v2.md`. 16-step workflow mapped to all 15 template tables. Browser workflows for Ahrefs (6 reports), SimilarWeb (4 sections), Meta Ad Library. Notion data flow. Pushed to `Skill-Assets` branch.
+7. **Claude Desktop skill updated** — `Skills/Claude-Desktop-Skills/clearlaunch-market-research/SKILL.md` now points to v2 as source of truth
+8. **GitHub repo organized** — ClearThink-Assets repo with branches: `Skill-Assets` (skills), `GTM-Strategy` (blueprint, session notes), `Templates` (framework files)
+
+---
+
+## Upstream Items — Must Complete Before Progressing to Step 3
+
+Before building Value Proposition / Offer Engineering templates and skills (Step 3), the following upstream infrastructure needs to be in place. These are the foundations that Steps 1 and 2 depend on to actually run.
+
+### 1. Tally Onboarding Form
+
+**Status:** Exists conceptually, needs to be confirmed/built
+
+**What it needs to capture (at minimum):**
+- Client business name
+- Client website URL
+- B2B or B2C (or both)
+- Industry / vertical
+- Competitor URLs (up to 3)
+- Seed keywords (what terms do your customers search for?)
+- Primary service/product offered
+- Geographic focus
+- Contact information
+
+**Why it matters:** The onboarding form is the data source for both the ICP skill (industry context) and the Market Research skill (client URL, competitor URLs, seed keywords). Without it, Terry has to manually feed all inputs.
+
+**Action needed:** Confirm the Tally form fields, or build/update the form if it doesn't exist yet.
+
+### 2. Tally → Zapier → Notion Client Portal Automation
+
+**Status:** Exists conceptually, needs to be confirmed/built
+
+**What it should do:**
+- Tally form submission triggers Zapier
+- Zapier creates a new page in the Client Portals database in Notion
+- Populates Client Information section with form responses
+- Creates the Reports section structure (ICP Analysis, Market Research, Value Proposition, Channel Strategy, Metrics & KPIs, Launch Roadmap)
+
+**Why it matters:** This is "Skill 1 (Onboarding)" — everything downstream assumes a client portal exists with populated data. If this automation doesn't work, every client engagement starts with manual Notion setup.
+
+**Action needed:** Build or verify the Zapier zap. Test with a dummy form submission.
+
+### 3. Notion Client Portal Structure
+
+**Status:** Reports section was added, but full structure needs verification
+
+**What needs to be confirmed:**
+- Does the Client Portal template in Notion have all the right sections?
+- Is the Client Information section structured so skills can read from it programmatically (via Notion MCP)?
+- Are the Reports subsections created automatically by the onboarding zap, or does Terry create them manually?
+- Do the database IDs in the skills still match the live Notion databases?
+
+**Database IDs currently hardcoded in skills:**
+- Transcripts DB: `collection://0f372290-8993-4c7e-b303-13afca181721`
+- Client Portals DB: `collection://30e821ad-7ba9-8080-8f38-000ba9c44ad0`
+
+**Action needed:** Open Notion, verify the structure matches what the skills expect. Test that the Notion MCP can read/write to these databases.
+
+### 4. Client Relation on Transcripts
+
+**Status:** Manual
+
+**Current workflow:** Fathom doesn't pass client identity, so Terry manually sets the Client relation field on the Notion transcript record before telling Claude Code to process.
+
+**Future improvement:** Zapier lookup step to match client name from Fathom call title to Client Portals database. Not blocking, but worth building once the core flow is solid.
+
+### 5. Ahrefs / SimilarWeb Access Verification
+
+**Status:** Unknown — need to confirm access levels
+
+**What needs to be checked:**
+- Does the current Ahrefs plan support all the reports the Market Research skill needs? (Keywords Explorer, Site Explorer, Content Gap, Top Pages, Backlinks, Paid Keywords)
+- Does the SimilarWeb plan provide the data the templates expect? (Traffic Sources, Audience Demographics, Audience Interests, Social Traffic). Note: SimilarWeb has limited data for low-traffic sites — this is documented in the skill's fallback handling.
+
+**Action needed:** Verify tool access. If any reports are behind a higher plan tier, note which tables in the template would be affected.
+
+---
+
+## What's Next (After Upstream Is Resolved)
+
+Once the upstream items above are confirmed and working:
+
+1. **Test the full ICP flow end-to-end** — Onboarding form → Client Portal → Discovery call → Transcript in Notion → ICP Skill processes → Deliverables stored
+2. **Test the Market Research flow** — ICP complete → Read inputs from portal → Run Ahrefs/SimilarWeb workflows → Populate templates → Store in portal
+3. **Build Value Proposition Template** — .docx structure for Step 3
+4. **Build Offer Engineering Template** — .docx structure for Step 3
+5. **Build Value Prop + Offer Skill** — automate Step 3
+
+---
+
+## Open Questions
+
+1. **Tally form:** Does it exist? What fields does it currently have? Does it need to be updated to capture all the inputs the skills need?
+2. **Onboarding Zapier zap:** Is this built? If so, what does it currently create in Notion?
+3. **Competitor Analysis Framework:** Terry explicitly said this hasn't been discussed yet — do NOT start building it.
+4. **Client relation automation:** Worth building a Zapier lookup step, or stay manual for now?
+
+---
+
+## GitHub Repository
+
+**Repo:** [ClearThink-Marketing/ClearThink-Assets](https://github.com/ClearThink-Marketing/ClearThink-Assets)
+
+| Branch | Contents |
 |---|---|
-| ClearLaunch_B2B_ICP_Summary_Deck.pptx | ✅ Done (prior session) |
-| ClearLaunch_B2B_ICP_Template.docx | ✅ Done (prior session) |
-| ClearLaunch_B2C_ICP_Summary_Deck.pptx | ✅ Done (prior session) |
-| ClearLaunch_B2C_ICP_Template.docx | ✅ Done (prior session) |
-| ClearLaunch_B2B_Market_Research_Summary_Deck.pptx | ✅ Regenerated today (slide 16 spacing fix) |
-| ClearLaunch_B2B_Market_Research_Template.docx | ✅ Updated with brand colors today |
-| ClearLaunch_B2C_Market_Research_Summary_Deck.pptx | ✅ Regenerated today |
-| ClearLaunch_B2C_Market_Research_Template.docx | ✅ Updated with brand colors today |
+| `Skill-Assets` | Skills, skill references, Claude Desktop skill files |
+| `GTM-Strategy` | GTM Blueprint, session notes |
+| `Templates` | Framework template files (.docx, .pptx), rebuild scripts |
+| `main` | (baseline) |
 
-**Note:** Two stale QA files (`DESIGN_ISSUES_REPORT.txt`, `QUICK_REFERENCE_ISSUES.txt`) are still in the Frameworks folder — need manual deletion (permission issue).
+---
 
-### 2. ICP Skill — COMPLETE (v1.0)
-**File:** `Skills/ICP_Skill.md`
+## Working Files Location
 
-**Built from scratch this session** (previous `/tmp/` working copy was lost to session reset). The skill now has:
-
-- Correct Notion data flow: queries Transcripts DB for "Not started" entries with Meeting Type = ICP or Discovery
-- Full B2B extraction fields (firmographics, pain points, buying triggers, decision-makers, competitive landscape, beachhead, qualifying criteria, buyer persona)
-- Full B2C extraction fields (demographics, psychographics, pain points, buying triggers, decision-making, competitive landscape, beachhead, qualifying criteria, buyer persona)
-- Tier 1/2/3 segmentation logic (Tier 1 fully detailed from discovery call, Tiers 2-3 sketched then fleshed out in ICP workshop)
-- Workshop follow-up flow for second-pass transcript processing
-- Deliverable storage: files go into client portal → Reports → ICP Analysis section
-- Fallback handling: Fathom browser → manual input if Notion transcript missing
-- Scope boundary: ICP only, does NOT pass data to Market Research (separate skill)
-- Notion database IDs hardcoded: Transcripts DB, Client Portals DB
-- Template file references for all 4 ICP files (B2B/B2C .docx + .pptx)
-
-**Trigger architecture decided:**
-- Fathom → Zapier → Notion (transcript with Status: "Not started") → Zapier notification to Terry → Terry opens Claude Code → "process new transcripts"
-- Zapier zap needs notification step added (Slack or email after Notion write)
-- Future: replace notification with webhook to hosted service for full automation
-
-### 2b. Client Portal Template — Reports Section Added
-- Added a "Reports" section to the Client Portal template in Notion
-- Subsections for each ClearLaunch deliverable type: ICP Analysis, Market Research, Value Proposition, Channel Strategy, Metrics & KPIs, Launch Roadmap
-- ICP skill stores deliverables in Reports → ICP Analysis when processing is complete
-
-### 2c. GTM Strategy Blueprint — Updated
-- `ClearLaunch_GTM_Strategy_Blueprint.md` Step 1 updated with confirmed Notion structure, database IDs, correct trigger flow, and marked ICP Skill as BUILT
-
-### 2d. Skill Architecture Clarified
-- **Skill 1 (Onboarding):** Onboarding form → Zapier → creates Client Portal + populates Client Information
-- **Skill 2 (ICP):** Discovery call transcript → ICP templates → stored in client portal Reports
-- **Skill 3 (Market Research):** Separate skill, gets inputs from onboarding form (keywords, competitor URLs), NOT from ICP output
-
-### 3. Market Research Skill Update — NOT STARTED
-**File:** `/tmp/clearlaunch-market-research/SKILL.md` (writable copy ready)
-
-**What needs to happen:**
-
-#### A. Replace "no API" assumption with browser-based data collection
-The current skill says *"There is currently no direct API connection to Ahrefs, SEMrush, or Google Keyword Planner."* This needs to be replaced with active browser workflows for:
-
-- **Ahrefs** (https://ahrefs.com) — keyword research, backlink analysis, competitor keyword gaps, content gap analysis, site audit data. The skill should include step-by-step browser workflows for pulling each type of data.
-- **SimilarWeb** (https://similarweb.com) — traffic estimates, audience demographics, cross-visitation data, traffic sources, industry benchmarking. The skill should know when to use SimilarWeb vs Ahrefs (they serve different purposes).
-
-#### B. Add framework deliverable references
-The skill currently has no awareness of the `.docx` templates or `.pptx` summary decks we built. It needs:
-- Instructions to populate the Market Research Templates (B2B/B2C .docx) as the analysis deliverable
-- Instructions to generate the Summary Decks (B2B/B2C .pptx) as the presentation deliverable
-- Markdown reference files (like the ICP skill has `b2b_icp_template.md`) showing the template structure so the skill knows what fields to fill
-
-#### C. Update the skill description
-Add Ahrefs, SimilarWeb, and deliverable-related trigger phrases to the description.
+- ICP Skill v2: `Skills/ClearLaunch_ICP_Skill_v2.md`
+- Market Research Skill v2: `Skills/ClearLaunch_Market_Research_Skill_v2.md`
+- Claude Desktop Skills: `Skills/Claude-Desktop-Skills/`
+- GTM Blueprint v2: `ClearLaunch_GTM_Strategy_Blueprint.md`
+- Framework templates: `Frameworks/` (8 template files + rebuild script)
+- Session notes: this file
 
 ---
 
 ## ClearThink Brand Colors (Reference)
+
 | Token | Hex | Usage |
 |---|---|---|
 | GREEN | `#1B9B5E` | Accent, headers, primary brand |
@@ -88,23 +175,3 @@ Add Ahrefs, SimilarWeb, and deliverable-related trigger phrases to the descripti
 | LGGREEN | `#E5F5EC` | Light tint areas |
 | ALTROW | `#F0F9F4` | Alternating table rows |
 | BORDER | `#A8D9BD` | Table/section borders |
-
----
-
-## Open Questions for Next Session
-
-1. ~~**Fathom → Notion flow:**~~ ✅ RESOLVED — Transcripts DB confirmed. Scheduled Zapier, moving to webhook. Notification step to be added.
-2. **Ahrefs workflow specifics:** Which Ahrefs reports does Terry typically pull? (Site Explorer → Organic Keywords? Content Gap? Backlink Profile?) Needed for Market Research skill.
-3. **SimilarWeb workflow specifics:** Which SimilarWeb sections are most used? (Traffic Overview? Audience? Competitors?) Needed for Market Research skill.
-4. **Competitor Analysis Framework:** Terry explicitly said this hasn't been discussed yet — do NOT start building it.
-5. ~~**Zapier notification step:**~~ ✅ RESOLVED — Slack notification added to Fathom→Notion zap. Sends to `#internal-notifications` channel via "Digital VA" bot when a transcript lands in Notion.
-6. **Onboarding → Client Portal automation:** Tally form → Zapier → Notion Client Portal creation. Exists conceptually but needs to be confirmed/built.
-7. **Client relation on transcripts is manual for now.** Fathom doesn't pass client identity, so the Client relation field on the Notion transcript record cannot be auto-populated by Zapier. Current workflow: Terry manually sets the Client relation in Notion before telling Claude Code to process. Future iteration: explore matching client name from Fathom call title to Client Portals database via a Zapier lookup step.
-
----
-
-## Working Files Location
-- ICP Skill: `Skills/ICP_Skill.md` (permanent location, not in /tmp/)
-- GTM Blueprint: `ClearLaunch_GTM_Strategy_Blueprint.md`
-- Framework templates: `Frameworks/` (8 files)
-- Session notes: this file
