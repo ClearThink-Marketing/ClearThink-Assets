@@ -55,6 +55,37 @@ This process synthesizes ClearThink's own methodology with GTM best practices. E
 
 ---
 
+### Step 0: Client Onboarding & Portal Setup
+
+**Status: BUILT** (Tally form live, GTM Intake database created, Onboarding Skill v1 complete)
+
+**This is Skill 1** in the ClearLaunch system. It runs before any client-facing work begins — its job is to validate the intake data and create a populated client portal.
+
+**What it accomplishes:** Takes the client's Tally form submission, validates that all required data is present, duplicates the Client Template Page in Notion, and populates the Client Information sub-page with intake data (Company Overview, Story & Positioning, Target Audience, Competitive Landscape sections).
+
+**How it works in practice:**
+1. Client fills out the [GTM Strategy Intake Questionnaire](https://tally.so/r/Ekk6dr)
+2. Tally sends submission directly to the GTM Intake database in Notion (`collection://476a46cc-8fab-428c-acb2-f82d61cf1fdd`)
+3. Terry says "process new intake" or "onboard client"
+4. Agent queries GTM Intake for "New" submissions, runs validation checklist
+5. Duplicates the Client Template Page, renames it, populates the Client Information sub-page with all intake data
+6. Creates the Reports section for downstream skill deliverables
+7. Updates intake record status to "Portal Created"
+
+**What it produces:**
+- A fully populated Client Portal page in Notion (Client Information filled, Reports section scaffolded)
+- Validation report flagging any missing fields
+
+**Notion references:**
+- GTM Intake DB: `collection://476a46cc-8fab-428c-acb2-f82d61cf1fdd`
+- Client Portals DB: `collection://30e821ad-7ba9-8080-8f38-000ba9c44ad0`
+- Client Template Page: `310821ad7ba980f294c0e0096effb298`
+
+**Skill file:** `Skills/ClearLaunch_Onboarding_Skill_v1.md`
+**Field mapping:** `Skills/ClearLaunch_Onboarding_Field_Mapping.md`
+
+---
+
 ### Step 1: Define Ideal Client Profile
 
 **Status: BUILT** (templates complete, agent skill complete)
@@ -381,11 +412,15 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 
 | Component | Status | Notes |
 |---|---|---|
+| Tally Onboarding Form | COMPLETE | [GTM Strategy Intake Questionnaire](https://tally.so/r/Ekk6dr) — 29 fields, 6 pages. Business Type field needs to be added. |
+| GTM Intake Database (Notion) | COMPLETE | `collection://476a46cc-8fab-428c-acb2-f82d61cf1fdd` — Tally submissions land here via native integration |
+| Onboarding Skill v1 | COMPLETE | `Skills/ClearLaunch_Onboarding_Skill_v1.md` — validates intake, duplicates Client Template, populates Client Information |
+| Onboarding Field Mapping | COMPLETE | `Skills/ClearLaunch_Onboarding_Field_Mapping.md` — maps all Tally fields to Notion + downstream skills |
 | ICP Templates (B2B + B2C) | COMPLETE | 4 files built and branded |
 | ICP Summary Decks (B2B + B2C) | COMPLETE | Rebuilt March 24, 2026 — 0 layout issues, ClearThink brand applied |
 | ICP Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_ICP_Skill_v2.md` — full Notion integration, Fathom→Notion flow, tiering logic |
 | Market Research Templates (B2B + B2C) | COMPLETE | 4 files built and branded (15 data tables each) |
-| Market Research Agent Skill | IN PROGRESS | Old skill in Claude Desktop is outdated — v2 being built to match current templates |
+| Market Research Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_Market_Research_Skill_v2.md` — 16-step workflow, Ahrefs/SimilarWeb/Meta Ad Library browser workflows |
 | Value Proposition Template | NOT STARTED | No template exists |
 | Offer Engineering Template | NOT STARTED | No template exists |
 | Customer Journey Template | NOT STARTED | No template exists |
@@ -406,9 +441,10 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 
 ### Open Questions
 
-1. **Onboarding → Client Portal automation:** Tally form → Zapier → Notion Client Portal creation. Exists conceptually but needs to be confirmed/built.
+1. ~~**Onboarding → Client Portal automation:**~~ **RESOLVED (March 26, 2026).** Tally form submits directly to GTM Intake database in Notion (native integration, no Zapier needed). Onboarding Skill v1 reads intake data, duplicates Client Template Page, populates Client Information, and scaffolds Reports section.
 2. **Client relation on transcripts is manual:** Fathom doesn't pass client identity, so the Client relation field on the Notion transcript record is set manually by Terry before processing. Future: Zapier lookup step to match client name from Fathom call title.
 3. **Competitor Analysis Framework:** Terry explicitly said this hasn't been discussed yet — do NOT start building it until ready.
+4. **Tally form needs Business Type field:** The B2B/B2C/Both question is missing from the form. This is the single most critical gap — both ICP and MR skills branch on this value. Must be added before running the onboarding flow with real clients.
 
 ---
 

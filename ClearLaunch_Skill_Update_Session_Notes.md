@@ -1,6 +1,6 @@
 # ClearLaunch Skill Update — Session Notes
 **Last Updated:** March 26, 2026
-**Status:** ICP Skill v2.0 Complete | Market Research Skill v2.0 Complete | Upstream infrastructure needs attention before progressing
+**Status:** Onboarding infrastructure COMPLETE | ICP Skill v2.0 Complete | Market Research Skill v2.0 Complete | Ready for end-to-end testing
 
 ---
 
@@ -8,17 +8,34 @@
 
 | Component | Status | Location |
 |---|---|---|
+| Tally Onboarding Form | COMPLETE | [tally.so/r/Ekk6dr](https://tally.so/r/Ekk6dr) (needs Business Type field added) |
+| GTM Intake Database | COMPLETE | Notion: Database Hub - ClearThink → GTM Intake |
+| Onboarding Skill v1 | COMPLETE | `Skills/ClearLaunch_Onboarding_Skill_v1.md` |
+| Onboarding Field Mapping | COMPLETE | `Skills/ClearLaunch_Onboarding_Field_Mapping.md` |
 | ICP Templates (B2B + B2C) | COMPLETE | `Frameworks/` (4 files) |
 | ICP Summary Decks (B2B + B2C) | COMPLETE (rebuilt) | `Frameworks/` (0 layout issues, brand applied) |
 | ICP Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_ICP_Skill_v2.md` |
 | Market Research Templates (B2B + B2C) | COMPLETE | `Frameworks/` (4 files, 15 tables each) |
 | Market Research Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_Market_Research_Skill_v2.md` |
-| GTM Strategy Blueprint | COMPLETE (v2.0) | `ClearLaunch_GTM_Strategy_Blueprint.md` |
+| GTM Strategy Blueprint | COMPLETE (v2.1) | `ClearLaunch_GTM_Strategy_Blueprint.md` |
 | Value Proposition Template | NOT STARTED | — |
 | Offer Engineering Template | NOT STARTED | — |
 | Customer Journey Template | NOT STARTED | — |
 | Metrics/KPI Template | NOT STARTED | — |
 | Implementation Roadmap Template | NOT STARTED | — |
+
+---
+
+## What Was Accomplished (March 26, 2026 — Session 3)
+
+### Onboarding Infrastructure (Upstream Item #1 Resolved)
+
+1. **GTM Intake database created in Notion** — 31 properties (29 form fields + Status + Submitted), lives in Database Hub - ClearThink. Tally native integration sends form submissions directly here (no Zapier needed).
+2. **Onboarding Skill v1 built** — `Skills/ClearLaunch_Onboarding_Skill_v1.md`. Reads intake data, validates fields against a 3-tier checklist (Critical/Important/Context), duplicates the Client Template Page, populates the Client Information sub-page, and scaffolds the Reports section. Two modes: automated (from Tally submissions) and manual (fallback).
+3. **Field Mapping Document built** — `Skills/ClearLaunch_Onboarding_Field_Mapping.md`. Maps all 29 Tally fields to Notion properties and identifies which downstream skills consume each field. Documents gaps (Business Type field missing, Company Name should be required, Seed Keywords should be required).
+4. **GTM Blueprint updated to v2.1** — Added Step 0 (Onboarding) section, updated build status table, resolved Open Question #1, added new open question about Business Type field.
+5. **Notion MCP access confirmed** — The `claude.ai Notion` connector works in VS Code after removing duplicate local MCP server entries. No API token needed.
+6. **Notion database IDs documented** — GTM Intake: `collection://476a46cc-8fab-428c-acb2-f82d61cf1fdd`, Client Portals: `collection://30e821ad-7ba9-8080-8f38-000ba9c44ad0`, Transcripts: `collection://0f372290-8993-4c7e-b303-13afca181721`
 
 ---
 
@@ -52,7 +69,7 @@ Before building Value Proposition / Offer Engineering templates and skills (Step
 
 ### 1. Tally Onboarding Form
 
-**Status:** Exists conceptually, needs to be confirmed/built
+**Status:** ✅ RESOLVED (March 26, 2026). Form exists at [tally.so/r/Ekk6dr](https://tally.so/r/Ekk6dr). GTM Intake database created in Notion. Onboarding Skill v1 and Field Mapping built. **Remaining action:** Add Business Type (B2B/B2C/Both) field to the Tally form and make Company Name required.
 
 **What it needs to capture (at minimum):**
 - Client business name
@@ -67,11 +84,11 @@ Before building Value Proposition / Offer Engineering templates and skills (Step
 
 **Why it matters:** The onboarding form is the data source for both the ICP skill (industry context) and the Market Research skill (client URL, competitor URLs, seed keywords). Without it, Terry has to manually feed all inputs.
 
-**Action needed:** Confirm the Tally form fields, or build/update the form if it doesn't exist yet.
+**Action needed:** Add Business Type field to Tally form. Make Company Name required. Optionally split Competitor URLs into 3 separate fields.
 
-### 2. Tally → Zapier → Notion Client Portal Automation
+### 2. Tally → Notion Client Portal Automation
 
-**Status:** Exists conceptually, needs to be confirmed/built
+**Status:** ✅ RESOLVED (March 26, 2026). Using Tally's native Notion integration (no Zapier needed). Tally sends submissions directly to the GTM Intake database. The Onboarding Skill then reads intake data and creates the Client Portal.
 
 **What it should do:**
 - Tally form submission triggers Zapier
