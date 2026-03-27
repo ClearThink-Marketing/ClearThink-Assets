@@ -82,7 +82,7 @@ Before building Value Proposition / Offer Engineering templates and skills (Step
 - Geographic focus
 - Contact information
 
-**Why it matters:** The onboarding form is the data source for both the ICP skill (industry context) and the Market Research skill (client URL, competitor URLs, seed keywords). Without it, Terry has to manually feed all inputs.
+**Why it matters:** The onboarding form captures initial client context (company, industry, URLs, keywords) that populates the Client Portal. The ICP Skill and Market Research Skill later read from this portal — but they are separate workflows triggered by different events (discovery call transcript for ICP, manual trigger for MR after ICP is complete). Without the form data in the portal, Terry has to manually feed inputs to each skill.
 
 **Action needed:** Add Business Type field to Tally form. Make Company Name required. Optionally split Competitor URLs into 3 separate fields.
 
@@ -90,15 +90,14 @@ Before building Value Proposition / Offer Engineering templates and skills (Step
 
 **Status:** ✅ RESOLVED (March 26, 2026). Using Tally's native Notion integration (no Zapier needed). Tally sends submissions directly to the GTM Intake database. The Onboarding Skill then reads intake data and creates the Client Portal.
 
-**What it should do:**
-- Tally form submission triggers Zapier
-- Zapier creates a new page in the Client Portals database in Notion
-- Populates Client Information section with form responses
-- Creates the Reports section structure (ICP Analysis, Market Research, Value Proposition, Channel Strategy, Metrics & KPIs, Launch Roadmap)
+**What it actually does (as built):**
+- Tally form submission lands in GTM Intake database (Tally native Notion integration)
+- Onboarding Skill reads the intake data, validates it, duplicates the Client Template Page, populates Client Information, and scaffolds the Reports section
+- This is a separate event from the discovery call — the ICP Skill runs later when a transcript arrives
 
-**Why it matters:** This is "Skill 1 (Onboarding)" — everything downstream assumes a client portal exists with populated data. If this automation doesn't work, every client engagement starts with manual Notion setup.
+**Why it matters:** Everything downstream assumes a client portal exists with populated data. The Onboarding Skill automates this so every new client starts with a consistent, structured portal.
 
-**Action needed:** Build or verify the Zapier zap. Test with a dummy form submission.
+**Action needed:** Test with a dummy form submission to verify end-to-end.
 
 ### 3. Notion Client Portal Structure
 

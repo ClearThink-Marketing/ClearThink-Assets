@@ -146,8 +146,8 @@ This process synthesizes ClearThink's own methodology with GTM best practices. E
 **What it accomplishes:** Researches the client's target market size, growth trajectory, competitive landscape, keyword opportunities, and content gaps. Validates that there's real demand for what the client offers and identifies where they have the best chance of winning.
 
 **How it works in practice:**
-1. Agent reads the ICP output from Step 1 (stored in Notion) — specifically the industry, target segments, competitor names, and pain points
-2. Agent also takes data from the client onboarding form (keywords, competitor URLs, client's own website)
+1. Agent reads the ICP output from Step 1 (stored in the client's Notion portal) — specifically the industry, target segments, competitor names, and pain points
+2. Agent reads the client portal data that was populated by Onboarding (Step 0) — keywords, competitor URLs, client's own website. This is form data, not discovery call data.
 3. Agent runs Ahrefs browser workflows for SEO/keyword/backlink data
 4. Agent runs SimilarWeb browser workflows for traffic/audience/market data
 5. Agent synthesizes findings into the Market Research template + summary deck
