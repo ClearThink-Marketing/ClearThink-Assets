@@ -149,10 +149,10 @@ Once the upstream items above are confirmed and working:
 
 ## Open Questions
 
-1. **Tally form:** Does it exist? What fields does it currently have? Does it need to be updated to capture all the inputs the skills need?
-2. **Onboarding Zapier zap:** Is this built? If so, what does it currently create in Notion?
+1. ~~**Tally form:**~~ ✅ RESOLVED. Form exists at [tally.so/r/Ekk6dr](https://tally.so/r/Ekk6dr) with 30+ fields. Business Type field added. Company Name made required. All fields mapped to GTM Intake database via Tally's native Notion integration.
+2. ~~**Onboarding Zapier zap:**~~ ✅ RESOLVED. No Zapier needed — Tally sends directly to Notion via native integration. Onboarding Skill v1 reads intake data and creates the Client Portal.
 3. **Competitor Analysis Framework:** Terry explicitly said this hasn't been discussed yet — do NOT start building it.
-4. **Client relation automation:** Worth building a Zapier lookup step, or stay manual for now?
+4. ~~**Client relation automation:**~~ Staying manual by design. Terry sets the Client relation on transcript records before processing. Not a blocker.
 
 ---
 
