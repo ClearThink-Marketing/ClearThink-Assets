@@ -1,6 +1,6 @@
 # UVP Workshop Template
 
-ClearLaunch System | Stage 3: UVP Development
+ClearLaunch System | Stage 4: UVP Development
 
 *Purpose: This workshop uncovers what truly differentiates the business in the marketplace. We're looking for the intersection of what they do exceptionally well and what their market values most. The goal is to identify specific, tangible differentiators — not generic claims — that will form the foundation of messaging and positioning.*
 

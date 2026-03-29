@@ -1,7 +1,7 @@
 # ClearLaunch Onboarding Skill
 
 **Version:** 1.0 | March 2026
-**Stage:** 0 of 6 in the ClearLaunch GTM System (pre-Step 1)
+**Stage:** Step 1 of 7 in the ClearLaunch GTM System
 
 ---
 
@@ -17,15 +17,15 @@ The Onboarding Skill answers one fundamental question: **"Is this client's data 
 
 ## How This Skill Fits the ClearLaunch Process
 
-0. **Onboarding (Portal Setup)** ← YOU ARE HERE
-1. ICP Development (discovery call → ideal customer profile)
-2. Market Landscape Analysis (keyword research + competitive analysis)
-3. Value Proposition & Offer Engineering
-4. Channel Strategy & Customer Journey
-5. Success Metrics & KPIs
-6. Implementation Roadmap
+1. **Onboarding (Portal Setup)** ← YOU ARE HERE
+2. ICP Development (ICP Discovery call → ideal customer profile)
+3. Market Landscape Analysis (keyword research + competitive analysis)
+4. Value Proposition & Offer Engineering
+5. Channel Strategy & Customer Journey
+6. Success Metrics & KPIs
+7. Implementation Roadmap
 
-This skill does NOT produce a client-facing deliverable. It produces the **infrastructure** that every other skill depends on. Think of it as pre-flight checks before takeoff.
+This skill does NOT produce a client-facing deliverable. It produces the **infrastructure** that every other skill depends on.
 
 ---
 
@@ -198,7 +198,7 @@ Report back:
 - Client portal created for [Company Name]
 - Business type: [B2B / B2C / Both]
 - Validation results (any missing fields noted)
-- Next step: "Schedule or conduct a discovery call. Once the transcript lands in Notion, use the ICP Skill to process it."
+- Next step: "Schedule or conduct an onboarding call with the client. After that, the ICP Discovery call (a separate, later call) will be processed by the ICP Skill (Step 2)."
 
 ---
 
@@ -234,7 +234,7 @@ These fields significantly improve output quality. Flag if missing but don't blo
 
 - [ ] **Industry** is filled — frames keyword universe and SimilarWeb benchmarks
 - [ ] **Products & Services** is filled — used for industry adaptation in ICP skill
-- [ ] **Ideal Customer** description is filled — initial context before discovery call
+- [ ] **Ideal Customer** description is filled — initial context before ICP Discovery call
 - [ ] **Challenges Solved** is filled — drives ICP pain points and MR keyword derivation
 - [ ] **Geographic Location** is filled — sets location filters in Ahrefs and SimilarWeb
 
@@ -280,11 +280,11 @@ Before reporting completion:
 
 - [ ] Client Portal page exists in the Client Portals database with correct title
 - [ ] Client Information section is populated with all available intake data
-- [ ] Reports section has all 6 subsections created (ICP, MR, VP, CS, KPI, Roadmap)
+- [ ] Reports section has all 6 subsections created (ICP, MR, VP, CS, KPI, Roadmap) for Steps 2-7
 - [ ] Business Type is set (confirmed or inferred with flag)
 - [ ] GTM Intake record status is updated to "Portal Created"
 - [ ] Any missing critical fields are flagged in the completion report
-- [ ] User is told the next step (discovery call → ICP Skill)
+- [ ] User is told the next step (ICP Discovery call → ICP Skill)
 
 ---
 
@@ -295,7 +295,7 @@ This skill **ONLY** handles intake validation and portal creation.
 **Intake data in → Client Portal created → Ready for ICP Skill. That's it.**
 
 It does NOT:
-- Process discovery call transcripts (that's the ICP Skill)
+- Process ICP Discovery call transcripts (that's the ICP Skill)
 - Run keyword research or competitive analysis (that's the MR Skill)
 - Build the Tally form or configure the Tally → Notion integration (that's manual setup)
 - Modify the GTM Intake database schema (that's infrastructure)
@@ -307,7 +307,7 @@ It does NOT:
 
 ### Skill References
 - `Skills/ClearLaunch_ICP_Skill_v2.md` — Next skill in the chain. Check its Prerequisites section for what it expects to find in the Client Portal.
-- `Skills/ClearLaunch_Market_Research_Skill_v2.md` — Step 2 skill. Check its "Inputs: What You Need Before Starting" section for required fields.
+- `Skills/ClearLaunch_Market_Research_Skill_v2.md` — Step 3 skill. Check its "Inputs: What You Need Before Starting" section for required fields.
 - `Skills/ClearLaunch_Onboarding_Field_Mapping.md` — Complete Tally-to-Notion field mapping with downstream skill consumption details.
 - `Skills/Claude-Desktop-Skills/client-profile-generator/SKILL.md` — Generates a .docx client profile from onboarding notes/transcripts. This Onboarding Skill replaces the Notion population part of that workflow — the .docx generator remains useful when a shareable document is needed.
 
@@ -316,7 +316,7 @@ It does NOT:
 - **Client Information sub-page:** `312821ad7ba9800f8d58e3722e63f692` — embedded in the template, has the structured sections (Company Overview, Story & Positioning, Target Audience, Competitive Landscape)
 
 ### Infrastructure References
-- `ClearLaunch_GTM_Strategy_Blueprint.md` — System-level documentation. Section 2 describes the 6-step process. Section 3 describes the data flow.
+- `ClearLaunch_GTM_Strategy_Blueprint.md` — System-level documentation. Section 2 describes the 7-step process. Section 3 describes the data flow.
 - `ClearLaunch_System_Diagrams.md` — Mermaid diagrams showing the Onboarding Flow (Tally → Zapier/Tally Integration → Notion → Agent).
 
 ---

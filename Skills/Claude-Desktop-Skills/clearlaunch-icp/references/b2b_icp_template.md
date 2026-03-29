@@ -1,6 +1,6 @@
 # B2B ICP Template
 
-ClearLaunch System | Stage 1: ICP Development
+ClearLaunch System | Stage 2: ICP Development
 
 *Purpose: This template defines the institutional characteristics of your ideal organizational customer. The ICP answers "WHICH organizations should we pursue?" and provides targeting criteria for outreach, partnerships, and sales prioritization.*
 

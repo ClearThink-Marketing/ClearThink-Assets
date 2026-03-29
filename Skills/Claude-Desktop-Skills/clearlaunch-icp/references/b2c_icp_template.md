@@ -1,6 +1,6 @@
 # B2C ICP Template
 
-ClearLaunch System | Stage 1: ICP Development
+ClearLaunch System | Stage 2: ICP Development
 
 *Purpose: This template defines the external, observable, and targetable characteristics of your ideal individual customer. The ICP answers "WHICH people should we pursue?" and provides targeting criteria for ads, content, and outreach.*
 

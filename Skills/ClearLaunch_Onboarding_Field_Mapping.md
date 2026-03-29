@@ -26,17 +26,17 @@
 |---|---|---|---|---|---|---|
 | 6 | Company Website URL | Website URL | URL | Yes | ICP Skill (industry context), MR Skill (Ahrefs Site Explorer Steps 5-8, SimilarWeb Steps 9-11) | **Critical input.** MR Skill states: "Do not proceed without at least: client URL." |
 | — | **NEW: Business Type** | Business Type | Select | **ADD TO FORM** | ICP Skill (Step 4: template selection), MR Skill (Step 15: template selection) | **CRITICAL MISSING FIELD.** Both skills branch on B2B vs B2C to select template sets. Options: "B2B (I sell to businesses)", "B2C (I sell to consumers)", "Both". |
-| 7 | Core mission and values | Mission & Values | Text | Yes | Value Prop Skill (Step 3, future) | Useful context for positioning |
-| 8 | Company story | Company Story | Text | Yes | Value Prop Skill (Step 3, future) | Brand narrative context |
+| 7 | Core mission and values | Mission & Values | Text | Yes | Value Prop Skill (Step 4, future) | Useful context for positioning |
+| 8 | Company story | Company Story | Text | Yes | Value Prop Skill (Step 4, future) | Brand narrative context |
 | 9 | Products/services offered | Products & Services | Text | Yes | ICP Skill (industry adaptation, meta-framework), MR Skill (keyword derivation from pain points) | Important for both skills |
-| 10 | What makes business unique | Unique Differentiators | Text | Yes | Value Prop Skill (Step 3, future) | Core positioning input |
-| 11 | Plans to scale | Growth Plans | Text | Yes | Implementation Roadmap Skill (Step 6, future) | Growth context for roadmap |
+| 10 | What makes business unique | Unique Differentiators | Text | Yes | Value Prop Skill (Step 4, future) | Core positioning input |
+| 11 | Plans to scale | Growth Plans | Text | Yes | Implementation Roadmap Skill (Step 7, future) | Growth context for roadmap |
 
 ### Page 3: Target Audience
 
 | # | Tally Field | Notion Property | Type | Required | Consumed By | Notes |
 |---|---|---|---|---|---|---|
-| 12 | Who is your ideal customer | Ideal Customer | Text | Yes | ICP Skill (initial context before discovery call), MR Skill (validates keyword intent classification) | Important context field |
+| 12 | Who is your ideal customer | Ideal Customer | Text | Yes | ICP Skill (initial context before ICP Discovery call), MR Skill (validates keyword intent classification) | Important context field |
 | 13 | Age Range | Age Range | Text | Yes | ICP Skill (B2C demographics section) | Maps directly to B2C ICP Template Section 2 |
 | 14 | Geographic Location | Geographic Location | Text | Yes | ICP Skill (Geography section, B2B + B2C), MR Skill (Ahrefs country filter Step 3, SimilarWeb geography Step 10) | Important for both skills |
 | 15 | Industry/Profession | Industry | Text | Yes | ICP Skill (Section 1 Overview, B2B firmographics), MR Skill (SimilarWeb Industry Analysis, keyword framing Step 2) | Important for both skills |
@@ -49,26 +49,26 @@
 | # | Tally Field | Notion Property | Type | Required | Consumed By | Notes |
 |---|---|---|---|---|---|---|
 | 19 | 3-5 competitor websites | Competitor URLs | Text | Optional | MR Skill (Steps 5-12 — every competitive analysis table uses these URLs in Ahrefs Site Explorer and SimilarWeb) | **Recommend improving.** Add helper text: "Enter full website URLs (e.g., https://competitor.com). We use these to analyze their SEO, traffic, and ad strategy." Consider splitting into 3 separate URL fields for cleaner Zapier mapping. |
-| 20 | What you like about competitors | Competitor Likes | Text | Optional | Value Prop Skill (Step 3, future), MR Skill (contextual insight) | Competitive context |
+| 20 | What you like about competitors | Competitor Likes | Text | Optional | Value Prop Skill (Step 4, future), MR Skill (contextual insight) | Competitive context |
 | 21 | What to avoid from competitors | Competitor Dislikes | Text | Optional | Value Prop Skill (Step 3, future — positioning against weaknesses) | Competitive context |
 
 ### Page 5: Current Marketing & Sales
 
 | # | Tally Field | Notion Property | Type | Required | Consumed By | Notes |
 |---|---|---|---|---|---|---|
-| 22 | Marketing channels currently using | Marketing Channels | Multi-select | Yes | Channel Strategy Skill (Step 4, future), MR Skill (validates SimilarWeb traffic source data) | No change needed |
-| 23 | What's working well | Whats Working | Text | Optional | Channel Strategy Skill (Step 4, future) | No change needed |
-| 24 | What's not working / underperformed | Whats Not Working | Text | Optional | Channel Strategy Skill (Step 4, future) | No change needed |
-| 25 | Current sales process | Sales Process | Text | Yes | Customer Journey Skill (Step 4, future), KPI Skill (Step 5 — funnel stage definitions) | No change needed |
-| 26 | Main conversion points | Conversion Points | Text | Yes | KPI Skill (Step 5, future — what to measure) | No change needed |
+| 22 | Marketing channels currently using | Marketing Channels | Multi-select | Yes | Channel Strategy Skill (Step 5, future), MR Skill (validates SimilarWeb traffic source data) | No change needed |
+| 23 | What's working well | Whats Working | Text | Optional | Channel Strategy Skill (Step 5, future) | No change needed |
+| 24 | What's not working / underperformed | Whats Not Working | Text | Optional | Channel Strategy Skill (Step 5, future) | No change needed |
+| 25 | Current sales process | Sales Process | Text | Yes | Customer Journey Skill (Step 5, future), KPI Skill (Step 6 — funnel stage definitions) | No change needed |
+| 26 | Main conversion points | Conversion Points | Text | Yes | KPI Skill (Step 6, future — what to measure) | No change needed |
 
 ### Page 6: Team & Operations
 
 | # | Tally Field | Notion Property | Type | Required | Consumed By | Notes |
 |---|---|---|---|---|---|---|
-| 27 | Team structure | Team Structure | Text | Yes | Implementation Roadmap Skill (Step 6, future — capacity constraints, "who does what") | No change needed |
-| 28 | Current tech stack | Tech Stack | Text | Yes | Implementation Roadmap Skill (Step 6 — tool recommendations), KPI Skill (Step 5 — what can be measured) | No change needed |
-| 29 | Content or marketing assets you have | Existing Assets | Text | Yes | MR Skill (context for content gap analysis Step 7), Channel Strategy Skill (Step 4 — existing content inventory) | No change needed |
+| 27 | Team structure | Team Structure | Text | Yes | Implementation Roadmap Skill (Step 7, future — capacity constraints, "who does what") | No change needed |
+| 28 | Current tech stack | Tech Stack | Text | Yes | Implementation Roadmap Skill (Step 7 — tool recommendations), KPI Skill (Step 6 — what can be measured) | No change needed |
+| 29 | Content or marketing assets you have | Existing Assets | Text | Yes | MR Skill (context for content gap analysis Step 7), Channel Strategy Skill (Step 5 — existing content inventory) | No change needed |
 
 ### Tracking Properties (Not from Tally)
 
@@ -99,8 +99,8 @@
 
 | Field | Type | Feeds | Recommendation |
 |---|---|---|---|
-| Monthly Marketing Budget | Select/Dropdown | Channel Strategy (Step 4), Implementation Roadmap (Step 6) | Options: "Under $1K/mo", "$1K-$3K/mo", "$3K-$5K/mo", "$5K-$10K/mo", "$10K+/mo", "Not sure yet" |
-| Revenue Model | Select/Dropdown | Offer Engineering (Step 3) | Options: "Subscription/recurring", "One-time purchase", "Retainer/ongoing service", "Project-based", "Mixed/other" |
+| Monthly Marketing Budget | Select/Dropdown | Channel Strategy (Step 5), Implementation Roadmap (Step 7) | Options: "Under $1K/mo", "$1K-$3K/mo", "$3K-$5K/mo", "$5K-$10K/mo", "$10K+/mo", "Not sure yet" |
+| Revenue Model | Select/Dropdown | Offer Engineering (Step 4) | Options: "Subscription/recurring", "One-time purchase", "Retainer/ongoing service", "Project-based", "Mixed/other" |
 
 ---
 
@@ -130,5 +130,5 @@ Tally Form → Notion GTM Intake DB (automatic via Tally integration)
                     ↓
         MR Skill reads from Client Portal + ICP output
                     ↓
-        Steps 3-6 continue the chain
+        Steps 4-7 continue the chain
 ```

@@ -1,7 +1,7 @@
 # ClearLaunch ICP Skill
 
 **Version:** 2.0 | March 2026
-**Stage:** 1 of 5 in the ClearLaunch GTM System
+**Stage:** Step 2 of 7 in the ClearLaunch GTM System
 
 ---
 
@@ -11,17 +11,19 @@ You are the ICP Development Agent for ClearThink Marketing's ClearLaunch System.
 
 The ICP answers one fundamental question: **"WHICH customers should this client pursue?"**
 
-**Trigger phrases:** "process ICP", "build ICP", "ICP transcript", "discovery call analysis", "ideal client profile", "ideal customer profile", "target audience definition", "customer segmentation", "who should we target", "figure out their ideal customer", "process new transcripts"
+**Trigger phrases:** "process ICP", "build ICP", "ICP transcript", "ICP Discovery call analysis", "ideal client profile", "ideal customer profile", "target audience definition", "customer segmentation", "who should we target", "figure out their ideal customer", "process new transcripts"
 
 ---
 
 ## How This Skill Fits the ClearLaunch Process
 
-1. **ICP Development** ← YOU ARE HERE
-2. Market Landscape Analysis (keyword research + competitive analysis)
-3. UVP Development (unique value proposition workshop)
-4. Offer Development (micro/macro offer stack)
-5. Channel Strategy & Launch Roadmap
+1. Onboarding (Portal Setup)
+2. **ICP Development** ← YOU ARE HERE
+3. Market Landscape Analysis (keyword research + competitive analysis)
+4. UVP Development (unique value proposition workshop)
+5. Offer Development (micro/macro offer stack)
+6. Channel Strategy & Customer Journey
+7. Success Metrics & KPIs / Implementation Roadmap
 
 The ICP is foundational. Every downstream deliverable depends on getting this right. A vague ICP produces vague messaging, wasted ad spend, and irrelevant content.
 
@@ -31,8 +33,8 @@ The ICP is foundational. Every downstream deliverable depends on getting this ri
 
 Before this skill runs, the following must already exist:
 
-- **Client Portal** in Notion — created during onboarding when the client's form is submitted
-- **Transcript page** in the Notion Transcripts database — created by the Fathom → Zapier → Notion pipeline after a discovery call or ICP workshop
+- **Client Portal** in Notion — created during onboarding (Step 1) when the client's form is submitted
+- **Transcript page** in the Notion Transcripts database — created by the Fathom → Zapier → Notion pipeline after an ICP Discovery call or ICP workshop
 - **ICP template files** in `Frameworks/` — the .docx and .pptx templates this skill populates
 
 ---
@@ -155,7 +157,7 @@ Parse the transcript using the meta-framework questions above. Fill the structur
 - **Tier 2 (Potential):** Sketch with available info. Good fit but lower urgency or smaller deal size. Flag as "Needs workshop follow-up for full detail."
 - **Tier 3 (Nurture Only):** Sketch with available info. Monitor and nurture. Flag as "Needs workshop follow-up for full detail."
 
-If this is a first-pass discovery call, Tier 1 should be fully detailed. Tiers 2-3 will be fleshed out after a subsequent ICP workshop.
+If this is a first-pass ICP Discovery call, Tier 1 should be fully detailed. Tiers 2-3 will be fleshed out after a subsequent ICP workshop.
 
 ### Step 7: Populate Deliverables
 
@@ -236,8 +238,8 @@ This skill **ONLY** handles ICP generation.
 It does NOT:
 - Pass data to the Market Research skill or any other step
 - Run keyword research or competitive analysis
-- Modify the Client Information page (that's Onboarding)
-- Create the client portal (that's Onboarding)
+- Modify the Client Information page (that's Onboarding, Step 1)
+- Create the client portal (that's Onboarding, Step 1)
 
 ---
 

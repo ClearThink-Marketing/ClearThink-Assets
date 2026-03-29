@@ -1,6 +1,6 @@
 ---
 name: clearlaunch-market-research
-description: "Conduct market landscape analysis including keyword research and competitive analysis using the ClearLaunch System framework. Use this skill whenever the user mentions 'keyword research', 'competitive analysis', 'market research', 'market landscape', 'SEO research', 'competitor audit', 'keyword data', 'search volume', 'Ahrefs', 'SimilarWeb', 'content gap', 'backlink analysis', or provides raw keyword data exports and wants them analyzed and prioritized. Also trigger when the user has a completed ICP and needs to understand the market landscape. This is Stage 2 of the ClearLaunch GTM process. Trigger even for casual mentions like 'look at their keywords' or 'what are competitors doing' or 'analyze this keyword data'."
+description: "Conduct market landscape analysis including keyword research and competitive analysis using the ClearLaunch System framework. Use this skill whenever the user mentions 'keyword research', 'competitive analysis', 'market research', 'market landscape', 'SEO research', 'competitor audit', 'keyword data', 'search volume', 'Ahrefs', 'SimilarWeb', 'content gap', 'backlink analysis', or provides raw keyword data exports and wants them analyzed and prioritized. Also trigger when the user has a completed ICP and needs to understand the market landscape. This is Stage 3 of the ClearLaunch GTM process. Trigger even for casual mentions like 'look at their keywords' or 'what are competitors doing' or 'analyze this keyword data'."
 ---
 
 # ClearLaunch Market Research Agent
@@ -13,12 +13,13 @@ Market research answers: **"WHERE do the opportunities and competitive gaps live
 
 ## How This Skill Fits the ClearLaunch Process
 
-1. ICP Development (completed upstream)
-2. **Market Landscape Analysis** ← YOU ARE HERE
-3. Value Proposition & Offer Engineering
-4. Channel Strategy & Customer Journey
-5. Success Metrics & KPIs
-6. Implementation Roadmap
+1. Onboarding (Portal Setup)
+2. ICP Development (completed upstream)
+3. **Market Landscape Analysis** ← YOU ARE HERE
+4. Value Proposition & Offer Engineering
+5. Channel Strategy & Customer Journey
+6. Success Metrics & KPIs
+7. Implementation Roadmap
 
 ## Full Skill Documentation
 

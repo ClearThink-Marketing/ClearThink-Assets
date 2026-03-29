@@ -1,6 +1,6 @@
 ---
 name: clearlaunch-icp
-description: "Build a complete Ideal Client Profile (ICP) document from raw onboarding notes, call transcripts, or questionnaire responses using the ClearLaunch System framework. Use this skill whenever the user mentions 'ICP', 'ideal client profile', 'ideal customer profile', 'target audience definition', 'customer segmentation', 'who should we target', or provides raw client notes and wants to identify their best-fit customer segments. Also trigger when the user uploads call transcripts, discovery call notes, or intake forms and wants to define who the client should be going after. This is Stage 1 of the ClearLaunch GTM process — everything downstream (UVP, keyword research, offer development, channel strategy) depends on a solid ICP. Trigger even for casual mentions like 'figure out their ideal customer' or 'who are we targeting for this client'."
+description: "Build a complete Ideal Client Profile (ICP) document from raw onboarding notes, call transcripts, or questionnaire responses using the ClearLaunch System framework. Use this skill whenever the user mentions 'ICP', 'ideal client profile', 'ideal customer profile', 'target audience definition', 'customer segmentation', 'who should we target', or provides raw client notes and wants to identify their best-fit customer segments. Also trigger when the user uploads call transcripts, ICP Discovery call notes, or intake forms and wants to define who the client should be going after. This is Stage 2 of the ClearLaunch GTM process — everything downstream (UVP, keyword research, offer development, channel strategy) depends on a solid ICP. Trigger even for casual mentions like 'figure out their ideal customer' or 'who are we targeting for this client'."
 ---
 
 # ClearLaunch ICP Development Agent
@@ -13,12 +13,14 @@ The ICP answers one fundamental question: **"WHICH customers should this client 
 
 ## How This Skill Fits the ClearLaunch Process
 
-The ClearLaunch System is a 5-stage GTM process:
-1. **ICP Development** ← YOU ARE HERE
-2. Market Landscape Analysis (keyword research + competitive analysis)
-3. UVP Development (unique value proposition workshop)
-4. Offer Development (micro/macro offer stack)
-5. Channel Strategy & Launch Roadmap
+The ClearLaunch System is a 7-step GTM process:
+1. Onboarding (Portal Setup)
+2. **ICP Development** ← YOU ARE HERE
+3. Market Landscape Analysis (keyword research + competitive analysis)
+4. UVP Development (unique value proposition workshop)
+5. Offer Development (micro/macro offer stack)
+6. Channel Strategy & Customer Journey
+7. Success Metrics & KPIs / Implementation Roadmap
 
 The ICP is foundational. Every downstream deliverable depends on getting this right. A vague ICP produces vague messaging, wasted ad spend, and irrelevant content.
 

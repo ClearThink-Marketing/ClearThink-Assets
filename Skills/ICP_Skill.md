@@ -7,9 +7,9 @@
 
 ## Description
 
-This skill processes discovery call and ICP workshop transcripts to generate complete Ideal Customer Profile deliverables. It reads transcripts from Notion, extracts customer segmentation data, populates ICP templates (.docx) and summary decks (.pptx), and stores the finished deliverables in the client's portal.
+This skill processes ICP Discovery call and ICP workshop transcripts to generate complete Ideal Customer Profile deliverables. It reads transcripts from Notion, extracts customer segmentation data, populates ICP templates (.docx) and summary decks (.pptx), and stores the finished deliverables in the client's portal.
 
-**Trigger phrases:** "process ICP", "build ICP", "ICP transcript", "discovery call analysis", "process transcript", "process new transcripts"
+**Trigger phrases:** "process ICP", "build ICP", "ICP transcript", "ICP Discovery call analysis", "process transcript", "process new transcripts"
 
 ---
 
@@ -18,7 +18,7 @@ This skill processes discovery call and ICP workshop transcripts to generate com
 Before this skill runs, the following must already exist:
 
 - **Client Portal** in Notion — created by Skill 1 (Onboarding) when the client's onboarding form is submitted
-- **Transcript page** in the Notion Transcripts database — created by the Fathom → Zapier → Notion pipeline after a discovery call or ICP workshop
+- **Transcript page** in the Notion Transcripts database — created by the Fathom → Zapier → Notion pipeline after a ICP Discovery call or ICP workshop
 - **ICP template files** in `Frameworks/` — the .docx and .pptx templates this skill populates
 
 ---
@@ -208,7 +208,7 @@ Parse the transcript and extract the following data. Mark any field as **[Inferr
 - **Tier 2 (Potential):** Sketch with available info. Good fit but lower urgency or smaller deal size. Flag as "Needs workshop follow-up for full detail."
 - **Tier 3 (Nurture Only):** Sketch with available info. Monitor and nurture. Flag as "Needs workshop follow-up for full detail."
 
-If this is a first-pass discovery call, Tier 1 should be fully detailed. Tiers 2-3 will be fleshed out after a subsequent ICP workshop (see Workshop Follow-Up below).
+If this is a first-pass ICP Discovery call, Tier 1 should be fully detailed. Tiers 2-3 will be fleshed out after a subsequent ICP workshop (see Workshop Follow-Up below).
 
 ### Step 7: Populate Deliverables
 

@@ -1,7 +1,7 @@
 # ClearLaunch Market Research Skill
 
 **Version:** 2.0 | March 2026
-**Stage:** 2 of 6 in the ClearLaunch GTM System
+**Stage:** Step 3 of 7 in the ClearLaunch GTM System
 
 ---
 
@@ -17,12 +17,13 @@ Market research answers one fundamental question: **"WHERE do the opportunities 
 
 ## How This Skill Fits the ClearLaunch Process
 
-1. ICP Development (completed upstream)
-2. **Market Landscape Analysis** ← YOU ARE HERE
-3. Value Proposition & Offer Engineering
-4. Channel Strategy & Customer Journey
-5. Success Metrics & KPIs
-6. Implementation Roadmap
+1. Onboarding (Portal Setup)
+2. ICP Development (completed upstream)
+3. **Market Landscape Analysis** ← YOU ARE HERE
+4. Value Proposition & Offer Engineering
+5. Channel Strategy & Customer Journey
+6. Success Metrics & KPIs
+7. Implementation Roadmap
 
 Market research validates that real demand exists for the client's services and reveals WHERE the opportunities and competitive gaps live. It directly shapes the UVP (what messaging will resonate), offer development (what people are actually looking for), and channel strategy (where to invest).
 
@@ -72,7 +73,7 @@ This skill does NOT process transcripts directly. However, if a transcript with 
 | Competitor URLs (up to 3) | Client Information section | Analyze each in Ahrefs + SimilarWeb for competitive benchmarking |
 | Seed keywords | Client Information section | Starting point for keyword expansion in Ahrefs Keywords Explorer |
 
-### From the ICP (Step 1 Output)
+### From the ICP (Step 2 Output)
 
 | Input | Where to Find It | What You Do With It |
 |---|---|---|
@@ -511,10 +512,10 @@ This skill **ONLY** handles market landscape analysis.
 
 It does NOT:
 - Modify the ICP (that's the ICP skill)
-- Build the value proposition (that's the UVP skill, Step 3)
+- Build the value proposition (that's the UVP skill, Step 4)
 - Create content briefs (that's a separate skill)
 - Execute on the keyword strategy (that's the SEO retainer)
-- Generate the overall GTM roadmap (that's Step 6)
+- Generate the overall GTM roadmap (that's Step 7)
 
 ---
 

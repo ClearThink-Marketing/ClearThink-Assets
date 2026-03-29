@@ -1,6 +1,6 @@
 ---
 name: clearlaunch-uvp
-description: "Develop a complete Unique Value Proposition (UVP) document from workshop notes, call transcripts, or questionnaire responses using the ClearLaunch System framework. Use this skill whenever the user mentions 'UVP', 'unique value proposition', 'value prop', 'positioning', 'differentiation', 'messaging framework', 'elevator pitch', 'what makes them different', or provides raw workshop/interview notes and wants to identify what sets the client apart. Also trigger when the user has a completed ICP and needs to move to the next ClearLaunch stage. This is Stage 3 of the ClearLaunch GTM process — the UVP becomes the foundation for all marketing materials, sales conversations, and customer touch points. Trigger even for casual mentions like 'figure out their positioning' or 'what should their message be'."
+description: "Develop a complete Unique Value Proposition (UVP) document from workshop notes, call transcripts, or questionnaire responses using the ClearLaunch System framework. Use this skill whenever the user mentions 'UVP', 'unique value proposition', 'value prop', 'positioning', 'differentiation', 'messaging framework', 'elevator pitch', 'what makes them different', or provides raw workshop/interview notes and wants to identify what sets the client apart. Also trigger when the user has a completed ICP and needs to move to the next ClearLaunch stage. This is Stage 4 of the ClearLaunch GTM process — the UVP becomes the foundation for all marketing materials, sales conversations, and customer touch points. Trigger even for casual mentions like 'figure out their positioning' or 'what should their message be'."
 ---
 
 # ClearLaunch UVP Development Agent
@@ -13,11 +13,13 @@ The UVP answers the fundamental question: **"Why should someone choose THIS busi
 
 ## How This Skill Fits the ClearLaunch Process
 
-1. ICP Development (completed upstream — you should have or request this)
-2. Market Landscape Analysis
-3. **UVP Development** ← YOU ARE HERE
-4. Offer Development
-5. Channel Strategy & Launch Roadmap
+1. Onboarding (Portal Setup)
+2. ICP Development (completed upstream — you should have or request this)
+3. Market Landscape Analysis
+4. **UVP Development** ← YOU ARE HERE
+5. Offer Development
+6. Channel Strategy & Customer Journey
+7. Success Metrics & KPIs / Implementation Roadmap
 
 The UVP is the messaging backbone. It feeds directly into offer development, website copy, ad creative, sales scripts, and proposal language. A weak UVP means every downstream deliverable underperforms.
 
@@ -27,7 +29,7 @@ The UVP is the messaging backbone. It feeds directly into offer development, web
 
 You need two things:
 1. **Raw workshop/interview responses** — the client's own words about their business, methodology, expertise, results, and differentiators
-2. **The completed ICP** (from Stage 1) — so you understand WHO the UVP needs to resonate with
+2. **The completed ICP** (from Stage 2) — so you understand WHO the UVP needs to resonate with
 
 If the ICP isn't provided, ask for it or work from whatever client context is available. The UVP must speak to a specific audience's specific pain points.
 

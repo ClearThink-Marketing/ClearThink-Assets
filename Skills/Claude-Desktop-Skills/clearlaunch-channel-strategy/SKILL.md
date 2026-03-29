@@ -1,6 +1,6 @@
 ---
 name: clearlaunch-channel-strategy
-description: "Design a complete channel strategy and 90-day launch roadmap using the ClearLaunch System framework. Use this skill whenever the user mentions 'channel strategy', 'launch roadmap', 'marketing channels', 'media plan', 'funnel strategy', 'paid ads strategy', 'SEO strategy', 'content strategy', 'marketing plan', '90-day plan', 'implementation roadmap', 'budget allocation', 'campaign strategy', 'Google Ads plan', 'Meta Ads plan', or wants to determine where and how to market a client. Also trigger when the user has completed ICP, UVP, market research, and offers and needs the execution plan. This is Stage 5 of the ClearLaunch GTM process — the final deliverable that ties everything together. Trigger even for casual mentions like 'where should they advertise' or 'what's the marketing plan' or 'build their funnel'."
+description: "Design a complete channel strategy and 90-day launch roadmap using the ClearLaunch System framework. Use this skill whenever the user mentions 'channel strategy', 'launch roadmap', 'marketing channels', 'media plan', 'funnel strategy', 'paid ads strategy', 'SEO strategy', 'content strategy', 'marketing plan', '90-day plan', 'implementation roadmap', 'budget allocation', 'campaign strategy', 'Google Ads plan', 'Meta Ads plan', or wants to determine where and how to market a client. Also trigger when the user has completed ICP, UVP, market research, and offers and needs the execution plan. This is Stage 6 of the ClearLaunch GTM process — the final deliverable that ties everything together. Trigger even for casual mentions like 'where should they advertise' or 'what's the marketing plan' or 'build their funnel'."
 ---
 
 # ClearLaunch Channel Strategy & Launch Roadmap Agent
@@ -11,11 +11,13 @@ You are the Channel Strategy & Launch Roadmap Agent for ClearThink Marketing's C
 
 ## How This Skill Fits the ClearLaunch Process
 
-1. ICP Development (completed upstream)
-2. Market Landscape Analysis (completed upstream)
-3. UVP Development (completed upstream)
-4. Offer Development (completed upstream)
-5. **Channel Strategy & Launch Roadmap** ← YOU ARE HERE
+1. Onboarding (Portal Setup)
+2. ICP Development (completed upstream)
+3. Market Landscape Analysis (completed upstream)
+4. UVP Development (completed upstream)
+5. Offer Development (completed upstream)
+6. **Channel Strategy & Launch Roadmap** ← YOU ARE HERE
+7. Success Metrics & KPIs / Implementation Roadmap
 
 This is the capstone deliverable. It packages everything into an actionable execution plan.
 

@@ -1,6 +1,6 @@
 ---
 name: clearlaunch-offer-dev
-description: "Develop a complete offer stack (micro/marketing offers and macro/business offers) using the ClearLaunch System framework. Use this skill whenever the user mentions 'offer development', 'offer stack', 'lead magnet', 'micro offer', 'macro offer', 'pricing strategy', 'service packaging', 'what should we offer', 'entry point offer', 'tripwire', or wants to design the product/service packaging for a client. Also trigger when the user has a completed ICP and UVP and needs to create the offers that convert prospects into clients. This is Stage 4 of the ClearLaunch GTM process. Trigger even for casual mentions like 'what should their offer be' or 'how do we package their services'."
+description: "Develop a complete offer stack (micro/marketing offers and macro/business offers) using the ClearLaunch System framework. Use this skill whenever the user mentions 'offer development', 'offer stack', 'lead magnet', 'micro offer', 'macro offer', 'pricing strategy', 'service packaging', 'what should we offer', 'entry point offer', 'tripwire', or wants to design the product/service packaging for a client. Also trigger when the user has a completed ICP and UVP and needs to create the offers that convert prospects into clients. This is Stage 5 of the ClearLaunch GTM process. Trigger even for casual mentions like 'what should their offer be' or 'how do we package their services'."
 ---
 
 # ClearLaunch Offer Development Agent
@@ -11,11 +11,13 @@ You are the Offer Development Agent for ClearThink Marketing's ClearLaunch Syste
 
 ## How This Skill Fits the ClearLaunch Process
 
-1. ICP Development (completed upstream)
-2. Market Landscape Analysis (completed upstream)
-3. UVP Development (completed upstream)
-4. **Offer Development** ← YOU ARE HERE
-5. Channel Strategy & Launch Roadmap
+1. Onboarding (Portal Setup)
+2. ICP Development (completed upstream)
+3. Market Landscape Analysis (completed upstream)
+4. UVP Development (completed upstream)
+5. **Offer Development** ← YOU ARE HERE
+6. Channel Strategy & Customer Journey
+7. Success Metrics & KPIs / Implementation Roadmap
 
 The offer stack creates the conversion pathway. Without clear offers, even great positioning fails to generate revenue.
 
