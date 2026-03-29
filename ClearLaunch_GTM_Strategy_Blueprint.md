@@ -1,6 +1,6 @@
 # ClearLaunch GTM Strategy Blueprint
 
-**ClearThink Marketing | Version 2.0 | March 2026**
+**ClearThink Marketing | Version 3.0 | March 2026**
 
 ---
 
@@ -27,89 +27,107 @@ The ClearLaunch System is an 8-week, industry-agnostic go-to-market strategy spr
 
 **The core promise:** Eliminate marketing guesswork by building a data-backed strategic foundation before spending on campaigns. The client walks away knowing exactly who to target, what message resonates, and where to focus their budget.
 
-### The 6 Steps & Their Deliverables
+### The 7 Steps & Their Deliverables
 
 | Step | Focus | Deliverables Produced |
 |---|---|---|
-| 1 | Ideal Customer Profile | ICP Analysis document (.docx) + ICP Summary Deck (.pptx) — 1-3 prioritized customer segments, pain point mapping, decision-making criteria, qualifying/disqualifying criteria |
-| 2 | Market Landscape Analysis | Market Research document (.docx) + Market Research Summary Deck (.pptx) — keyword research (up to 50 keywords), competitive analysis, audience intelligence, content gap analysis |
-| 3 | Value Proposition & Offer Engineering | Value Proposition document (.docx) + Offer Engineering document (.docx) — strategic positioning, core messaging, MICRO offer (lead magnets), MACRO offer (core revenue offer) |
-| 4 | Channel Strategy & Customer Journey | Customer Journey document (.docx) — journey mapping (awareness to advocacy), channel strategy matrix, budget allocation recommendations |
-| 5 | Success Metrics & KPIs | KPI Framework document (.docx) — 5-10 priority metrics, measurement cadence, baseline benchmarks, reporting structure |
-| 6 | Implementation Roadmap | Launch Roadmap document (.docx) — 90-day tactical plan with weekly milestones, budget allocation, prioritized actions, clear ownership |
+| 1 | Client Onboarding & Portal Setup | Client Portal in Notion — validated intake data, populated Client Information, scaffolded Reports section |
+| 2 | Ideal Customer Profile | ICP Analysis document (.docx) + ICP Summary Deck (.pptx) — 1-3 prioritized customer segments, pain point mapping, decision-making criteria, qualifying/disqualifying criteria |
+| 3 | Market Landscape Analysis | Market Research document (.docx) + Market Research Summary Deck (.pptx) — keyword research (up to 50 keywords), competitive analysis, audience intelligence, content gap analysis |
+| 4 | Value Proposition & Offer Engineering | Value Proposition document (.docx) + Offer Engineering document (.docx) — strategic positioning, core messaging, MICRO offer (lead magnets), MACRO offer (core revenue offer) |
+| 5 | Channel Strategy & Customer Journey | Customer Journey document (.docx) — journey mapping (awareness to advocacy), channel strategy matrix, budget allocation recommendations |
+| 6 | Success Metrics & KPIs | KPI Framework document (.docx) — 5-10 priority metrics, measurement cadence, baseline benchmarks, reporting structure |
+| 7 | Implementation Roadmap | Launch Roadmap document (.docx) — 90-day tactical plan with weekly milestones, budget allocation, prioritized actions, clear ownership |
 
 ### The 4-Phase Timeline
 
 | Phase | Weeks | Steps | Focus |
 |---|---|---|---|
-| Phase 1: Discovery & Research | 1-2 | Steps 1-2 | ICP discovery sessions, market research, keyword analysis, competitive landscape |
-| Phase 2: Strategy Development | 3-4 | Steps 3-4 | Value proposition, messaging framework, offer engineering, customer journey mapping, channel identification |
-| Phase 3: Framework & Roadmap Creation | 5-6 | Steps 5-6 | Success metrics, KPI framework, budget optimization, 90-day implementation roadmap |
+| Phase 1: Onboarding, Discovery & Research | 1-2 | Steps 1-3 | Client onboarding, ICP discovery sessions, market research, keyword analysis, competitive landscape |
+| Phase 2: Strategy Development | 3-4 | Steps 4-5 | Value proposition, messaging framework, offer engineering, customer journey mapping, channel identification |
+| Phase 3: Framework & Roadmap Creation | 5-6 | Steps 6-7 | Success metrics, KPI framework, budget optimization, 90-day implementation roadmap |
 | Phase 4: Strategy Delivery & Launch Prep | 7-8 | Delivery | Complete strategy delivery, priority recommendations, tracking activation, first campaign launch support |
 
 ---
 
-## 2. The 6-Step Process
+## 2. The 7-Step Process
 
 This process synthesizes ClearThink's own methodology with GTM best practices. Each step builds on the output of the previous one.
 
 ---
 
-### Step 0: Client Onboarding & Portal Setup
+### Step 1: Client Onboarding & Portal Setup
 
 **Status: BUILT** (Tally form live, GTM Intake database created, Onboarding Skill v1 complete)
 
-**This is Skill 1** in the ClearLaunch system. It runs before any client-facing work begins — its job is to validate the intake data and create a populated client portal.
+**This is Skill 1** in the ClearLaunch system. It validates the intake data and creates a populated client portal. This step has two workflows:
 
-**What it accomplishes:** Takes the client's Tally form submission, validates that all required data is present, duplicates the Client Template Page in Notion, and populates the Client Information sub-page with intake data (Company Overview, Story & Positioning, Target Audience, Competitive Landscape sections).
+**Workflow A: Tally Form → Client Portal (automated)**
 
-**How it works in practice:**
+Takes the client's Tally form submission, validates that all required data is present, duplicates the Client Template Page in Notion, and populates the Client Information sub-page with intake data (Company Overview, Story & Positioning, Target Audience, Competitive Landscape sections).
+
 1. Client fills out the [GTM Strategy Intake Questionnaire](https://tally.so/r/Ekk6dr)
 2. Tally sends submission directly to the GTM Intake database in Notion (`collection://476a46cc-8fab-428c-acb2-f82d61cf1fdd`)
-3. Terry says "process new intake" or "onboard client"
-4. Agent queries GTM Intake for "New" submissions, runs validation checklist
-5. Duplicates the Client Template Page, renames it, populates the Client Information sub-page with all intake data
-6. Creates the Reports section for downstream skill deliverables
-7. Updates intake record status to "Portal Created"
+3. Zapier fires a Slack notification to `#internal-notifications` via Digital VA bot
+4. Terry says "process new intake" or "onboard client"
+5. Agent queries GTM Intake for "New" submissions, runs validation checklist
+6. Duplicates the Client Template Page, renames it, populates the Client Information sub-page with all intake data
+7. Creates the Reports section for downstream skill deliverables
+8. Updates intake record status to "Portal Created"
+
+**Workflow B: Onboarding Call (record-keeping only)**
+
+After the portal is created, Terry conducts an onboarding call with the client to walk them through the ClearLaunch process and set expectations.
+
+1. Terry has the onboarding call with the client
+2. Fathom records and transcribes the call
+3. Transcript lands in the Transcripts DB via Zapier (`collection://0f372290-8993-4c7e-b303-13afca181721`)
+4. Slack notification fires (existing Fathom → Notion → Slack zap)
+5. Terry sets the Client relation on the transcript record for organizational purposes
+
+This transcript is stored for reference only — **no agent skill processes the onboarding call transcript.** The Onboarding Skill gets all its data from the Tally form (Workflow A). The onboarding call is a client relationship touchpoint, not a data extraction event.
 
 **What it produces:**
 - A fully populated Client Portal page in Notion (Client Information filled, Reports section scaffolded)
 - Validation report flagging any missing fields
+- Onboarding call transcript stored in Transcripts DB (for reference)
 
 **Notion references:**
 - GTM Intake DB: `collection://476a46cc-8fab-428c-acb2-f82d61cf1fdd`
 - Client Portals DB: `collection://30e821ad-7ba9-8080-8f38-000ba9c44ad0`
 - Client Template Page: `310821ad7ba980f294c0e0096effb298`
+- Transcripts DB: `collection://0f372290-8993-4c7e-b303-13afca181721`
 
 **Skill file:** `Skills/ClearLaunch_Onboarding_Skill_v1.md`
 **Field mapping:** `Skills/ClearLaunch_Onboarding_Field_Mapping.md`
 
 ---
 
-### Step 1: Define Ideal Client Profile
+### Step 2: Define Ideal Client Profile
 
 **Status: BUILT** (templates complete, agent skill complete)
 
-**This is Skill 2** in the ClearLaunch system. Skill 1 (Onboarding) creates the client portal and populates Client Information from the onboarding form. This ICP skill comes after — it processes the deeper discovery call transcript.
+**This is Skill 2** in the ClearLaunch system. Skill 1 (Onboarding) creates the client portal and populates Client Information from the Tally form. This ICP skill comes after — it processes the ICP Discovery call transcript, which is a separate, later call from the onboarding call.
 
 **What it accomplishes:** Creates a detailed picture of who the client should be targeting — firmographics (B2B) or demographics (B2C), behaviors, pain points, buying triggers, and decision-making criteria. Segments prospects into Tier 1 (primary focus), Tier 2 (secondary), and Tier 3 (nurture/monitor).
 
 **How it works in practice:**
-1. Terry conducts a discovery call with the client (recorded via Fathom)
+1. Terry conducts an ICP Discovery call with the client — a dedicated call focused on ideal customer profiling, separate from the onboarding call (recorded via Fathom)
 2. The call transcript lands in Notion automatically (Fathom → Zapier → Notion Transcripts DB with Status: "Not started")
-3. Zapier sends a notification (Slack/email) alerting Terry that a transcript is ready
+3. Zapier sends a Slack notification to `#internal-notifications` alerting Terry that a transcript is ready
 4. Terry opens Claude Code and says "process new transcripts"
-5. The agent queries Notion for "Not started" ICP/Discovery transcripts, sets status to "In progress"
+5. The agent queries Notion for "Not started" ICP Discovery transcripts, sets status to "In progress"
 6. Agent reads the transcript from the page body, determines B2B or B2C, and extracts ICP data
-7. Tier 1 gets fully fleshed out from the discovery call data
+7. Tier 1 gets fully fleshed out from the ICP Discovery call data
 8. Both the .docx template and .pptx summary deck are populated
 9. Deliverables are stored in the client's portal (Reports → ICP Analysis section)
 10. Notion transcript record updated to "Done" with deliverable filenames and processing notes
 11. During a subsequent ICP workshop, Tiers 2 and 3 get fleshed out from the workshop transcript
 
 **What the agent needs as input:**
-- A "Not started" transcript in the Notion Transcripts database (Meeting Type: ICP or Discovery)
+- A "Not started" transcript in the Notion Transcripts database (Meeting Type: ICP Discovery)
 - The Client relation must be set on the transcript so the agent can find the client's portal
+- Note: Onboarding call transcripts (from Step 1, Workflow B) are stored in the same Transcripts DB but are NOT processed by this skill
 
 **What it produces:**
 - Populated ICP Template (.docx) — B2B version uses firmographics; B2C version uses demographics/psychographics
@@ -139,29 +157,29 @@ This process synthesizes ClearThink's own methodology with GTM best practices. E
 
 ---
 
-### Step 2: Analyze Market Landscape
+### Step 3: Analyze Market Landscape
 
 **Status: PARTIALLY BUILT** (templates complete, agent skill v2 in progress)
 
 **What it accomplishes:** Researches the client's target market size, growth trajectory, competitive landscape, keyword opportunities, and content gaps. Validates that there's real demand for what the client offers and identifies where they have the best chance of winning.
 
 **How it works in practice:**
-1. Agent reads the ICP output from Step 1 (stored in the client's Notion portal) — specifically the industry, target segments, competitor names, and pain points
-2. Agent reads the client portal data that was populated by Onboarding (Step 0) — keywords, competitor URLs, client's own website. This is form data, not discovery call data.
+1. Agent reads the ICP output from Step 2 (stored in the client's Notion portal) — specifically the industry, target segments, competitor names, and pain points
+2. Agent reads the client portal data that was populated by Onboarding (Step 1) — keywords, competitor URLs, client's own website. This is Tally form data, not ICP Discovery call data.
 3. Agent runs Ahrefs browser workflows for SEO/keyword/backlink data
 4. Agent runs SimilarWeb browser workflows for traffic/audience/market data
 5. Agent synthesizes findings into the Market Research template + summary deck
 
 **What the agent needs as input:**
-- ICP data from Step 1 (from Notion)
+- ICP data from Step 2 (from Notion)
 - Client's website URL
-- Competitor URLs (from discovery call or onboarding form)
+- Competitor URLs (from ICP Discovery call or Tally onboarding form)
 - Seed keywords (derived from ICP pain points and industry terms)
 
 **What it produces:**
 - Populated Market Research Template (.docx) with: keyword landscape, competitive analysis, audience intelligence, market sizing
 - Populated Market Research Summary Deck (.pptx)
-- Structured market research data stored in Notion (becomes input for Step 3)
+- Structured market research data stored in Notion (becomes input for Step 4)
 
 **Ahrefs workflows (what the agent pulls):**
 - Site Explorer → Organic Keywords: what the client currently ranks for
@@ -191,11 +209,11 @@ This process synthesizes ClearThink's own methodology with GTM best practices. E
 
 ---
 
-### Step 3: Craft Value Proposition & Messaging
+### Step 4: Craft Value Proposition & Messaging
 
 **Status: NOT STARTED** (no template, no skill)
 
-**What it accomplishes:** Takes the ICP pain points (from Step 1) and the competitive gaps (from Step 2) and synthesizes them into a unique value proposition and messaging framework. Also designs the client's offer structure — both MICRO offers (low-commitment entry points like lead magnets, free audits, downloadable guides) and MACRO offers (the core paid service/product that generates revenue).
+**What it accomplishes:** Takes the ICP pain points (from Step 2) and the competitive gaps (from Step 3) and synthesizes them into a unique value proposition and messaging framework. Also designs the client's offer structure — both MICRO offers (low-commitment entry points like lead magnets, free audits, downloadable guides) and MACRO offers (the core paid service/product that generates revenue).
 
 **How it should work:**
 1. Agent reads ICP data + Market Research data from Notion
@@ -213,13 +231,13 @@ This process synthesizes ClearThink's own methodology with GTM best practices. E
 - Value Proposition Template (.docx) — TO BE BUILT
 - Offer Engineering Template (.docx) — TO BE BUILT
 - Messaging framework with headlines, proof points, objection handlers
-- Structured value proposition data stored in Notion (becomes input for Steps 4-6)
+- Structured value proposition data stored in Notion (becomes input for Steps 5-7)
 
 **Key principle:** The value proposition must translate what the client does into the outcomes their customers care about — not just features or capabilities, but results. This is especially important for technical businesses that tend to describe services in jargon rather than benefits.
 
 ---
 
-### Step 4: Design Channel Strategy & Customer Journey
+### Step 5: Design Channel Strategy & Customer Journey
 
 **Status: NOT STARTED** (no template, no skill)
 
@@ -240,54 +258,54 @@ This process synthesizes ClearThink's own methodology with GTM best practices. E
 **What it should produce:**
 - Customer Journey Template (.docx) — TO BE BUILT
 - Channel strategy matrix with budget allocation recommendations
-- Journey data stored in Notion (becomes input for Steps 5-6)
+- Journey data stored in Notion (becomes input for Steps 6-7)
 
 **Channel strategy principle:** Start focused. Pick 1-2 primary channels that match the audience and the client's capacity. Prove ROI there before expanding. The most common GTM failure is channel sprawl — trying to be everywhere at once and being effective nowhere.
 
 ---
 
-### Step 5: Define Success Metrics & KPI Framework
+### Step 6: Define Success Metrics & KPI Framework
 
 **Status: NOT STARTED** (no template, no skill)
 
-**What it accomplishes:** Defines what success looks like for the client's GTM strategy before the launch roadmap is built. Establishes KPIs per channel, measurement cadence, and baseline metrics so the 90-day plan in Step 6 is built around measurable outcomes, not just activities.
+**What it accomplishes:** Defines what success looks like for the client's GTM strategy before the launch roadmap is built. Establishes KPIs per channel, measurement cadence, and baseline metrics so the 90-day plan in Step 7 is built around measurable outcomes, not just activities.
 
 **How it should work:**
-1. Agent reads all prior outputs — especially the channel strategy from Step 4
+1. Agent reads all prior outputs — especially the channel strategy from Step 5
 2. For each channel selected, defines: primary KPI, secondary metrics, measurement frequency, target benchmarks
 3. Establishes baseline metrics (where the client is now) vs. target metrics (where they should be in 90 days)
 4. Defines the reporting cadence — what gets measured weekly, monthly, quarterly
 5. Identifies what tools/tracking need to be in place before launch
 
 **What the agent needs as input:**
-- Channel strategy (from Step 4)
+- Channel strategy (from Step 5)
 - Current client metrics (if available — website traffic, lead volume, conversion rates)
 - Budget constraints
 
 **What it should produce:**
 - Success Metrics & KPI Template (.docx) — TO BE BUILT
 - KPI dashboard structure with 5-10 priority metrics
-- Metrics data stored in Notion (becomes input for Step 6)
+- Metrics data stored in Notion (becomes input for Step 7)
 
 **Note:** Sales/marketing alignment and CRM capabilities may factor into this step for clients who have sales teams. For now, this is not a formal sub-step, but it's worth noting that some clients will need funnel stage definitions (MQL, SQL, etc.) and lead handoff criteria documented here.
 
 ---
 
-### Step 6: Deliver Launch Roadmap
+### Step 7: Deliver Launch Roadmap
 
 **Status: NOT STARTED** (no template, no skill)
 
-**What it accomplishes:** Packages everything from Steps 1-5 into a 90-day tactical execution plan with specific tasks, timelines, budget allocations, and clear ownership. This is the final deliverable — the client's roadmap for taking action.
+**What it accomplishes:** Packages everything from Steps 1-6 into a 90-day tactical execution plan with specific tasks, timelines, budget allocations, and clear ownership. This is the final deliverable — the client's roadmap for taking action.
 
 **How it should work:**
 1. Agent reads all prior outputs from Notion
 2. Translates strategy into weekly/monthly action items for the first 90 days
 3. Assigns priorities: what delivers fastest results vs. what builds long-term foundation
-4. Allocates budget across channels based on the metrics framework from Step 5
+4. Allocates budget across channels based on the metrics framework from Step 6
 5. Creates the roadmap document + final presentation
 
 **What the agent needs as input:**
-- All outputs from Steps 1-5
+- All outputs from Steps 1-6
 - Client's available budget
 - Client's internal capacity (team size, who does what)
 
@@ -303,58 +321,71 @@ This process synthesizes ClearThink's own methodology with GTM best practices. E
 
 ## 3. How The Agent Automation Works
 
-The ClearLaunch System uses a single Claude Code agent that plays different roles depending on which step/deliverable is active. It's not 5 separate agents — it's one agent with different skills (context + instructions) for each phase.
+The ClearLaunch System uses a single Claude Code agent that plays different roles depending on which step/deliverable is active. It's not 7 separate agents — it's one agent with different skills (context + instructions) for each phase.
 
 ### Data Flow
 
 ```
-DISCOVERY CALL (Terry + Client)
-        |
-        v
-  [Fathom Recording]
-        |
-        v
-  [Zapier Webhook] ──── triggers when call ends
-        |
-        v
-  [Notion: Client Database] ──── transcript stored as a page/record
-        |
-        v
-  ┌─────────────────────────────────────────────┐
-  │  AGENT (Claude Code)                        │
-  │                                             │
-  │  Step 1 Role: ICP Skill                     │
-  │  - Reads transcript from Notion             │
-  │  - Fills ICP template + deck                │
-  │  - Stores structured ICP data in Notion     │
-  │                                             │
-  │  Step 2 Role: Market Research Skill         │
-  │  - Reads ICP data from Notion               │
-  │  - Reads onboarding form data               │
-  │  - Runs Ahrefs/SimilarWeb (browser)         │
-  │  - Fills MR template + deck                 │
-  │  - Stores structured MR data in Notion      │
-  │                                             │
-  │  Step 3 Role: Value Prop Skill              │
-  │  - Reads ICP + MR data from Notion          │
-  │  - Generates UVP, offers, messaging         │
-  │  - Fills VP template                        │
-  │  - Stores VP data in Notion                 │
-  │                                             │
-  │  Steps 4-6: Same pattern                    │
-  │  - Each step reads prior outputs from Notion│
-  │  - Fills its respective template            │
-  │  - Stores structured data for next step     │
-  └─────────────────────────────────────────────┘
+TALLY ONBOARDING FORM (Client)            ICP DISCOVERY CALL (Terry + Client)
+        |                                          |
+        v                                          v
+  [Tally Native Integration]                 [Fathom Recording]
+        |                                          |
+        v                                          v
+  [Notion: GTM Intake DB]                   [Zapier Webhook]
+        |         |                                |
+        |         v                                v
+        |   [Zapier: Intake → Slack]         [Notion: Transcripts DB]
+        |         |                                |
+        |         v                                v
+        |   [Slack #internal-notifications]  [Slack #internal-notifications]
+        |                                          |
+        v                                          v
+  ┌─────────────────────────────────────────────────────────┐
+  │  AGENT (Claude Code)                                    │
+  │                                                         │
+  │  Step 1 Role: Onboarding Skill                          │
+  │  - Reads intake data from GTM Intake DB                 │
+  │  - Validates fields, duplicates Client Template          │
+  │  - Creates Client Portal in Notion                      │
+  │                                                         │
+  │  ONBOARDING CALL (Terry + Client) ──────────────────┐   │
+  │  - Fathom records → transcript to Transcripts DB    │   │
+  │  - Stored for reference only, NOT agent-processed   │   │
+  │                                                         │
+  │  Step 2 Role: ICP Skill                                 │
+  │  - Reads ICP Discovery call transcript from Notion      │
+  │  - Fills ICP template + deck                            │
+  │  - Stores structured ICP data in Notion                 │
+  │                                                         │
+  │  Step 3 Role: Market Research Skill                     │
+  │  - Reads ICP data from Notion                           │
+  │  - Reads onboarding form data from Client Portal        │
+  │  - Runs Ahrefs/SimilarWeb (browser)                     │
+  │  - Fills MR template + deck                             │
+  │  - Stores structured MR data in Notion                  │
+  │                                                         │
+  │  Step 4 Role: Value Prop Skill                          │
+  │  - Reads ICP + MR data from Notion                      │
+  │  - Generates UVP, offers, messaging                     │
+  │  - Fills VP template                                    │
+  │  - Stores VP data in Notion                             │
+  │                                                         │
+  │  Steps 5-7: Same pattern                                │
+  │  - Each step reads prior outputs from Notion            │
+  │  - Fills its respective template                        │
+  │  - Stores structured data for next step                 │
+  └─────────────────────────────────────────────────────────┘
 ```
 
 ### Key Concept: Each Step's Output Is The Next Step's Input
 
-- Step 1 produces ICP data → Step 2 uses it to know what keywords/competitors to research
-- Step 2 produces market data → Step 3 uses it to find positioning opportunities
-- Step 3 produces value prop → Step 4 uses it to determine channel messaging
-- Step 4 produces channel strategy → Step 5 uses it to define per-channel KPIs
-- Step 5 produces metrics framework → Step 6 uses it to build the measured roadmap
+- Step 1 creates the Client Portal → all subsequent steps read from and write to it
+- Step 2 produces ICP data → Step 3 uses it to know what keywords/competitors to research
+- Step 3 produces market data → Step 4 uses it to find positioning opportunities
+- Step 4 produces value prop → Step 5 uses it to determine channel messaging
+- Step 5 produces channel strategy → Step 6 uses it to define per-channel KPIs
+- Step 6 produces metrics framework → Step 7 uses it to build the measured roadmap
 
 **Notion is the hub.** Every step reads from and writes to Notion. This keeps all client data in one place and makes it accessible to whichever skill the agent is running.
 
@@ -362,7 +393,7 @@ DISCOVERY CALL (Terry + Client)
 
 For the ICP step specifically, there are two agent interactions:
 
-1. **Post-discovery call:** Agent reads the initial transcript, fills Tier 1 in full detail, sketches Tiers 2-3 with what's available
+1. **Post-ICP Discovery call:** Agent reads the initial transcript, fills Tier 1 in full detail, sketches Tiers 2-3 with what's available
 2. **Post-ICP workshop:** Terry conducts a deeper workshop with the client specifically about customer segments. Agent reads that workshop transcript and fleshes out Tiers 2-3 with the additional detail
 
 This same workshop-then-agent pattern may apply to other steps as Terry refines the process.
@@ -375,24 +406,24 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 
 | File | Type | Location | Used In |
 |---|---|---|---|
-| `ClearLaunch_B2B_ICP_Template.docx` | Word Template | `Frameworks/` | Step 1 |
-| `ClearLaunch_B2B_ICP_Summary_Deck.pptx` | PowerPoint Deck | `Frameworks/` | Step 1 |
-| `ClearLaunch_B2C_ICP_Template.docx` | Word Template | `Frameworks/` | Step 1 |
-| `ClearLaunch_B2C_ICP_Summary_Deck.pptx` | PowerPoint Deck | `Frameworks/` | Step 1 |
-| `ClearLaunch_B2B_Market_Research_Template.docx` | Word Template | `Frameworks/` | Step 2 |
-| `ClearLaunch_B2B_Market_Research_Summary_Deck.pptx` | PowerPoint Deck | `Frameworks/` | Step 2 |
-| `ClearLaunch_B2C_Market_Research_Template.docx` | Word Template | `Frameworks/` | Step 2 |
-| `ClearLaunch_B2C_Market_Research_Summary_Deck.pptx` | PowerPoint Deck | `Frameworks/` | Step 2 |
+| `ClearLaunch_B2B_ICP_Template.docx` | Word Template | `Frameworks/` | Step 2 |
+| `ClearLaunch_B2B_ICP_Summary_Deck.pptx` | PowerPoint Deck | `Frameworks/` | Step 2 |
+| `ClearLaunch_B2C_ICP_Template.docx` | Word Template | `Frameworks/` | Step 2 |
+| `ClearLaunch_B2C_ICP_Summary_Deck.pptx` | PowerPoint Deck | `Frameworks/` | Step 2 |
+| `ClearLaunch_B2B_Market_Research_Template.docx` | Word Template | `Frameworks/` | Step 3 |
+| `ClearLaunch_B2B_Market_Research_Summary_Deck.pptx` | PowerPoint Deck | `Frameworks/` | Step 3 |
+| `ClearLaunch_B2C_Market_Research_Template.docx` | Word Template | `Frameworks/` | Step 3 |
+| `ClearLaunch_B2C_Market_Research_Summary_Deck.pptx` | PowerPoint Deck | `Frameworks/` | Step 3 |
 
 ### Templates To Be Built (GAPS)
 
 | Template Needed | Used In | Depends On |
 |---|---|---|
-| Value Proposition Template (.docx) | Step 3 | ICP + MR templates finalized |
-| Offer Engineering Template (.docx) | Step 3 | Value Proposition template |
-| Customer Journey Template (.docx) | Step 4 | Steps 1-3 output structure |
-| Success Metrics & KPI Template (.docx) | Step 5 | Channel strategy from Step 4 |
-| Implementation Roadmap Template (.docx) | Step 6 | All prior templates |
+| Value Proposition Template (.docx) | Step 4 | ICP + MR templates finalized |
+| Offer Engineering Template (.docx) | Step 4 | Value Proposition template |
+| Customer Journey Template (.docx) | Step 5 | Steps 2-4 output structure |
+| Success Metrics & KPI Template (.docx) | Step 6 | Channel strategy from Step 5 |
+| Implementation Roadmap Template (.docx) | Step 7 | All prior templates |
 
 ### Other Files in the Project
 
@@ -430,14 +461,14 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 ### Build Priority (Recommended Order)
 
 1. **Build Market Research Skill v2** — map to the 15 template tables, add Ahrefs/SimilarWeb/Meta Ad Library browser workflows, Notion data flow
-2. **Build Value Proposition Template** — design the .docx structure for Step 3
-3. **Build Offer Engineering Template** — design the .docx structure for Step 3
-4. **Build Value Prop + Offer Skill** — automate Step 3 using ICP + MR output
-5. **Build Customer Journey Template** — design the .docx structure for Step 4
-6. **Build Channel Strategy + Journey Skill** — automate Step 4
-7. **Build Metrics/KPI Template** — design .docx structure for Step 5
-8. **Build Implementation Roadmap Template** — design .docx structure for Step 6
-9. **Build final skills for Steps 5-6** — complete the automation chain
+2. **Build Value Proposition Template** — design the .docx structure for Step 4
+3. **Build Offer Engineering Template** — design the .docx structure for Step 4
+4. **Build Value Prop + Offer Skill** — automate Step 4 using ICP + MR output
+5. **Build Customer Journey Template** — design the .docx structure for Step 5
+6. **Build Channel Strategy + Journey Skill** — automate Step 5
+7. **Build Metrics/KPI Template** — design .docx structure for Step 6
+8. **Build Implementation Roadmap Template** — design .docx structure for Step 7
+9. **Build final skills for Steps 6-7** — complete the automation chain
 
 ### Open Questions
 
@@ -454,8 +485,8 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 
 | Tool | Role in ClearLaunch | Monthly Cost |
 |---|---|---|
-| **Fathom** | Records and transcribes discovery calls and workshops | $14 |
-| **Zapier** | Automates Fathom → Notion transcript pipeline (scheduled or webhook trigger) | $49 |
+| **Fathom** | Records and transcribes all client calls (onboarding calls, ICP Discovery calls, and workshops) | $14 |
+| **Zapier** | Automates Fathom → Notion transcript pipeline + GTM Intake → Slack notifications | $49 |
 | **Notion** | Central data hub — stores transcripts, agent outputs, client records, deliverable files | $20 |
 | **Ahrefs** | SEO/keyword research, backlink analysis, competitor keyword gaps, content gap analysis | $99 |
 | **SimilarWeb** | Traffic estimates, audience demographics, cross-visitation, industry benchmarking | (check plan) |
@@ -467,21 +498,31 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 ### Infrastructure Architecture
 
 ```
-[Client Calls]
-      │
-      ▼
-[Fathom] ──record + transcribe──▶ [Zapier] ──webhook──▶ [Notion Client DB]
-                                                              │
-                                                              │ Agent reads from / writes to
-                                                              ▼
-                                                    [Claude Code Agent]
-                                                         │    │
-                                           ┌─────────────┘    └──────────────┐
-                                           ▼                                  ▼
-                                    [Browser Tools]                   [File Generation]
-                                    • Ahrefs                          • .docx templates
-                                    • SimilarWeb                      • .pptx decks
-                                    • Client website                  • Notion records
+[Tally Form]                              [Client Calls]
+      │                                     │ (Onboarding + ICP Discovery + Workshops)
+      ▼                                     ▼
+[Tally Native Integration]           [Fathom] ──record + transcribe──▶ [Zapier] ──▶ [Notion Transcripts DB]
+      │                                                                                      │
+      ▼                                                                                      │
+[Notion GTM Intake DB]                                                                       │
+      │         │                                                                            │
+      │         ▼                                                                            │
+      │   [Zapier → Slack]                                                                   │
+      │                                                                                      │
+      ▼                                                                                      ▼
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │  [Claude Code Agent]                                                │
+  │  • Step 1: Reads GTM Intake → creates Client Portal                │
+  │  • Step 2: Reads ICP Discovery transcript → fills ICP templates    │
+  │  • Steps 3-7: Each reads prior outputs from Notion                 │
+  │                    │              │                                 │
+  │         ┌──────────┘              └──────────┐                     │
+  │         ▼                                     ▼                    │
+  │  [Browser Tools]                       [File Generation]           │
+  │  • Ahrefs                              • .docx templates           │
+  │  • SimilarWeb                          • .pptx decks               │
+  │  • Client website                      • Notion records            │
+  └──────────────────────────────────────────────────────────────────────┘
 ```
 
 **Notion is the central hub.** All client data lives there. The agent reads inputs from Notion and writes outputs back to Notion. Deliverable files (.docx, .pptx) are generated and can be shared with clients via Google Workspace or directly.
@@ -517,4 +558,4 @@ The ClearLaunch → Retainer conversion funnel is critical. ClearLaunch must pro
 
 ---
 
-*Last updated: March 24, 2026 (v2.0 — aligned deliverables with 6-step process, updated all build statuses, cleared stale references)*
+*Last updated: March 29, 2026 (v3.0 — renumbered to 7-step process, added Step 1 onboarding call documentation, renamed "discovery call" to "ICP Discovery call" throughout, added Zapier GTM Intake → Slack notification)*

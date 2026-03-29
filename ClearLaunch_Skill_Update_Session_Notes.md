@@ -1,6 +1,6 @@
 # ClearLaunch Skill Update — Session Notes
 **Last Updated:** March 26, 2026
-**Status:** Onboarding infrastructure COMPLETE | ICP Skill v2.0 Complete | Market Research Skill v2.0 Complete | Ready for end-to-end testing
+**Status:** Onboarding infrastructure COMPLETE | ICP Skill v2.0 Complete | Market Research Skill v2.0 Complete | Documentation updated to 7-step process | Ready for end-to-end testing
 
 ---
 
@@ -8,7 +8,7 @@
 
 | Component | Status | Location |
 |---|---|---|
-| Tally Onboarding Form | COMPLETE | [tally.so/r/Ekk6dr](https://tally.so/r/Ekk6dr) (needs Business Type field added) |
+| Tally Onboarding Form | COMPLETE | [tally.so/r/Ekk6dr](https://tally.so/r/Ekk6dr) — Business Type field added |
 | GTM Intake Database | COMPLETE | Notion: Database Hub - ClearThink → GTM Intake |
 | Onboarding Skill v1 | COMPLETE | `Skills/ClearLaunch_Onboarding_Skill_v1.md` |
 | Onboarding Field Mapping | COMPLETE | `Skills/ClearLaunch_Onboarding_Field_Mapping.md` |
@@ -47,8 +47,8 @@
 2. **ICP Skill v1.0** — Built from scratch with Notion data flow, B2B/B2C extraction, tiering logic
 3. **Client Portal Template** — Reports section added in Notion with subsections for each deliverable type
 4. **GTM Blueprint** — Step 1 updated with Notion structure, database IDs, trigger flow
-5. **Skill Architecture** — Clarified: Onboarding (Skill 1) → ICP (Skill 2) → Market Research (Skill 3, separate)
-6. **Zapier notification** — Slack notification added to Fathom→Notion zap (`#internal-notifications` via "Digital VA" bot)
+5. **Skill Architecture** — Clarified: Onboarding (Step 1) → ICP (Step 2) → Market Research (Step 3, separate)
+6. **Zapier notification** — Slack notification added to Fathom→Notion zap (`#internal-notifications` via "Digital VA" bot) for transcript arrivals
 
 ### Session: March 24-26
 
@@ -82,7 +82,7 @@ Before building Value Proposition / Offer Engineering templates and skills (Step
 - Geographic focus
 - Contact information
 
-**Why it matters:** The onboarding form captures initial client context (company, industry, URLs, keywords) that populates the Client Portal. The ICP Skill and Market Research Skill later read from this portal — but they are separate workflows triggered by different events (discovery call transcript for ICP, manual trigger for MR after ICP is complete). Without the form data in the portal, Terry has to manually feed inputs to each skill.
+**Why it matters:** The onboarding form captures initial client context (company, industry, URLs, keywords) that populates the Client Portal. The ICP Skill and Market Research Skill later read from this portal — but they are separate workflows triggered by different events (ICP Discovery call transcript for ICP, manual trigger for MR after ICP is complete). Without the form data in the portal, Terry has to manually feed inputs to each skill.
 
 **Action needed:** Add Business Type field to Tally form. Make Company Name required. Optionally split Competitor URLs into 3 separate fields.
 
@@ -93,7 +93,7 @@ Before building Value Proposition / Offer Engineering templates and skills (Step
 **What it actually does (as built):**
 - Tally form submission lands in GTM Intake database (Tally native Notion integration)
 - Onboarding Skill reads the intake data, validates it, duplicates the Client Template Page, populates Client Information, and scaffolds the Reports section
-- This is a separate event from the discovery call — the ICP Skill runs later when a transcript arrives
+- This is a separate event from the onboarding call or the ICP Discovery call — the ICP Skill runs later when an ICP Discovery call transcript arrives
 
 **Why it matters:** Everything downstream assumes a client portal exists with populated data. The Onboarding Skill automates this so every new client starts with a consistent, structured portal.
 
@@ -119,7 +119,7 @@ Before building Value Proposition / Offer Engineering templates and skills (Step
 
 **Status:** Manual
 
-**Current workflow:** Fathom doesn't pass client identity, so Terry manually sets the Client relation field on the Notion transcript record before telling Claude Code to process.
+**Current workflow:** Fathom doesn't pass client identity, so Terry manually sets the Client relation field on the Notion transcript record before telling Claude Code to process. This applies to ALL transcripts in the Transcripts DB — both onboarding call transcripts (stored for reference only) and ICP Discovery call transcripts (processed by the ICP Skill).
 
 **Future improvement:** Zapier lookup step to match client name from Fathom call title to Client Portals database. Not blocking, but worth building once the core flow is solid.
 
@@ -139,7 +139,7 @@ Before building Value Proposition / Offer Engineering templates and skills (Step
 
 Once the upstream items above are confirmed and working:
 
-1. **Test the full ICP flow end-to-end** — Onboarding form → Client Portal → Discovery call → Transcript in Notion → ICP Skill processes → Deliverables stored
+1. **Test the full flow end-to-end** — Tally form → GTM Intake DB → Slack notification → Onboarding Skill creates Client Portal → Onboarding call (transcript stored, not processed) → ICP Discovery call → Transcript in Notion → ICP Skill processes → Deliverables stored
 2. **Test the Market Research flow** — ICP complete → Read inputs from portal → Run Ahrefs/SimilarWeb workflows → Populate templates → Store in portal
 3. **Build Value Proposition Template** — .docx structure for Step 3
 4. **Build Offer Engineering Template** — .docx structure for Step 3
@@ -150,9 +150,9 @@ Once the upstream items above are confirmed and working:
 ## Open Questions
 
 1. ~~**Tally form:**~~ ✅ RESOLVED. Form exists at [tally.so/r/Ekk6dr](https://tally.so/r/Ekk6dr) with 30+ fields. Business Type field added. Company Name made required. All fields mapped to GTM Intake database via Tally's native Notion integration.
-2. ~~**Onboarding Zapier zap:**~~ ✅ RESOLVED. No Zapier needed — Tally sends directly to Notion via native integration. Onboarding Skill v1 reads intake data and creates the Client Portal.
+2. ~~**Onboarding Zapier zap:**~~ ✅ RESOLVED. No Zapier needed for Tally → Notion (native integration). Separate Zapier zap built for GTM Intake → Slack notification (March 29, 2026).
 3. **Competitor Analysis Framework:** Terry explicitly said this hasn't been discussed yet — do NOT start building it.
-4. ~~**Client relation automation:**~~ Staying manual by design. Terry sets the Client relation on transcript records before processing. Not a blocker.
+4. ~~**Client relation automation:**~~ Staying manual by design. Terry sets the Client relation on transcript records (both onboarding and ICP Discovery) before processing. Not a blocker.
 
 ---
 
