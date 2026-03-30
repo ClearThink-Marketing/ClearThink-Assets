@@ -1,6 +1,6 @@
 # ClearLaunch Skill Update — Session Notes
-**Last Updated:** March 26, 2026
-**Status:** Onboarding infrastructure COMPLETE | ICP Skill v2.0 Complete | Market Research Skill v2.0 Complete | Documentation updated to 7-step process | Ready for end-to-end testing
+**Last Updated:** March 29, 2026
+**Status:** Onboarding infrastructure COMPLETE | Zapier GTM Intake → Slack zap LIVE | ICP Skill v2.0 Complete | Market Research Skill v2.0 Complete | Documentation updated to 7-step process (v3.0) | Ready for end-to-end testing
 
 ---
 
@@ -17,12 +17,32 @@
 | ICP Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_ICP_Skill_v2.md` |
 | Market Research Templates (B2B + B2C) | COMPLETE | `Frameworks/` (4 files, 15 tables each) |
 | Market Research Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_Market_Research_Skill_v2.md` |
-| GTM Strategy Blueprint | COMPLETE (v2.1) | `ClearLaunch_GTM_Strategy_Blueprint.md` |
+| Zapier: GTM Intake → Slack | COMPLETE | Triggers on new GTM Intake item, posts to #internal-notifications via Digital VA bot |
+| GTM Strategy Blueprint | COMPLETE (v3.0) | `ClearLaunch_GTM_Strategy_Blueprint.md` |
+| QA Checklist | COMPLETE | `ClearLaunch_QA_Checklist.md` |
 | Value Proposition Template | NOT STARTED | — |
 | Offer Engineering Template | NOT STARTED | — |
 | Customer Journey Template | NOT STARTED | — |
 | Metrics/KPI Template | NOT STARTED | — |
 | Implementation Roadmap Template | NOT STARTED | — |
+
+---
+
+## What Was Accomplished (March 29, 2026 — Session 4)
+
+### Zapier GTM Intake → Slack Notification
+
+1. **Zapier zap built and tested** — New Database Item trigger on GTM Intake DB → Send Channel Message to `#internal-notifications` via Digital VA bot (🤖). Message format: "📋 New GTM Intake Submission: [Company Name] — [Business Type]. Run process new intake in Claude Code to create the client portal."
+2. **End-to-end test passed** — Dummy Tally form submission (Acme Test Co) confirmed landing in GTM Intake DB and Slack notification firing correctly.
+
+### Documentation Overhaul — 7-Step Process
+
+3. **Renumbered from 6 steps to 7 steps** — Onboarding moved from "Step 0" to Step 1. All subsequent steps shifted up by 1 (ICP → Step 2, MR → Step 3, Value Prop → Step 4, Channel → Step 5, KPIs → Step 6, Roadmap → Step 7).
+4. **Clarified onboarding vs ICP Discovery call** — Step 1 now documents two workflows: Workflow A (Tally form → portal creation, agent-processed) and Workflow B (onboarding call → transcript stored for reference only, not agent-processed). All "discovery call" references renamed to "ICP Discovery call" across all files.
+5. **Blueprint updated to v3.0** — 7-step process, updated data flow diagrams, infrastructure architecture, tool descriptions, framework registry, build priorities, and open questions.
+6. **All 4 Mermaid diagrams updated** — System Architecture, Step-by-Step Data Flow, Tool Responsibility Map, and Onboarding Flow all reflect 7-step numbering, ICP Discovery naming, and the Zapier → Slack notification path.
+7. **14 skill files updated on Skill-Assets branch** — Onboarding Skill, ICP Skill, MR Skill, Field Mapping, 9 Claude Desktop skill files, and 1 legacy skill file — all renumbered and renamed via git worktree.
+8. **QA Checklist created** — `ClearLaunch_QA_Checklist.md` tracks Ahrefs/SimilarWeb subscription requirements, end-to-end flow verification status, and cleanup items.
 
 ---
 
