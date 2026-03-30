@@ -1,6 +1,6 @@
 # ClearLaunch Onboarding Skill
 
-**Version:** 1.0 | March 2026
+**Version:** 1.1 | March 2026
 **Stage:** Step 1 of 7 in the ClearLaunch GTM System
 
 ---
@@ -102,22 +102,24 @@ This is the normal workflow when a Tally form has been submitted.
 
 #### Step 3: Create Client Portal from Template
 
-The Client Portals database has an official template page that defines the portal structure. Instead of building a portal from scratch, duplicate the template and populate it.
+The Client Portals database has an official template that defines the portal structure. Use `create-pages` with the `template_id` parameter to create a new portal entry — do NOT use `duplicate-page` (duplicating a template creates another template, which won't appear in database views).
 
 **Template reference:**
-- **Client Template Page (Official):** `310821ad7ba980f294c0e0096effb298`
-- **Client Information sub-page:** `312821ad7ba9800f8d58e3722e63f692` (embedded inside the template)
+- **Template ID:** `310821ad-7ba9-80f2-94c0-e0096effb298`
+- **Data Source ID:** `30e821ad-7ba9-8080-8f38-000ba9c44ad0` (Client Portals collection)
 
-**3a. Duplicate the Client Template Page**
+**3a. Create the Client Portal Page**
 
-1. Use the Notion `duplicate-page` tool to copy the Client Template Page (Official) within the Client Portals database
-2. Rename the duplicated page to the **Company Name** from the intake
-3. Set the `Website URL` property on the portal page
-4. Set the `Status` property to "Active"
+1. Use the Notion `create-pages` tool with:
+   - `parent`: `{"type": "data_source_id", "data_source_id": "30e821ad-7ba9-8080-8f38-000ba9c44ad0"}`
+   - `template_id`: `310821ad-7ba9-80f2-94c0-e0096effb298`
+   - `properties`: set `Name` to the **Company Name**, `Website URL` to the client's URL, and `Status` to "In progress"
+2. The template will automatically scaffold the full dashboard (Client Information sub-page, Tasks view, Quick Links, Projects)
+3. Valid Status values are: "Not started", "In progress", "Done" (there is no "Active" option)
 
 **3b. Populate the Client Information Sub-Page**
 
-Navigate into the duplicated portal's **Client Information** page and populate each section with intake data:
+Fetch the newly created portal page to find the Client Information sub-page URL (it will be nested inside the portal). Then populate each section with intake data:
 
 **🏢 Company Overview Table:**
 
@@ -312,8 +314,9 @@ It does NOT:
 - `Skills/Claude-Desktop-Skills/client-profile-generator/SKILL.md` — Generates a .docx client profile from onboarding notes/transcripts. This Onboarding Skill replaces the Notion population part of that workflow — the .docx generator remains useful when a shareable document is needed.
 
 ### Notion Template References
-- **Client Template Page (Official):** `310821ad7ba980f294c0e0096effb298` — the master template in Client Portals DB that gets duplicated for each new client
-- **Client Information sub-page:** `312821ad7ba9800f8d58e3722e63f692` — embedded in the template, has the structured sections (Company Overview, Story & Positioning, Target Audience, Competitive Landscape)
+- **Client Template ID:** `310821ad-7ba9-80f2-94c0-e0096effb298` — use with `create-pages` `template_id` parameter. Do NOT use `duplicate-page` on this (it creates a hidden template copy instead of a visible database entry).
+- **Client Portals Data Source:** `collection://30e821ad-7ba9-8080-8f38-000ba9c44ad0` — use as `data_source_id` parent when creating pages
+- **Client Information sub-page** — embedded inside the template; after creating the portal page, fetch it to find the Client Information sub-page URL for population
 
 ### Infrastructure References
 - `ClearLaunch_GTM_Strategy_Blueprint.md` — System-level documentation. Section 2 describes the 7-step process. Section 3 describes the data flow.
