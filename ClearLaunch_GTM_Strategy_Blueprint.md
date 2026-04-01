@@ -1,6 +1,6 @@
 # ClearLaunch GTM Strategy Blueprint
 
-**ClearThink Marketing | Version 3.0 | March 2026**
+**ClearThink Marketing | Version 3.1 | March 2026**
 
 ---
 
@@ -8,7 +8,7 @@
 
 This document is the single-source-of-truth for the ClearLaunch System — ClearThink Marketing's productized go-to-market strategy sprint. It captures:
 
-- The full 6-step process and what each step produces
+- The full 7-step process and what each step produces
 - What's already built (templates, decks, agent skills) and what's next
 - How the agent automation works and how data flows between steps
 - The tool stack and infrastructure that powers the system

@@ -18,7 +18,7 @@
 | Market Research Templates (B2B + B2C) | COMPLETE | `Frameworks/` (4 files, 15 tables each) |
 | Market Research Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_Market_Research_Skill_v2.md` |
 | Zapier: GTM Intake → Slack | COMPLETE | Triggers on new GTM Intake item, posts to #internal-notifications via Digital VA bot |
-| GTM Strategy Blueprint | COMPLETE (v3.0) | `ClearLaunch_GTM_Strategy_Blueprint.md` |
+| GTM Strategy Blueprint | COMPLETE (v3.1) | `ClearLaunch_GTM_Strategy_Blueprint.md` |
 | QA Checklist | COMPLETE | `ClearLaunch_QA_Checklist.md` |
 | UVP Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_UVP_Template.docx` (Templates branch) |
 | UVP Summary Deck (.pptx) | COMPLETE | `Frameworks/ClearLaunch_UVP_Summary_Deck.pptx` (Templates branch) |
