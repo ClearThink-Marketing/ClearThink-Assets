@@ -35,8 +35,26 @@ Before this skill runs, the following must already exist:
 
 - **Client Portal** in Notion — created during onboarding (Step 1)
 - **Completed ICP** — the ICP Analysis deliverable from Step 2 (stored in the client's portal under Reports → ICP Analysis). The UVP must speak to a specific audience's specific pain points.
-- **Transcript page** in the Notion Transcripts database — created by the Fathom → Zapier → Notion pipeline after a UVP workshop call
+- **Transcript page** in the Notion Transcripts database — created by the Fathom → Zapier → Notion pipeline after a UVP workshop call (see Zapier Pipeline below)
 - **UVP template files** in `Frameworks/` — the .docx and .pptx templates this skill populates
+
+---
+
+## Zapier Pipeline: Fathom → Notion → Slack
+
+The UVP transcript pipeline follows the same pattern as the ICP pipeline. A Zapier zap handles the automation:
+
+1. **Trigger:** Fathom new recording
+2. **Filter:** Meeting title contains "UVP" (case-insensitive) — routes only UVP-related meetings
+3. **Action 1:** Create page in Notion Transcripts DB (`collection://0f372290-8993-4c7e-b303-13afca181721`)
+   - Maps: Meeting Title, Attendees, Meeting Date, Duration, Fathom Share URL, Recording URL
+   - Sets Status to "Not started"
+   - Meeting Type left blank (agent classifies after reading content)
+   - Client relation set manually by Terry (future: Zapier lookup step)
+   - Full transcript text pasted as page body content
+4. **Action 2:** Send Slack message to `#internal-notifications` via "Digital VA" bot: "UVP Discovery transcript created for [Client Name]"
+
+**Note:** Zapier does the title-based routing only. The agent does formal meeting type classification after reading the transcript content.
 
 ---
 
