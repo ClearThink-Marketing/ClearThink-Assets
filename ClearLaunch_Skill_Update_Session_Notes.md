@@ -1,6 +1,6 @@
 # ClearLaunch Skill Update — Session Notes
-**Last Updated:** March 29, 2026
-**Status:** Onboarding infrastructure COMPLETE | Zapier GTM Intake → Slack zap LIVE | ICP Skill v2.0 Complete | Market Research Skill v2.0 Complete | Documentation updated to 7-step process (v3.0) | Ready for end-to-end testing
+**Last Updated:** March 31, 2026
+**Status:** Step 4 (UVP) BUILT — templates, skill v1, summary deck, Zapier zap configured | Step 5 (Offer Dev) templates built | Blueprint updated to v3.1 | 7-step process finalized
 
 ---
 
@@ -20,11 +20,41 @@
 | Zapier: GTM Intake → Slack | COMPLETE | Triggers on new GTM Intake item, posts to #internal-notifications via Digital VA bot |
 | GTM Strategy Blueprint | COMPLETE (v3.0) | `ClearLaunch_GTM_Strategy_Blueprint.md` |
 | QA Checklist | COMPLETE | `ClearLaunch_QA_Checklist.md` |
-| Value Proposition Template | NOT STARTED | — |
-| Offer Engineering Template | NOT STARTED | — |
+| UVP Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_UVP_Template.docx` (Templates branch) |
+| UVP Summary Deck (.pptx) | COMPLETE | `Frameworks/ClearLaunch_UVP_Summary_Deck.pptx` (Templates branch) |
+| UVP Agent Skill v1 | COMPLETE | `Skills/ClearLaunch_UVP_Skill_v1.md` (Skill-Assets branch) |
+| UVP Zapier Zap | CONFIGURED (draft) | 6-step: Fathom → Filter → Notion → Formatter → Find Page → Slack |
+| UVP Workshop Reference | COMPLETE | `Frameworks/uvp_workshop_template.md` (Templates branch) |
+| Offer Dev Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_Offer_Dev_Template.docx` (Templates branch) |
+| Offer Dev Reference | COMPLETE | `Frameworks/offer_dev_template.md` (Templates branch) |
+| Offer Dev Agent Skill | NEEDS UPGRADE | Claude Desktop skill exists, needs production build like UVP |
 | Customer Journey Template | NOT STARTED | — |
-| Metrics/KPI Template | NOT STARTED | — |
-| Implementation Roadmap Template | NOT STARTED | — |
+| Metrics/KPI + Roadmap Templates | NOT STARTED | — |
+
+---
+
+## What Was Accomplished (March 31, 2026 — Session 5)
+
+### Step 4 (UVP) — Full Production Build
+
+1. **UVP Template (.docx) built** — Industry-agnostic 7-section discovery workshop template with adaptive agent notes per business type (SaaS, services, ecommerce, B2B/B2C). ClearThink branded with python-docx.
+2. **UVP Summary Deck (.pptx) built** — 9-slide branded deck: Title, Problem & Market Gap, Methodology & Approach, Expertise & Credibility, Results & Outcomes, Risk Reduction & Assurance, Proof & Validation, Top 3 Differentiators, UVP Statement + Elevator Pitch.
+3. **UVP Skill v1 built** — `Skills/ClearLaunch_UVP_Skill_v1.md`. Full Notion-integrated workflow matching ICP skill pattern: reads transcripts, classifies meeting type, cross-references ICP, extracts through 7-section framework, synthesizes (Top 3 Differentiators, UVP Statement, Elevator Pitch, Positioning Statement), generates .docx + .pptx deliverables, uploads to Client Portal → Reports → Value Proposition.
+4. **UVP Zapier zap configured** — 6-step pipeline: Fathom → Filter ("UVP" in title) → Notion Create Data Source Item → Formatter (split meeting title on " - " to extract client name) → Find Page By Title (GTM Intake lookup) → Slack notification with copy-paste command including client name.
+5. **Fathom call naming convention established** — `Type - Client Name` (e.g., "UVP Workshop - Greenfield Landscaping"). Formatter splits on " - " and takes last segment for GTM Intake lookup.
+
+### Step 5 (Offer Dev) — Templates Built
+
+6. **Offer Dev Template (.docx) built** — Industry-agnostic 3-tier offer ladder (Micro/Macro/Core) with creative angles and objection handling sections. ClearThink branded.
+7. **Offer Dev reference template built** — `Frameworks/offer_dev_template.md` with adaptive notes per business type.
+
+### Process & Organization Updates
+
+8. **7-step process finalized** — Confirmed split: Step 4 = UVP, Step 5 = Offer Dev. Previously these were combined as one step.
+9. **Blueprint updated to v3.1** — Split UVP/Offers, added full Step 4 workflow details, updated data flow diagram, file registry, build statuses, and priorities.
+10. **Zapier spec folded into skill file** — No separate Zapier spec documents. Pipeline details documented inline in the skill file (matching ICP pattern).
+11. **Reference templates moved to Templates branch** — `uvp_workshop_template.md` and `offer_dev_template.md` now live in `Frameworks/` on the Templates branch, not in Skill-Assets Claude Desktop skill folders.
+12. **UVP workshop template updated to agnostic language** — Replaced "firm"→"business", "services"→"offerings", "clients"→"customers" throughout.
 
 ---
 
@@ -155,15 +185,15 @@ Before building Value Proposition / Offer Engineering templates and skills (Step
 
 ---
 
-## What's Next (After Upstream Is Resolved)
+## What's Next
 
-Once the upstream items above are confirmed and working:
-
-1. **Test the full flow end-to-end** — Tally form → GTM Intake DB → Slack notification → Onboarding Skill creates Client Portal → Onboarding call (transcript stored, not processed) → ICP Discovery call → Transcript in Notion → ICP Skill processes → Deliverables stored
-2. **Test the Market Research flow** — ICP complete → Read inputs from portal → Run Ahrefs/SimilarWeb workflows → Populate templates → Store in portal
-3. **Build Value Proposition Template** — .docx structure for Step 3
-4. **Build Offer Engineering Template** — .docx structure for Step 3
-5. **Build Value Prop + Offer Skill** — automate Step 3
+1. **Publish UVP Zapier zap** — configured as draft, ready to go live when Terry is ready
+2. **Build Offer Dev Skill v1** — production upgrade with Notion integration, following UVP skill pattern
+3. **Build Offer Dev Summary Deck (.pptx)** — matching UVP deck pattern
+4. **Build Offer Dev Zapier zap** — same 6-step pipeline pattern, filter for "Offer" in title
+5. **Build Step 6 (Channel Strategy)** — templates, skill, Zapier zap
+6. **Build Step 7 (Success Metrics & Launch Roadmap)** — templates, skill, Zapier zap
+7. **End-to-end testing** — full flow from Tally form through all 7 steps
 
 ---
 
@@ -191,11 +221,21 @@ Once the upstream items above are confirmed and working:
 
 ## Working Files Location
 
+**Skill-Assets branch:**
+- Onboarding Skill: `Skills/ClearLaunch_Onboarding_Skill_v1.md`
 - ICP Skill v2: `Skills/ClearLaunch_ICP_Skill_v2.md`
 - Market Research Skill v2: `Skills/ClearLaunch_Market_Research_Skill_v2.md`
+- UVP Skill v1: `Skills/ClearLaunch_UVP_Skill_v1.md`
+- Field Mapping: `Skills/ClearLaunch_Onboarding_Field_Mapping.md`
 - Claude Desktop Skills: `Skills/Claude-Desktop-Skills/`
-- GTM Blueprint v2: `ClearLaunch_GTM_Strategy_Blueprint.md`
-- Framework templates: `Frameworks/` (8 template files + rebuild script)
+
+**Templates branch:**
+- Framework templates: `Frameworks/` (ICP, MR, UVP, Offer Dev .docx + .pptx files)
+- Reference templates: `Frameworks/uvp_workshop_template.md`, `Frameworks/offer_dev_template.md`
+- Build scripts: `Frameworks/rebuild_icp_decks.py`, `Frameworks/build_step3_step4_templates.py`, `Frameworks/build_uvp_deck.py`
+
+**GTM-Strategy branch:**
+- GTM Blueprint v3.1: `ClearLaunch_GTM_Strategy_Blueprint.md`
 - Session notes: this file
 
 ---
