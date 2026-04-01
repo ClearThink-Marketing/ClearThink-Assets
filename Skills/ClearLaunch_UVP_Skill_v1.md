@@ -42,19 +42,37 @@ Before this skill runs, the following must already exist:
 
 ## Zapier Pipeline: Fathom → Notion → Slack
 
-The UVP transcript pipeline follows the same pattern as the ICP pipeline. A Zapier zap handles the automation:
+The UVP transcript pipeline follows the same pattern as the ICP pipeline. A Zapier zap (6 steps) handles the automation:
 
 1. **Trigger:** Fathom new recording
 2. **Filter:** Meeting title contains "UVP" (case-insensitive) — routes only UVP-related meetings
-3. **Action 1:** Create page in Notion Transcripts DB (`collection://0f372290-8993-4c7e-b303-13afca181721`)
+3. **Notion — Create Data Source Item:** Create page in Transcripts DB (`collection://0f372290-8993-4c7e-b303-13afca181721`)
    - Maps: Meeting Title, Attendees, Meeting Date, Duration, Fathom Share URL, Recording URL
    - Sets Status to "Not started"
    - Meeting Type left blank (agent classifies after reading content)
-   - Client relation set manually by Terry (future: Zapier lookup step)
    - Full transcript text pasted as page body content
-4. **Action 2:** Send Slack message to `#internal-notifications` via "Digital VA" bot: "UVP Discovery transcript created for [Client Name]"
+4. **Formatter — Split Text:** Extracts the client name from the Meeting Title
+   - Input: Meeting Title (e.g., "UVP Workshop - Greenfield Landscaping")
+   - Separator: ` - `
+   - Segment Index: Last
+   - Output: Client name (e.g., "Greenfield Landscaping")
+5. **Notion — Find Database Item:** Looks up client in GTM Intake DB (`collection://476a46cc-8fab-428c-acb2-f82d61cf1fdd`)
+   - Search Property: Company Name
+   - Search Value: Formatter output from Step 4
+   - Returns: Validated Company Name from GTM Intake
+6. **Slack — Send Channel Message:** Posts to `#internal-notifications` via "Digital VA" bot:
+   ```
+   📋 UVP transcript ready: *[Meeting Title]*
 
-**Note:** Zapier does the title-based routing only. The agent does formal meeting type classification after reading the transcript content.
+   Client: [GTM Intake Company Name]
+   Attendees: [Meeting Invitees Name]
+   Fathom: [Recording Share Url]
+
+   Copy & paste into Claude Code:
+   `process UVP transcript for [GTM Intake Company Name]`
+   ```
+
+**Note:** Meeting title naming convention is `Type - Client Name` (e.g., "UVP Workshop - Greenfield Landscaping"). Zapier does the title-based routing and client name extraction. The agent does formal meeting type classification after reading the transcript content.
 
 ---
 
