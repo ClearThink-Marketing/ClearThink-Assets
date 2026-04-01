@@ -211,7 +211,7 @@ This transcript is stored for reference only — **no agent skill processes the 
 
 ### Step 4: UVP Development
 
-**Status: BUILT** (templates complete, agent skill complete, Zapier spec documented)
+**Status: BUILT** (templates complete, agent skill complete, Zapier pipeline documented inline)
 
 **What it accomplishes:** Takes the ICP pain points (from Step 2) and the competitive gaps (from Step 3) and synthesizes them into a unique value proposition — Top 3 differentiators, a UVP statement, an elevator pitch, and a positioning statement. This is the messaging backbone that feeds into offer development, website copy, ad creative, and sales scripts.
 
@@ -248,8 +248,7 @@ This transcript is stored for reference only — **no agent skill processes the 
 6. Proof & Validation — evidence of differentiation in action
 7. UVP Synthesis — Top 3 Differentiators, UVP Statement, Elevator Pitch, Positioning Statement
 
-**Skill file:** `Skills/ClearLaunch_UVP_Skill_v1.md`
-**Zapier spec:** `Skills/ClearLaunch_UVP_Zapier_Spec.md`
+**Skill file:** `Skills/ClearLaunch_UVP_Skill_v1.md` (includes Zapier pipeline details inline)
 
 **Framework files:**
 - `Frameworks/ClearLaunch_UVP_Template.docx`
@@ -481,7 +480,7 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 | UVP Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_UVP_Template.docx` — 7-section framework, industry-agnostic |
 | UVP Summary Deck (.pptx) | COMPLETE | `Frameworks/ClearLaunch_UVP_Summary_Deck.pptx` — 9 slides, ClearThink branded |
 | UVP Agent Skill v1 | COMPLETE | `Skills/ClearLaunch_UVP_Skill_v1.md` — full Notion integration, transcript pipeline, ICP cross-reference |
-| UVP Zapier Spec | COMPLETE | `Skills/ClearLaunch_UVP_Zapier_Spec.md` — documented, ready for Zapier configuration |
+| UVP Zapier Pipeline | COMPLETE | Documented inline in `Skills/ClearLaunch_UVP_Skill_v1.md` — ready for Zapier configuration |
 | Offer Dev Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_Offer_Dev_Template.docx` — 3-tier ladder, industry-agnostic |
 | Offer Dev Agent Skill | NEEDS UPGRADE | Claude Desktop skill exists but needs production upgrade (Notion integration, deliverable generation) |
 | Customer Journey Template | NOT STARTED | No template exists |
@@ -489,7 +488,7 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 
 ### Build Priority (Recommended Order)
 
-1. **Configure UVP Zapier zap** — spec is documented (`Skills/ClearLaunch_UVP_Zapier_Spec.md`), needs manual setup in Zapier
+1. **Configure UVP Zapier zap** — pipeline documented inline in the UVP Skill file, needs manual setup in Zapier
 2. **Build Offer Dev Skill v1** — production upgrade with Notion integration, following UVP skill pattern
 3. **Build Offer Dev Summary Deck** — .pptx template for Step 5 deliverables
 4. **Build Customer Journey Template** — design the .docx structure for Step 6
