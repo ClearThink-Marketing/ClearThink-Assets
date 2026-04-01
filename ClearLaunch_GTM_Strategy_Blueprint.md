@@ -34,18 +34,18 @@ The ClearLaunch System is an 8-week, industry-agnostic go-to-market strategy spr
 | 1 | Client Onboarding & Portal Setup | Client Portal in Notion — validated intake data, populated Client Information, scaffolded Reports section |
 | 2 | Ideal Customer Profile | ICP Analysis document (.docx) + ICP Summary Deck (.pptx) — 1-3 prioritized customer segments, pain point mapping, decision-making criteria, qualifying/disqualifying criteria |
 | 3 | Market Landscape Analysis | Market Research document (.docx) + Market Research Summary Deck (.pptx) — keyword research (up to 50 keywords), competitive analysis, audience intelligence, content gap analysis |
-| 4 | Value Proposition & Offer Engineering | Value Proposition document (.docx) + Offer Engineering document (.docx) — strategic positioning, core messaging, MICRO offer (lead magnets), MACRO offer (core revenue offer) |
-| 5 | Channel Strategy & Customer Journey | Customer Journey document (.docx) — journey mapping (awareness to advocacy), channel strategy matrix, budget allocation recommendations |
-| 6 | Success Metrics & KPIs | KPI Framework document (.docx) — 5-10 priority metrics, measurement cadence, baseline benchmarks, reporting structure |
-| 7 | Implementation Roadmap | Launch Roadmap document (.docx) — 90-day tactical plan with weekly milestones, budget allocation, prioritized actions, clear ownership |
+| 4 | UVP Development | UVP document (.docx) + UVP Summary Deck (.pptx) — Top 3 differentiators, UVP statement, elevator pitch, positioning statement, 7-section framework |
+| 5 | Offer Development | Offer Development document (.docx) — 3-tier offer ladder (Micro/Macro/Core), creative angles, objection handling |
+| 6 | Channel Strategy & Customer Journey | Customer Journey document (.docx) — journey mapping (awareness to advocacy), channel strategy matrix, budget allocation recommendations |
+| 7 | Success Metrics & Launch Roadmap | KPI Framework + Implementation Roadmap (.docx) — 5-10 priority metrics, 90-day tactical plan, budget allocation, prioritized actions |
 
 ### The 4-Phase Timeline
 
 | Phase | Weeks | Steps | Focus |
 |---|---|---|---|
 | Phase 1: Onboarding, Discovery & Research | 1-2 | Steps 1-3 | Client onboarding, ICP discovery sessions, market research, keyword analysis, competitive landscape |
-| Phase 2: Strategy Development | 3-4 | Steps 4-5 | Value proposition, messaging framework, offer engineering, customer journey mapping, channel identification |
-| Phase 3: Framework & Roadmap Creation | 5-6 | Steps 6-7 | Success metrics, KPI framework, budget optimization, 90-day implementation roadmap |
+| Phase 2: Strategy Development | 3-4 | Steps 4-5 | UVP development, offer engineering (Micro/Macro/Core ladder), messaging framework |
+| Phase 3: Channel & Roadmap | 5-6 | Steps 6-7 | Customer journey mapping, channel strategy, success metrics, KPI framework, 90-day implementation roadmap |
 | Phase 4: Strategy Delivery & Launch Prep | 7-8 | Delivery | Complete strategy delivery, priority recommendations, tracking activation, first campaign launch support |
 
 ---
@@ -209,35 +209,85 @@ This transcript is stored for reference only — **no agent skill processes the 
 
 ---
 
-### Step 4: Craft Value Proposition & Messaging
+### Step 4: UVP Development
 
-**Status: NOT STARTED** (no template, no skill)
+**Status: BUILT** (templates complete, agent skill complete, Zapier spec documented)
 
-**What it accomplishes:** Takes the ICP pain points (from Step 2) and the competitive gaps (from Step 3) and synthesizes them into a unique value proposition and messaging framework. Also designs the client's offer structure — both MICRO offers (low-commitment entry points like lead magnets, free audits, downloadable guides) and MACRO offers (the core paid service/product that generates revenue).
+**What it accomplishes:** Takes the ICP pain points (from Step 2) and the competitive gaps (from Step 3) and synthesizes them into a unique value proposition — Top 3 differentiators, a UVP statement, an elevator pitch, and a positioning statement. This is the messaging backbone that feeds into offer development, website copy, ad creative, and sales scripts.
 
-**How it should work:**
-1. Agent reads ICP data + Market Research data from Notion
-2. Cross-references: what does the target audience need (pain points) that competitors aren't adequately serving (gaps)?
-3. Generates UVP candidates — positioning statements that answer "Why us, why now?"
-4. Designs MICRO offer: the entry point that proves value and captures leads
-5. Designs MACRO offer: the core engagement that generates revenue
-6. Builds messaging framework: headlines, proof points, objection handlers, CTAs
+**How it works in practice:**
+1. Terry conducts a UVP workshop call with the client (recorded via Fathom)
+2. The call transcript lands in Notion automatically (Fathom → Zapier → Notion Transcripts DB with Status: "Not started")
+3. Zapier sends a Slack notification to `#internal-notifications` via "Digital VA" bot
+4. Terry opens Claude Code and says "process UVP transcript"
+5. Agent queries Notion for "Not started" transcripts, reads content, classifies as UVP
+6. Agent sets status to "In progress", reads the client's completed ICP from their portal
+7. Agent extracts data through the 7-section framework (Problem, Methodology, Expertise, Results, Risk, Proof, Synthesis)
+8. Agent cross-references ICP Tier 1 pain points to ground differentiators in real audience needs
+9. Agent synthesizes: Top 3 Differentiators, UVP Statement, Elevator Pitch, Positioning Statement
+10. Both .docx and .pptx deliverables are populated
+11. Deliverables stored in client portal (Reports → Value Proposition section)
+12. Transcript record updated to "Done"
 
 **What the agent needs as input:**
-- ICP data (Tier 1 pain points, buying triggers, decision-making criteria)
-- Market research data (competitive weaknesses, content gaps, keyword opportunities)
+- A "Not started" transcript in Notion (classified as UVP by agent after reading content)
+- Completed ICP deliverable from Step 2 (Tier 1 pain points, buying triggers, competitive landscape)
+- The Client relation must be set on the transcript
 
-**What it should produce:**
-- Value Proposition Template (.docx) — TO BE BUILT
-- Offer Engineering Template (.docx) — TO BE BUILT
-- Messaging framework with headlines, proof points, objection handlers
-- Structured value proposition data stored in Notion (becomes input for Steps 5-7)
+**What it produces:**
+- Populated UVP Template (.docx) — 7-section framework + synthesis outputs
+- Populated UVP Summary Deck (.pptx) — 9 slides presenting the refined UVP
+- Deliverables stored in client portal Reports section
 
-**Key principle:** The value proposition must translate what the client does into the outcomes their customers care about — not just features or capabilities, but results. This is especially important for technical businesses that tend to describe services in jargon rather than benefits.
+**The 7-section framework:**
+1. Problem & Market Gap — what's broken that this business uniquely fixes
+2. Methodology & Approach — HOW they do it differently
+3. Expertise & Credibility — what makes them uniquely qualified
+4. Results & Outcomes — measurable impact competitors can't match
+5. Risk Reduction & Assurance — why the buying decision feels safe
+6. Proof & Validation — evidence of differentiation in action
+7. UVP Synthesis — Top 3 Differentiators, UVP Statement, Elevator Pitch, Positioning Statement
+
+**Skill file:** `Skills/ClearLaunch_UVP_Skill_v1.md`
+**Zapier spec:** `Skills/ClearLaunch_UVP_Zapier_Spec.md`
+
+**Framework files:**
+- `Frameworks/ClearLaunch_UVP_Template.docx`
+- `Frameworks/ClearLaunch_UVP_Summary_Deck.pptx`
 
 ---
 
-### Step 5: Design Channel Strategy & Customer Journey
+### Step 5: Offer Development
+
+**Status: PARTIALLY BUILT** (templates complete, agent skill exists but needs production upgrade)
+
+**What it accomplishes:** Designs the client's complete offer stack — a 3-tier ladder from free entry-point (Micro Offer) through initial paid engagement (Macro Offer) to full core engagement (Core Offer). Each tier builds trust and leads naturally to the next.
+
+**What the agent needs as input:**
+- Completed ICP (Tier 1 pain points, buying triggers)
+- Completed UVP (Top 3 differentiators, positioning)
+- Industry/vertical context
+
+**What it should produce:**
+- Populated Offer Development Template (.docx) — 3-tier offer ladder, creative angles, objection handling
+- Deliverables stored in client portal Reports section
+
+**The 3-tier offer ladder:**
+- **Micro Offer (Marketing Offer):** Free resource that demonstrates expertise (audit, calculator, guide, quiz, sample kit)
+- **Macro Offer (Business Offer):** Entry-point paid offering that proves the relationship works (consultation, starter plan, pilot project)
+- **Core Offer (Full Engagement):** Primary revenue driver (retainer, subscription, full implementation)
+
+**Framework files:**
+- `Frameworks/ClearLaunch_Offer_Dev_Template.docx`
+
+**Remaining items:**
+- Build production skill (`ClearLaunch_Offer_Dev_Skill_v1.md`) following the same pattern as UVP — Notion integration, transcript processing, deliverable generation, portal upload
+- Build Offer Dev Summary Deck (.pptx)
+- Document Zapier zap spec for Offer Dev transcript pipeline
+
+---
+
+### Step 6: Channel Strategy & Customer Journey
 
 **Status: NOT STARTED** (no template, no skill)
 
@@ -258,64 +308,28 @@ This transcript is stored for reference only — **no agent skill processes the 
 **What it should produce:**
 - Customer Journey Template (.docx) — TO BE BUILT
 - Channel strategy matrix with budget allocation recommendations
-- Journey data stored in Notion (becomes input for Steps 6-7)
+- Journey data stored in Notion (becomes input for Step 7)
 
 **Channel strategy principle:** Start focused. Pick 1-2 primary channels that match the audience and the client's capacity. Prove ROI there before expanding. The most common GTM failure is channel sprawl — trying to be everywhere at once and being effective nowhere.
 
 ---
 
-### Step 6: Define Success Metrics & KPI Framework
+### Step 7: Success Metrics & Launch Roadmap
 
 **Status: NOT STARTED** (no template, no skill)
 
-**What it accomplishes:** Defines what success looks like for the client's GTM strategy before the launch roadmap is built. Establishes KPIs per channel, measurement cadence, and baseline metrics so the 90-day plan in Step 7 is built around measurable outcomes, not just activities.
-
-**How it should work:**
-1. Agent reads all prior outputs — especially the channel strategy from Step 5
-2. For each channel selected, defines: primary KPI, secondary metrics, measurement frequency, target benchmarks
-3. Establishes baseline metrics (where the client is now) vs. target metrics (where they should be in 90 days)
-4. Defines the reporting cadence — what gets measured weekly, monthly, quarterly
-5. Identifies what tools/tracking need to be in place before launch
-
-**What the agent needs as input:**
-- Channel strategy (from Step 5)
-- Current client metrics (if available — website traffic, lead volume, conversion rates)
-- Budget constraints
-
-**What it should produce:**
-- Success Metrics & KPI Template (.docx) — TO BE BUILT
-- KPI dashboard structure with 5-10 priority metrics
-- Metrics data stored in Notion (becomes input for Step 7)
-
-**Note:** Sales/marketing alignment and CRM capabilities may factor into this step for clients who have sales teams. For now, this is not a formal sub-step, but it's worth noting that some clients will need funnel stage definitions (MQL, SQL, etc.) and lead handoff criteria documented here.
-
----
-
-### Step 7: Deliver Launch Roadmap
-
-**Status: NOT STARTED** (no template, no skill)
-
-**What it accomplishes:** Packages everything from Steps 1-6 into a 90-day tactical execution plan with specific tasks, timelines, budget allocations, and clear ownership. This is the final deliverable — the client's roadmap for taking action.
-
-**How it should work:**
-1. Agent reads all prior outputs from Notion
-2. Translates strategy into weekly/monthly action items for the first 90 days
-3. Assigns priorities: what delivers fastest results vs. what builds long-term foundation
-4. Allocates budget across channels based on the metrics framework from Step 6
-5. Creates the roadmap document + final presentation
+**What it accomplishes:** Defines success metrics and KPIs per channel, then packages everything from Steps 1-6 into a 90-day tactical execution plan with specific tasks, timelines, budget allocations, and clear ownership.
 
 **What the agent needs as input:**
 - All outputs from Steps 1-6
-- Client's available budget
-- Client's internal capacity (team size, who does what)
+- Client's available budget and internal capacity
 
 **What it should produce:**
-- Implementation Roadmap Template (.docx) — TO BE BUILT
-- 90-day plan with weekly milestones
-- Budget allocation matrix
-- Prioritized action items with ownership
+- Success Metrics & KPI Framework (.docx) — TO BE BUILT
+- Implementation Roadmap (.docx) — 90-day plan with weekly milestones, budget allocation, prioritized actions
+- Both stored in client portal Reports section
 
-**Key principle:** The roadmap should be actionable regardless of who executes it. Whether the client implements it themselves, hires ClearThink for the SEO retainer, or brings in another partner — the strategy stands on its own.
+**Key principle:** The roadmap should be actionable regardless of who executes it.
 
 ---
 
@@ -365,13 +379,18 @@ TALLY ONBOARDING FORM (Client)            ICP DISCOVERY CALL (Terry + Client)
   │  - Fills MR template + deck                             │
   │  - Stores structured MR data in Notion                  │
   │                                                         │
-  │  Step 4 Role: Value Prop Skill                          │
-  │  - Reads ICP + MR data from Notion                      │
-  │  - Generates UVP, offers, messaging                     │
-  │  - Fills VP template                                    │
-  │  - Stores VP data in Notion                             │
+  │  Step 4 Role: UVP Skill                                  │
+  │  - Reads UVP workshop transcript from Notion            │
+  │  - Cross-references ICP pain points                     │
+  │  - Synthesizes differentiators, UVP, elevator pitch     │
+  │  - Fills UVP template (.docx) + deck (.pptx)            │
   │                                                         │
-  │  Steps 5-7: Same pattern                                │
+  │  Step 5 Role: Offer Dev Skill                           │
+  │  - Reads ICP + UVP from Notion                          │
+  │  - Designs Micro/Macro/Core offer ladder                │
+  │  - Fills Offer Dev template                             │
+  │                                                         │
+  │  Steps 6-7: Same pattern                                │
   │  - Each step reads prior outputs from Notion            │
   │  - Fills its respective template                        │
   │  - Stores structured data for next step                 │
@@ -383,9 +402,9 @@ TALLY ONBOARDING FORM (Client)            ICP DISCOVERY CALL (Terry + Client)
 - Step 1 creates the Client Portal → all subsequent steps read from and write to it
 - Step 2 produces ICP data → Step 3 uses it to know what keywords/competitors to research
 - Step 3 produces market data → Step 4 uses it to find positioning opportunities
-- Step 4 produces value prop → Step 5 uses it to determine channel messaging
-- Step 5 produces channel strategy → Step 6 uses it to define per-channel KPIs
-- Step 6 produces metrics framework → Step 7 uses it to build the measured roadmap
+- Step 4 produces UVP → Step 5 uses it to design offers aligned to differentiators
+- Step 5 produces offer stack → Step 6 uses it to determine channel messaging and journey
+- Step 6 produces channel strategy → Step 7 uses it to define KPIs and build the 90-day roadmap
 
 **Notion is the hub.** Every step reads from and writes to Notion. This keeps all client data in one place and makes it accessible to whichever skill the agent is running.
 
@@ -415,14 +434,21 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 | `ClearLaunch_B2C_Market_Research_Template.docx` | Word Template | `Frameworks/` | Step 3 |
 | `ClearLaunch_B2C_Market_Research_Summary_Deck.pptx` | PowerPoint Deck | `Frameworks/` | Step 3 |
 
+### Recently Built (Steps 4-5)
+
+| File | Type | Location | Used In |
+|---|---|---|---|
+| `ClearLaunch_UVP_Template.docx` | Word Template | `Frameworks/` | Step 4 |
+| `ClearLaunch_UVP_Summary_Deck.pptx` | PowerPoint Deck | `Frameworks/` | Step 4 |
+| `ClearLaunch_Offer_Dev_Template.docx` | Word Template | `Frameworks/` | Step 5 |
+
 ### Templates To Be Built (GAPS)
 
 | Template Needed | Used In | Depends On |
 |---|---|---|
-| Value Proposition Template (.docx) | Step 4 | ICP + MR templates finalized |
-| Offer Engineering Template (.docx) | Step 4 | Value Proposition template |
-| Customer Journey Template (.docx) | Step 5 | Steps 2-4 output structure |
-| Success Metrics & KPI Template (.docx) | Step 6 | Channel strategy from Step 5 |
+| Offer Dev Summary Deck (.pptx) | Step 5 | Offer Dev template (exists) |
+| Customer Journey Template (.docx) | Step 6 | Steps 2-5 output structure |
+| Success Metrics & KPI Template (.docx) | Step 7 | Channel strategy from Step 6 |
 | Implementation Roadmap Template (.docx) | Step 7 | All prior templates |
 
 ### Other Files in the Project
@@ -452,23 +478,24 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 | ICP Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_ICP_Skill_v2.md` — full Notion integration, Fathom→Notion flow, tiering logic |
 | Market Research Templates (B2B + B2C) | COMPLETE | 4 files built and branded (15 data tables each) |
 | Market Research Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_Market_Research_Skill_v2.md` — 16-step workflow, Ahrefs/SimilarWeb/Meta Ad Library browser workflows |
-| Value Proposition Template | NOT STARTED | No template exists |
-| Offer Engineering Template | NOT STARTED | No template exists |
+| UVP Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_UVP_Template.docx` — 7-section framework, industry-agnostic |
+| UVP Summary Deck (.pptx) | COMPLETE | `Frameworks/ClearLaunch_UVP_Summary_Deck.pptx` — 9 slides, ClearThink branded |
+| UVP Agent Skill v1 | COMPLETE | `Skills/ClearLaunch_UVP_Skill_v1.md` — full Notion integration, transcript pipeline, ICP cross-reference |
+| UVP Zapier Spec | COMPLETE | `Skills/ClearLaunch_UVP_Zapier_Spec.md` — documented, ready for Zapier configuration |
+| Offer Dev Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_Offer_Dev_Template.docx` — 3-tier ladder, industry-agnostic |
+| Offer Dev Agent Skill | NEEDS UPGRADE | Claude Desktop skill exists but needs production upgrade (Notion integration, deliverable generation) |
 | Customer Journey Template | NOT STARTED | No template exists |
-| Metrics/KPI Template | NOT STARTED | No template exists |
-| Implementation Roadmap Template | NOT STARTED | No template exists |
+| Metrics/KPI + Roadmap Templates | NOT STARTED | No template exists |
 
 ### Build Priority (Recommended Order)
 
-1. **Build Market Research Skill v2** — map to the 15 template tables, add Ahrefs/SimilarWeb/Meta Ad Library browser workflows, Notion data flow
-2. **Build Value Proposition Template** — design the .docx structure for Step 4
-3. **Build Offer Engineering Template** — design the .docx structure for Step 4
-4. **Build Value Prop + Offer Skill** — automate Step 4 using ICP + MR output
-5. **Build Customer Journey Template** — design the .docx structure for Step 5
-6. **Build Channel Strategy + Journey Skill** — automate Step 5
-7. **Build Metrics/KPI Template** — design .docx structure for Step 6
-8. **Build Implementation Roadmap Template** — design .docx structure for Step 7
-9. **Build final skills for Steps 6-7** — complete the automation chain
+1. **Configure UVP Zapier zap** — spec is documented (`Skills/ClearLaunch_UVP_Zapier_Spec.md`), needs manual setup in Zapier
+2. **Build Offer Dev Skill v1** — production upgrade with Notion integration, following UVP skill pattern
+3. **Build Offer Dev Summary Deck** — .pptx template for Step 5 deliverables
+4. **Build Customer Journey Template** — design the .docx structure for Step 6
+5. **Build Channel Strategy Skill** — automate Step 6
+6. **Build Metrics/KPI + Roadmap Templates** — design .docx structures for Step 7
+7. **Build final skill for Step 7** — complete the automation chain
 
 ### Open Questions
 
@@ -558,4 +585,4 @@ The ClearLaunch → Retainer conversion funnel is critical. ClearLaunch must pro
 
 ---
 
-*Last updated: March 29, 2026 (v3.0 — renumbered to 7-step process, added Step 1 onboarding call documentation, renamed "discovery call" to "ICP Discovery call" throughout, added Zapier GTM Intake → Slack notification)*
+*Last updated: March 31, 2026 (v3.1 — split Step 4 into UVP Development + Offer Development, added full Step 4 UVP build details, updated file registry and build statuses, updated data flow diagram)*
