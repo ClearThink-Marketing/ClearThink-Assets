@@ -56,20 +56,20 @@ The UVP transcript pipeline follows the same pattern as the ICP pipeline. A Zapi
    - Separator: ` - `
    - Segment Index: Last
    - Output: Client name (e.g., "Greenfield Landscaping")
-5. **Notion — Find Database Item:** Looks up client in GTM Intake DB (`collection://476a46cc-8fab-428c-acb2-f82d61cf1fdd`)
-   - Search Property: Company Name
-   - Search Value: Formatter output from Step 4
-   - Returns: Validated Company Name from GTM Intake
+5. **Notion — Find Page (By Title):** Validates client name against GTM Intake DB
+   - Title: Formatter output from Step 4 (extracted client name)
+   - Exact Match: Yes
+   - Validates that the client exists in the system
 6. **Slack — Send Channel Message:** Posts to `#internal-notifications` via "Digital VA" bot:
    ```
    📋 UVP transcript ready: *[Meeting Title]*
 
-   Client: [GTM Intake Company Name]
+   Client: [Formatter output (client name)]
    Attendees: [Meeting Invitees Name]
    Fathom: [Recording Share Url]
 
    Copy & paste into Claude Code:
-   `process UVP transcript for [GTM Intake Company Name]`
+   `process UVP transcript for [Formatter output (client name)]`
    ```
 
 **Note:** Meeting title naming convention is `Type - Client Name` (e.g., "UVP Workshop - Greenfield Landscaping"). Zapier does the title-based routing and client name extraction. The agent does formal meeting type classification after reading the transcript content.
