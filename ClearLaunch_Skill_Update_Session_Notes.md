@@ -1,6 +1,6 @@
 # ClearLaunch Skill Update — Session Notes
-**Last Updated:** March 31, 2026
-**Status:** Step 4 (UVP) BUILT — templates, skill v1, summary deck, Zapier zap configured | Step 5 (Offer Dev) templates built | Blueprint updated to v3.1 | 7-step process finalized
+**Last Updated:** April 4, 2026
+**Status:** Steps 1–5 BUILT. Step 5 (Offer Dev) shipped: production skill v1, 8-slide summary deck, Zapier zap live. Legacy Step 3/4 labels on UVP + Offer Dev templates fixed. Blueprint updated to v3.2.
 
 ---
 
@@ -18,18 +18,42 @@
 | Market Research Templates (B2B + B2C) | COMPLETE | `Frameworks/` (4 files, 15 tables each) |
 | Market Research Agent Skill v2 | COMPLETE | `Skills/ClearLaunch_Market_Research_Skill_v2.md` |
 | Zapier: GTM Intake → Slack | COMPLETE | Triggers on new GTM Intake item, posts to #internal-notifications via Digital VA bot |
-| GTM Strategy Blueprint | COMPLETE (v3.1) | `ClearLaunch_GTM_Strategy_Blueprint.md` |
+| GTM Strategy Blueprint | COMPLETE (v3.2) | `ClearLaunch_GTM_Strategy_Blueprint.md` |
 | QA Checklist | COMPLETE | `ClearLaunch_QA_Checklist.md` |
 | UVP Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_UVP_Template.docx` (Templates branch) |
 | UVP Summary Deck (.pptx) | COMPLETE | `Frameworks/ClearLaunch_UVP_Summary_Deck.pptx` (Templates branch) |
 | UVP Agent Skill v1 | COMPLETE | `Skills/ClearLaunch_UVP_Skill_v1.md` (Skill-Assets branch) |
 | UVP Zapier Zap | CONFIGURED (draft) | 6-step: Fathom → Filter → Notion → Formatter → Find Page → Slack |
 | UVP Workshop Reference | COMPLETE | `Frameworks/uvp_workshop_template.md` (Templates branch) |
-| Offer Dev Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_Offer_Dev_Template.docx` (Templates branch) |
+| Offer Dev Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_Offer_Dev_Template.docx` (Templates branch) — Step 5 label corrected |
 | Offer Dev Reference | COMPLETE | `Frameworks/offer_dev_template.md` (Templates branch) |
-| Offer Dev Agent Skill | NEEDS UPGRADE | Claude Desktop skill exists, needs production build like UVP |
+| Offer Dev Summary Deck (.pptx) | COMPLETE | `Frameworks/ClearLaunch_Offer_Dev_Summary_Deck.pptx` (Templates branch) — 8 slides, ClearThink branded |
+| Offer Dev Agent Skill v1 | COMPLETE | `Skills/ClearLaunch_Offer_Dev_Skill_v1.md` (Skill-Assets branch) |
+| Offer Dev Zapier Zap | LIVE | 6-step: Fathom → Filter ("Offer") → Notion → Formatter → Find Page → Slack |
 | Customer Journey Template | NOT STARTED | — |
 | Metrics/KPI + Roadmap Templates | NOT STARTED | — |
+
+---
+
+## What Was Accomplished (April 4, 2026 — Session 6)
+
+### Step 5 (Offer Dev) — Full Production Build
+
+1. **Offer Dev Skill v1 built** — `Skills/ClearLaunch_Offer_Dev_Skill_v1.md` (Skill-Assets branch). 13-section production skill mirroring UVP Skill v1: purpose + trigger phrases, 7-step process position, prerequisites (ICP + UVP required), inline Zapier pipeline spec, Notion DB references, 3-tier offer ladder framework (9 Micro + 10 Macro + 7 Core discovery questions + 4 creative angles + 5 objections), industry adaptation guidelines, 9-step workflow (find → claim → classify → read ICP + UVP → extract → synthesize → populate templates → store in portal → update Notion), quality checklist, workshop follow-up flow, fallback handling.
+2. **Offer Dev Summary Deck (.pptx) built** — 8 slides: Title, Offer Ladder visual (3-tier stacked), Micro Offer, Macro Offer, Core Offer, Creative Angles (4-column), Objection Handling (5 pairs), Offer Ladder Synthesis. ClearThink branded with python-pptx, matches UVP deck styling exactly.
+3. **Deck build script built** — `Frameworks/build_offer_dev_deck.py` (Templates branch) — duplicate of UVP deck pattern, reusable helpers (header banner, footer, content card, numbered badge).
+4. **Offer Dev Zapier zap configured LIVE** — 6-step pipeline matching UVP pattern: Fathom → Filter ("Offer" in title) → Notion Create → Formatter (split on " - ") → Find Page By Title (GTM Intake) → Slack notification with copy-paste command `process Offer Dev transcript for [Client Name]`.
+
+### Legacy Step Labels Fixed
+
+5. **UVP template subtitle corrected** — Was "Step 3: UVP Development" (legacy from pre-reorg numbering), now reads "Step 4: UVP Development".
+6. **Offer Dev template subtitle corrected** — Was "Step 4: Offer Development", now reads "Step 5: Offer Development".
+7. **Build script renamed** — `build_step3_step4_templates.py` → `build_step4_step5_templates.py` for consistency with current step numbering.
+8. **Both .docx templates regenerated** — With corrected subtitles, all other content unchanged.
+
+### Documentation
+
+9. **Blueprint updated to v3.2** — Step 5 status flipped to BUILT, build status table updated, Offer Dev Summary Deck removed from "Templates To Be Built" gaps, build priority list trimmed to Steps 6–7 only.
 
 ---
 

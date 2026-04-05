@@ -1,6 +1,6 @@
 # ClearLaunch GTM Strategy Blueprint
 
-**ClearThink Marketing | Version 3.1 | March 2026**
+**ClearThink Marketing | Version 3.2 | April 2026**
 
 ---
 
@@ -258,7 +258,7 @@ This transcript is stored for reference only — **no agent skill processes the 
 
 ### Step 5: Offer Development
 
-**Status: PARTIALLY BUILT** (templates complete, agent skill exists but needs production upgrade)
+**Status: BUILT** (templates complete, agent skill complete, Zapier pipeline documented inline)
 
 **What it accomplishes:** Designs the client's complete offer stack — a 3-tier ladder from free entry-point (Micro Offer) through initial paid engagement (Macro Offer) to full core engagement (Core Offer). Each tier builds trust and leads naturally to the next.
 
@@ -269,7 +269,8 @@ This transcript is stored for reference only — **no agent skill processes the 
 
 **What it should produce:**
 - Populated Offer Development Template (.docx) — 3-tier offer ladder, creative angles, objection handling
-- Deliverables stored in client portal Reports section
+- Offer Dev Summary Deck (.pptx) — 8-slide branded deck summarizing the ladder
+- Deliverables stored in client portal Reports → Offer Development section
 
 **The 3-tier offer ladder:**
 - **Micro Offer (Marketing Offer):** Free resource that demonstrates expertise (audit, calculator, guide, quiz, sample kit)
@@ -278,11 +279,9 @@ This transcript is stored for reference only — **no agent skill processes the 
 
 **Framework files:**
 - `Frameworks/ClearLaunch_Offer_Dev_Template.docx`
-
-**Remaining items:**
-- Build production skill (`ClearLaunch_Offer_Dev_Skill_v1.md`) following the same pattern as UVP — Notion integration, transcript processing, deliverable generation, portal upload
-- Build Offer Dev Summary Deck (.pptx)
-- Document Zapier zap spec for Offer Dev transcript pipeline
+- `Frameworks/ClearLaunch_Offer_Dev_Summary_Deck.pptx`
+- `Frameworks/build_offer_dev_deck.py`
+- `Skills/ClearLaunch_Offer_Dev_Skill_v1.md`
 
 ---
 
@@ -440,12 +439,12 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 | `ClearLaunch_UVP_Template.docx` | Word Template | `Frameworks/` | Step 4 |
 | `ClearLaunch_UVP_Summary_Deck.pptx` | PowerPoint Deck | `Frameworks/` | Step 4 |
 | `ClearLaunch_Offer_Dev_Template.docx` | Word Template | `Frameworks/` | Step 5 |
+| `ClearLaunch_Offer_Dev_Summary_Deck.pptx` | PowerPoint Deck | `Frameworks/` | Step 5 |
 
 ### Templates To Be Built (GAPS)
 
 | Template Needed | Used In | Depends On |
 |---|---|---|
-| Offer Dev Summary Deck (.pptx) | Step 5 | Offer Dev template (exists) |
 | Customer Journey Template (.docx) | Step 6 | Steps 2-5 output structure |
 | Success Metrics & KPI Template (.docx) | Step 7 | Channel strategy from Step 6 |
 | Implementation Roadmap Template (.docx) | Step 7 | All prior templates |
@@ -482,19 +481,18 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 | UVP Agent Skill v1 | COMPLETE | `Skills/ClearLaunch_UVP_Skill_v1.md` — full Notion integration, transcript pipeline, ICP cross-reference |
 | UVP Zapier Pipeline | COMPLETE | Documented inline in `Skills/ClearLaunch_UVP_Skill_v1.md` — ready for Zapier configuration |
 | Offer Dev Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_Offer_Dev_Template.docx` — 3-tier ladder, industry-agnostic |
-| Offer Dev Agent Skill | NEEDS UPGRADE | Claude Desktop skill exists but needs production upgrade (Notion integration, deliverable generation) |
+| Offer Dev Summary Deck (.pptx) | COMPLETE | `Frameworks/ClearLaunch_Offer_Dev_Summary_Deck.pptx` — 8 slides, ClearThink branded |
+| Offer Dev Agent Skill v1 | COMPLETE | `Skills/ClearLaunch_Offer_Dev_Skill_v1.md` — full Notion integration, transcript pipeline, ICP + UVP cross-reference |
+| Offer Dev Zapier Pipeline | COMPLETE | Documented inline in `Skills/ClearLaunch_Offer_Dev_Skill_v1.md` — Zap configured in Zapier |
 | Customer Journey Template | NOT STARTED | No template exists |
 | Metrics/KPI + Roadmap Templates | NOT STARTED | No template exists |
 
 ### Build Priority (Recommended Order)
 
-1. **Configure UVP Zapier zap** — pipeline documented inline in the UVP Skill file, needs manual setup in Zapier
-2. **Build Offer Dev Skill v1** — production upgrade with Notion integration, following UVP skill pattern
-3. **Build Offer Dev Summary Deck** — .pptx template for Step 5 deliverables
-4. **Build Customer Journey Template** — design the .docx structure for Step 6
-5. **Build Channel Strategy Skill** — automate Step 6
-6. **Build Metrics/KPI + Roadmap Templates** — design .docx structures for Step 7
-7. **Build final skill for Step 7** — complete the automation chain
+1. **Build Customer Journey Template** — design the .docx structure for Step 6
+2. **Build Channel Strategy Skill** — automate Step 6
+3. **Build Metrics/KPI + Roadmap Templates** — design .docx structures for Step 7
+4. **Build final skill for Step 7** — complete the automation chain
 
 ### Open Questions
 
@@ -584,4 +582,6 @@ The ClearLaunch → Retainer conversion funnel is critical. ClearLaunch must pro
 
 ---
 
-*Last updated: March 31, 2026 (v3.1 — split Step 4 into UVP Development + Offer Development, added full Step 4 UVP build details, updated file registry and build statuses, updated data flow diagram)*
+*Last updated: April 4, 2026 (v3.2 — Step 5 Offer Development shipped: production skill v1, 8-slide summary deck, Zapier pipeline live. Fixed legacy step labels on UVP + Offer Dev templates. Updated build status and priorities.)*
+
+*Previously: March 31, 2026 (v3.1 — split Step 4 into UVP Development + Offer Development, added full Step 4 UVP build details, updated file registry and build statuses, updated data flow diagram)*
