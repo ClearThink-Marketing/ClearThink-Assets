@@ -166,7 +166,7 @@ def build_uvp_template():
     add_styled_paragraph(doc, "Discovery Workshop Template",
                          font_size=14, bold=False, color=DARK,
                          alignment=WD_ALIGN_PARAGRAPH.CENTER, space_after=4)
-    add_styled_paragraph(doc, "ClearLaunch System | Step 3: UVP Development",
+    add_styled_paragraph(doc, "ClearLaunch System | Step 4: UVP Development",
                          font_size=10, color=RGBColor(0x99, 0x99, 0x99),
                          alignment=WD_ALIGN_PARAGRAPH.CENTER, space_after=16)
 
@@ -368,7 +368,7 @@ def build_offer_dev_template():
     add_styled_paragraph(doc, "Discovery Workshop Template",
                          font_size=14, bold=False, color=DARK,
                          alignment=WD_ALIGN_PARAGRAPH.CENTER, space_after=4)
-    add_styled_paragraph(doc, "ClearLaunch System | Step 4: Offer Development",
+    add_styled_paragraph(doc, "ClearLaunch System | Step 5: Offer Development",
                          font_size=10, color=RGBColor(0x99, 0x99, 0x99),
                          alignment=WD_ALIGN_PARAGRAPH.CENTER, space_after=16)
 
