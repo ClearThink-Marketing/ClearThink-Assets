@@ -1,6 +1,6 @@
 # ClearLaunch GTM Strategy Blueprint
 
-**ClearThink Marketing | Version 3.2 | April 2026**
+**ClearThink Marketing | Version 3.3 | April 2026**
 
 ---
 
@@ -36,7 +36,7 @@ The ClearLaunch System is an 8-week, industry-agnostic go-to-market strategy spr
 | 3 | Market Landscape Analysis | Market Research document (.docx) + Market Research Summary Deck (.pptx) — keyword research (up to 50 keywords), competitive analysis, audience intelligence, content gap analysis |
 | 4 | UVP Development | UVP document (.docx) + UVP Summary Deck (.pptx) — Top 3 differentiators, UVP statement, elevator pitch, positioning statement, 7-section framework |
 | 5 | Offer Development | Offer Development document (.docx) — 3-tier offer ladder (Micro/Macro/Core), creative angles, objection handling |
-| 6 | Channel Strategy & Customer Journey | Customer Journey document (.docx) — journey mapping (awareness to advocacy), channel strategy matrix, budget allocation recommendations |
+| 6 | Channel Strategy & Customer Journey | Channel Strategy document (.docx) + Summary Deck (.pptx) + Projections Workbook (.xlsx) — two-phase: channel evaluation, budget allocation, projections (Phase A), then customer journey mapping across confirmed channels (Phase B) |
 | 7 | Success Metrics & Launch Roadmap | KPI Framework + Implementation Roadmap (.docx) — 5-10 priority metrics, 90-day tactical plan, budget allocation, prioritized actions |
 
 ### The 4-Phase Timeline
@@ -287,26 +287,64 @@ This transcript is stored for reference only — **no agent skill processes the 
 
 ### Step 6: Channel Strategy & Customer Journey
 
-**Status: NOT STARTED** (no template, no skill)
+**Status: BUILT** (all templates complete, agent skill complete, Zapier pipeline documented)
 
-**What it accomplishes:** Maps the complete customer journey from first awareness through decision and advocacy. Identifies which marketing channels serve which journey stages. Creates a channel strategy matrix that tells the client exactly where to invest their time and budget.
+**Key architectural difference from Steps 2–5:** Step 6 is a TWO-PHASE step:
+- **Phase A (Internal Analysis):** No Fathom transcript. Terry triggers the skill manually. Reads all 4 upstream deliverables (ICP, MR, UVP, Offer Dev), evaluates 7 channels, scores against ICP, recommends focused channel mix, allocates budget, generates per-channel projections (data-backed + modeled). Terry presents findings to client.
+- **Fathom Call:** Client reviews channel strategy, confirms channels, provides industry-specific customer journey insights.
+- **Phase B (Journey Build):** Skill reads the Fathom transcript (confirmed channels + journey insights) and completes the customer journey map on top of confirmed channels.
 
-**How it should work:**
-1. Agent reads all prior step outputs from Notion
-2. Maps journey stages: Awareness → Consideration → Decision → Onboarding → Retention → Advocacy
-3. For each stage, identifies: what the customer needs, what content/touchpoints should exist, which channels deliver them
-4. Applies a channel fit matrix — evaluating each potential channel by audience fit, cost efficiency, scalability, and measurability
-5. Recommends a focused starting set of channels (2-3 primary) with expansion path
+**Channel selection comes BEFORE journey mapping.** The journey map is built on top of the confirmed channels — not the other way around.
+
+**How it works in practice:**
+
+**Phase A:**
+1. Terry says `Generate channel strategy for [Client Name]`
+2. Agent reads Client Portal → verifies Steps 2–5 are complete
+3. Reads ICP (audience, geography, B2B/B2C), Market Research (keywords, CPC, competitors), UVP (positioning, differentiators), Offer Dev (pricing, Revenue Per Client)
+4. Scores all 7 channels in the ClearLaunch channel universe (Google Ads, Meta Ads, LinkedIn Ads, TikTok, SEO, Content Marketing, Organic Social)
+5. Applies 4 decision rules in order: ICP Presence Gate → Budget Viability Gate → Journey Coverage Check → Data Availability Tiebreaker
+6. Recommends 1–2 primary + 0–1 supporting channels
+7. Builds budget allocation (retainers fixed, ad spend adjustable)
+8. Generates projections: data-backed (from keyword CPC data) and modeled (from CPM/CTR benchmarks)
+9. Populates .docx (Sections 1, 3–9), .pptx (Slides 1, 3–8), .xlsx (all 4 tabs)
+10. Stores preliminary deliverables in Client Portal → Reports → Channel Strategy
+
+**Phase B:**
+1. After the Fathom call, Zapier pipeline fires → transcript in Notion → Slack notification with command `Complete journey map for [Client Name]`
+2. Agent reads transcript → extracts confirmed channels, client feedback, journey insights
+3. Reads existing Phase A deliverables from portal
+4. Builds TOFU/MOFU/BOFU/Purchase journey map using confirmed channels + client insights
+5. Completes .docx (adds Section 2: Journey Map), .pptx (adds Slide 2), updates .xlsx if projections adjusted
+6. Updates Client Portal with final deliverables
 
 **What the agent needs as input:**
-- ICP data (where the audience spends time, how they research, preferred content formats)
-- Market research data (which channels competitors use, traffic sources)
-- Value proposition data (what message to deliver through each channel)
+- Phase A: All 4 upstream deliverables (ICP, MR, UVP, Offer Dev) in Client Portal
+- Phase B: Fathom transcript from Channel Strategy decision call
 
-**What it should produce:**
-- Customer Journey Template (.docx) — TO BE BUILT
-- Channel strategy matrix with budget allocation recommendations
-- Journey data stored in Notion (becomes input for Step 7)
+**What it produces:**
+- Channel Strategy document (.docx) — 9 sections: Executive Summary, Customer Journey Map, Channel Universe Assessment, Recommended Channel Strategy, Investment Overview, Data-Backed Projections, Modeled Projections, Content & SEO Foundation, Key Takeaways & Next Steps
+- Channel Strategy Summary Deck (.pptx) — 8 slides: Title, Journey Map, Channel Universe, Channel Recommendation, Investment Overview, Data-Backed Projections, Modeled Projections, Key Takeaways
+- Channel Projections Workbook (.xlsx) — 4 tabs with live formulas: Summary (cross-sheet refs), Google Ads (data-backed), Meta Ads (modeled), Content & SEO
+- All deliverables stored in client portal Reports section
+
+**ROAS formula architecture:** Both Google Ads and Meta Ads tabs use identical structure — per-service-line `Ad Spend ROAS = Revenue ÷ Ad Spend`, combined `True ROAS = Revenue ÷ (Ad Spend + Retainer)`. No asymmetry between channels.
+
+**Notion references:**
+- Transcripts DB: `collection://0f372290-8993-4c7e-b303-13afca181721` (Phase B transcript)
+- Client Portals DB: `collection://30e821ad-7ba9-8080-8f38-000ba9c44ad0` (reads/writes deliverables)
+- GTM Intake DB: `collection://476a46cc-8fab-428c-acb2-f82d61cf1fdd` (Zapier validation)
+
+**Skill file:** `Skills/ClearLaunch_Step6_ChannelStrategy_Skill_v1.md`
+**Reference template:** `Frameworks/channel_strategy_template.md`
+
+**Framework files:**
+- `Frameworks/ClearLaunch_Step6_ChannelStrategy_Template.docx`
+- `Frameworks/ClearLaunch_Step6_ChannelStrategy_Summary_Deck.pptx`
+- `Frameworks/ClearLaunch_Step6_Projections_Template.xlsx`
+- `Frameworks/build_step6_templates.py`
+- `Frameworks/build_step6_deck.py`
+- `Frameworks/build_step6_projections.py`
 
 **Channel strategy principle:** Start focused. Pick 1-2 primary channels that match the audience and the client's capacity. Prove ROI there before expanding. The most common GTM failure is channel sprawl — trying to be everywhere at once and being effective nowhere.
 
@@ -401,8 +439,9 @@ TALLY ONBOARDING FORM (Client)            ICP DISCOVERY CALL (Terry + Client)
 - Step 2 produces ICP data → Step 3 uses it to know what keywords/competitors to research
 - Step 3 produces market data → Step 4 uses it to find positioning opportunities
 - Step 4 produces UVP → Step 5 uses it to design offers aligned to differentiators
-- Step 5 produces offer stack → Step 6 uses it to determine channel messaging and journey
-- Step 6 produces channel strategy → Step 7 uses it to define KPIs and build the 90-day roadmap
+- Step 5 produces offer stack → Step 6 Phase A uses it for Revenue Per Client projections, funnel structure, and what each channel promotes
+- Step 6 Phase A produces channel strategy → Terry presents to client → client confirms channels via Fathom call → Step 6 Phase B reads transcript and completes journey map
+- Step 6 produces channel strategy + journey map → Step 7 uses it to define KPIs per channel and build the 90-day launch roadmap
 
 **Notion is the hub.** Every step reads from and writes to Notion. This keeps all client data in one place and makes it accessible to whichever skill the agent is running.
 
@@ -484,15 +523,19 @@ This same workshop-then-agent pattern may apply to other steps as Terry refines 
 | Offer Dev Summary Deck (.pptx) | COMPLETE | `Frameworks/ClearLaunch_Offer_Dev_Summary_Deck.pptx` — 8 slides, ClearThink branded |
 | Offer Dev Agent Skill v1 | COMPLETE | `Skills/ClearLaunch_Offer_Dev_Skill_v1.md` — full Notion integration, transcript pipeline, ICP + UVP cross-reference |
 | Offer Dev Zapier Pipeline | COMPLETE | Documented inline in `Skills/ClearLaunch_Offer_Dev_Skill_v1.md` — Zap configured in Zapier |
-| Customer Journey Template | NOT STARTED | No template exists |
+| Channel Strategy Reference (.md) | COMPLETE | `Frameworks/channel_strategy_template.md` — 9-section variable map, channel matrix, journey map, projection tables |
+| Channel Strategy Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_Step6_ChannelStrategy_Template.docx` — 9 sections, 14 tables, placeholder variables |
+| Channel Strategy Summary Deck (.pptx) | COMPLETE | `Frameworks/ClearLaunch_Step6_ChannelStrategy_Summary_Deck.pptx` — 8 slides, ClearThink branded |
+| Channel Strategy Projections (.xlsx) | COMPLETE | `Frameworks/ClearLaunch_Step6_Projections_Template.xlsx` — 4 tabs, live formulas, cross-sheet refs |
+| Channel Strategy Build Scripts | COMPLETE | `build_step6_templates.py`, `build_step6_deck.py`, `build_step6_projections.py` |
+| Channel Strategy Agent Skill v1 | COMPLETE | `Skills/ClearLaunch_Step6_ChannelStrategy_Skill_v1.md` — two-phase, Zapier pipeline (Phase B) |
 | Metrics/KPI + Roadmap Templates | NOT STARTED | No template exists |
 
 ### Build Priority (Recommended Order)
 
-1. **Build Customer Journey Template** — design the .docx structure for Step 6
-2. **Build Channel Strategy Skill** — automate Step 6
-3. **Build Metrics/KPI + Roadmap Templates** — design .docx structures for Step 7
-4. **Build final skill for Step 7** — complete the automation chain
+1. **Build Step 7 (Success Metrics & Launch Roadmap)** — design templates (.docx, .pptx), build production skill, configure Zapier pipeline. The final step in the ClearLaunch system.
+2. **Configure Channel Strategy Zapier zap** — spec is documented inline in `ClearLaunch_Step6_ChannelStrategy_Skill_v1.md`, needs to be built in Zapier (same 6-step pattern, filter "Channel Strategy")
+3. **End-to-end testing** — full flow from Tally form through all 7 steps with a real client
 
 ### Open Questions
 

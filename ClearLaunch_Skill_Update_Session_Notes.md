@@ -1,6 +1,6 @@
 # ClearLaunch Skill Update — Session Notes
-**Last Updated:** April 4, 2026
-**Status:** Steps 1–5 BUILT. Step 5 (Offer Dev) shipped: production skill v1, 8-slide summary deck, Zapier zap live. Legacy Step 3/4 labels on UVP + Offer Dev templates fixed. Blueprint updated to v3.2.
+**Last Updated:** April 6, 2026
+**Status:** Steps 1–6 BUILT. Step 6 (Channel Strategy & Customer Journey) shipped: production skill v1, 8-slide summary deck, 4-tab projections workbook, .docx template, 3 build scripts, reference .md template. Two-phase architecture (Phase A internal analysis + Phase B Fathom transcript journey build). Blueprint updated to v3.3.
 
 ---
 
@@ -30,8 +30,44 @@
 | Offer Dev Summary Deck (.pptx) | COMPLETE | `Frameworks/ClearLaunch_Offer_Dev_Summary_Deck.pptx` (Templates branch) — 8 slides, ClearThink branded |
 | Offer Dev Agent Skill v1 | COMPLETE | `Skills/ClearLaunch_Offer_Dev_Skill_v1.md` (Skill-Assets branch) |
 | Offer Dev Zapier Zap | LIVE | 6-step: Fathom → Filter ("Offer") → Notion → Formatter → Find Page → Slack |
-| Customer Journey Template | NOT STARTED | — |
+| Channel Strategy Reference (.md) | COMPLETE | `Frameworks/channel_strategy_template.md` (Templates branch) — 9-section variable map |
+| Channel Strategy Template (.docx) | COMPLETE | `Frameworks/ClearLaunch_Step6_ChannelStrategy_Template.docx` (Templates branch) — 9 sections, 14 tables |
+| Channel Strategy Summary Deck (.pptx) | COMPLETE | `Frameworks/ClearLaunch_Step6_ChannelStrategy_Summary_Deck.pptx` (Templates branch) — 8 slides, ClearThink branded |
+| Channel Strategy Projections (.xlsx) | COMPLETE | `Frameworks/ClearLaunch_Step6_Projections_Template.xlsx` (Templates branch) — 4 tabs, live formulas, cross-sheet refs |
+| Channel Strategy Build Scripts | COMPLETE | `Frameworks/build_step6_templates.py`, `build_step6_deck.py`, `build_step6_projections.py` (Templates branch) |
+| Channel Strategy Agent Skill v1 | COMPLETE | `Skills/ClearLaunch_Step6_ChannelStrategy_Skill_v1.md` (Skill-Assets branch) — two-phase architecture, Zapier pipeline |
+| Channel Strategy Zapier Pipeline | COMPLETE | Documented inline in skill — Phase B only: Filter "Channel Strategy", 6-step Fathom→Notion→Slack pattern |
 | Metrics/KPI + Roadmap Templates | NOT STARTED | — |
+
+---
+
+## What Was Accomplished (April 6, 2026 — Session 7)
+
+### Step 6 (Channel Strategy & Customer Journey) — Full Production Build
+
+**Key architectural difference from Steps 2–5:** Step 6 is a TWO-PHASE step:
+- **Phase A (Internal Analysis):** No Fathom transcript. Terry triggers the skill manually to generate channel strategy (matrix, scoring, projections, budget). Presents findings to client.
+- **Fathom Call:** Client reviews channel strategy, confirms channels, provides journey insights.
+- **Phase B (Journey Build):** Skill reads the Fathom transcript and completes the customer journey map on top of confirmed channels.
+
+1. **Channel Strategy Skill v1 built** — `Skills/ClearLaunch_Step6_ChannelStrategy_Skill_v1.md` (Skill-Assets branch). 14-section production skill: Purpose with two trigger modes (Phase A: `Generate channel strategy for [Client Name]`, Phase B: `Complete journey map for [Client Name]`), 7-step process position, prerequisites (ALL 4 prior deliverables required: ICP + MR + UVP + Offer Dev), inline Zapier pipeline spec (Phase B only), all 3 Notion DBs referenced, Channel-Customer Journey Matrix meta-framework (7 channels × TOFU/MOFU/BOFU × 4 decision rules), industry adaptation (B2B, local service, e-commerce, SaaS, B2C), two-phase workflow (Phase A: 11 steps, Phase B: 8 steps), quality checklist (13 items including ROAS consistency check), workshop follow-up + revision flow, fallback handling, scope boundary (IN: channels/journey/budget/projections, OUT: launch sequencing/roadmap/KPIs — all Step 7).
+
+2. **Channel Strategy Reference Template (.md) built** — `Frameworks/channel_strategy_template.md` (Templates branch). 9-section document outline with variable map (15 client-specific variables mapped to upstream sources), channel matrix template, journey map template, projection tables (data-backed + modeled), investment table, content/SEO inventory.
+
+3. **Channel Strategy Template (.docx) built** — `Frameworks/ClearLaunch_Step6_ChannelStrategy_Template.docx` (Templates branch). 9 sections, 14+ tables. Built via `build_step6_templates.py` using python-docx. Reused helpers from `build_step4_step5_templates.py` + new helpers: `add_data_table()` (dark header, alternating rows), `add_callout_box()` (insight boxes), `add_bullet_list()`, `add_channel_role_card()`.
+
+4. **Channel Strategy Summary Deck (.pptx) built** — `Frameworks/ClearLaunch_Step6_ChannelStrategy_Summary_Deck.pptx` (Templates branch). 8 slides: Title, Customer Journey (4-stage cards with arrows), Channel Universe (7×6 matrix + decision rules), Channel Recommendation (2 PRIMARY green + 1 SUPPORTING orange), Investment Overview (3 stat cards + table), Projections: Data-Backed (green badge + stats panel), Projections: Modeled (orange badge + stats panel), Key Takeaways & Next Steps (dark bg + Step 7 bridge). Built via `build_step6_deck.py` using python-pptx. New helpers: `add_badge_pill()`, `add_stat_card()`, `add_table_shape()`, `add_stats_panel()`.
+
+5. **Channel Strategy Projections Workbook (.xlsx) built** — `Frameworks/ClearLaunch_Step6_Projections_Template.xlsx` (Templates branch). 4 tabs with live formulas (not hardcoded values). Built via `build_step6_projections.py` using openpyxl. This is the FIRST .xlsx build script in the ClearLaunch system.
+   - **Summary tab:** Channel roles, investment overview with `=SUM()`, Google Ads performance (cross-sheet refs `='Google Ads'!XX`), Meta Ads performance (cross-sheet refs `='Meta Ads'!XX`), key takeaways.
+   - **Google Ads tab (data-backed):** Yellow inputs → formula chain → Ad Spend ROAS per-line → Combined Profitability section with True ROAS (includes retainer).
+   - **Meta Ads tab (modeled):** Same structure, CPM/CTR model. Ad Spend ROAS per-line (ad spend only). Combined Profitability section matching Google pattern (True ROAS includes retainer). Benchmark sources table.
+   - **Content & SEO tab:** Generic placeholder rows, Qty × Cost formulas, SEO services, investment summary.
+   - **ROAS consistency:** Both channel tabs use identical formula structure — Ad Spend ROAS per-line, True ROAS in combined section. No asymmetry.
+
+6. **Zapier pipeline documented** — Phase B only, same 6-step pattern as UVP/Offer Dev: Fathom → Filter ("Channel Strategy") → Notion Create → Formatter (split on " - ") → Find Page By Title (GTM Intake) → Slack notification with command `Complete journey map for [Client Name]`. Phase A has NO Zapier (manual trigger).
+
+7. **Blueprint updated to v3.3** — Step 6 status flipped to BUILT, build status table updated, Step 6 section rewritten with full two-phase architecture.
 
 ---
 
@@ -211,13 +247,11 @@ Before building Value Proposition / Offer Engineering templates and skills (Step
 
 ## What's Next
 
-1. **Publish UVP Zapier zap** — configured as draft, ready to go live when Terry is ready
-2. **Build Offer Dev Skill v1** — production upgrade with Notion integration, following UVP skill pattern
-3. **Build Offer Dev Summary Deck (.pptx)** — matching UVP deck pattern
-4. **Build Offer Dev Zapier zap** — same 6-step pipeline pattern, filter for "Offer" in title
-5. **Build Step 6 (Channel Strategy)** — templates, skill, Zapier zap
-6. **Build Step 7 (Success Metrics & Launch Roadmap)** — templates, skill, Zapier zap
-7. **End-to-end testing** — full flow from Tally form through all 7 steps
+1. **Build Step 7 (Success Metrics & Launch Roadmap)** — templates, skill, Zapier zap. The final step in the ClearLaunch system.
+2. **Configure Channel Strategy Zapier zap** — spec is documented in the skill, needs to be built in Zapier (same pattern as UVP/Offer Dev)
+3. **Publish UVP Zapier zap** — configured as draft, ready to go live
+4. **Battle-test Step 6 with a real client** — refine templates, projections, and journey map based on real-world usage
+5. **End-to-end testing** — full flow from Tally form through all 7 steps
 
 ---
 
@@ -250,13 +284,15 @@ Before building Value Proposition / Offer Engineering templates and skills (Step
 - ICP Skill v2: `Skills/ClearLaunch_ICP_Skill_v2.md`
 - Market Research Skill v2: `Skills/ClearLaunch_Market_Research_Skill_v2.md`
 - UVP Skill v1: `Skills/ClearLaunch_UVP_Skill_v1.md`
+- Offer Dev Skill v1: `Skills/ClearLaunch_Offer_Dev_Skill_v1.md`
+- Channel Strategy Skill v1: `Skills/ClearLaunch_Step6_ChannelStrategy_Skill_v1.md`
 - Field Mapping: `Skills/ClearLaunch_Onboarding_Field_Mapping.md`
 - Claude Desktop Skills: `Skills/Claude-Desktop-Skills/`
 
 **Templates branch:**
-- Framework templates: `Frameworks/` (ICP, MR, UVP, Offer Dev .docx + .pptx files)
-- Reference templates: `Frameworks/uvp_workshop_template.md`, `Frameworks/offer_dev_template.md`
-- Build scripts: `Frameworks/rebuild_icp_decks.py`, `Frameworks/build_step3_step4_templates.py`, `Frameworks/build_uvp_deck.py`
+- Framework templates: `Frameworks/` (ICP, MR, UVP, Offer Dev, Channel Strategy .docx + .pptx + .xlsx files)
+- Reference templates: `Frameworks/uvp_workshop_template.md`, `Frameworks/offer_dev_template.md`, `Frameworks/channel_strategy_template.md`
+- Build scripts: `Frameworks/rebuild_icp_decks.py`, `Frameworks/build_step4_step5_templates.py`, `Frameworks/build_offer_dev_deck.py`, `Frameworks/build_step6_templates.py`, `Frameworks/build_step6_deck.py`, `Frameworks/build_step6_projections.py`
 
 **GTM-Strategy branch:**
 - GTM Blueprint v3.1: `ClearLaunch_GTM_Strategy_Blueprint.md`
