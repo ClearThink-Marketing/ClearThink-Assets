@@ -2,7 +2,7 @@
 
 Running list of known issues, gaps, and follow-ups across the ClearThink-Assets repo. Items get checked off as they're resolved.
 
-**Last updated:** 2026-04-22
+**Last updated:** 2026-04-22 (pricing discrepancy added)
 
 ---
 
@@ -29,6 +29,12 @@ Two skills use the old framework labels (merge UVP + Offer Dev as "Step 4: Value
 ### Naming consistency
 
 - [ ] Rename `ClearLaunch_Step6_ChannelStrategy_Skill_v1.md` → `ClearLaunch_Channel_Strategy_Skill_v1.md` to match descriptive naming pattern used by other skills (Offer_Dev, Market_Research, etc.)
+
+---
+
+## Canonical content reconciliation
+
+- [ ] **ClearLaunch pricing mismatch.** `Services/ClearLaunch/ClearLaunch_GTM_Strategy_Blueprint.md` (v3.3) lists ClearLaunch at **$1,000 (or 2 payments of $500)**. Root `Overview.md` lists it at **$1,200 flat**. Overview.md is canonical — update the Blueprint to match.
 
 ---
 
