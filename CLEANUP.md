@@ -2,7 +2,7 @@
 
 Running list of known issues, gaps, and follow-ups across the ClearThink-Assets repo. Items get checked off as they're resolved.
 
-**Last updated:** 2026-04-22 (pricing discrepancy added)
+**Last updated:** 2026-04-29 (Web-Design Design-System §7 decisions added)
 
 ---
 
@@ -86,6 +86,19 @@ Two skills use the old framework labels (merge UVP + Offer Dev as "Step 4: Value
 - [ ] Case studies / client wins — to be added as engagements conclude and results are documented
 - [ ] Social profiles — skipped initially; add when profiles are active
 - [ ] Typography in `Brand/guidelines.md` — currently TBD; sourced from existing `.docx` / `.pptx` template fonts
+
+---
+
+## Web-Design Design-System — open design decisions
+
+Surfaced from `Web-Design_Design-System_Context_Brief.md` §7 (2026-04-28). Each needs resolution in chat with Terry before content commits begin in `Services/Web-Design/Design-System/`.
+
+- [ ] **7.1 Token schema philosophy.** Figma-style semantic pattern (~100+ tokens, role-oriented) vs. simplified web-marketing pattern (`--color-primary`, `--color-text`, etc.). Brief leans toward the latter with selected accessibility/state concepts from the former — needs Terry's confirmation.
+- [ ] **7.2 Override file format.** `client-tokens.json`, `client-tokens.css`, or both? Working assumption: JSON canonical, CSS generated from it.
+- [ ] **7.3 Where override files live.** Notion portal, local working dir, or both? Per "no clients in GitHub" rule (Part 2 Decision 2), not in repo — exact home TBD. `Client-Override-Pattern.md` documents the mechanism once decided.
+- [ ] **7.4 AEC scope definition.** Initial AEC = commercial AEC firms + custom residential builders + specialty contractors. Home services (HVAC, plumbing, electrical, roofing) treated as a separate future vertical. Confirm before AEC content commits.
+- [ ] **7.5 Component library framework.** HTML+Tailwind, React+Tailwind, Webflow-native, or all three? Working assumption: HTML/CSS/Tailwind canonical in repo, Webflow library files maintained in parallel outside git.
+- [ ] **7.6 Reference doc depth per file.** Establish Figma-style file pattern (when to use / semantic purpose / ✅❌ examples / API) on Tokens/ first, then replicate to Components and Patterns.
 
 ---
 
