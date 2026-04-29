@@ -2,7 +2,7 @@
 
 Running list of known issues, gaps, and follow-ups across the ClearThink-Assets repo. Items get checked off as they're resolved.
 
-**Last updated:** 2026-04-29 (Web-Design Design-System §7 decisions added)
+**Last updated:** 2026-04-29 (Web-Design Design-System §7 resolved; deferred work added)
 
 ---
 
@@ -91,14 +91,27 @@ Two skills use the old framework labels (merge UVP + Offer Dev as "Step 4: Value
 
 ## Web-Design Design-System — open design decisions
 
-Surfaced from `Web-Design_Design-System_Context_Brief.md` §7 (2026-04-28). Each needs resolution in chat with Terry before content commits begin in `Services/Web-Design/Design-System/`.
+~~Surfaced from `Web-Design_Design-System_Context_Brief.md` §7 (2026-04-28).~~ **All six resolved 2026-04-29 in `Web-Design_Design-System_Round-1_Resolutions.md`.** Content commits unblocked.
 
-- [ ] **7.1 Token schema philosophy.** Figma-style semantic pattern (~100+ tokens, role-oriented) vs. simplified web-marketing pattern (`--color-primary`, `--color-text`, etc.). Brief leans toward the latter with selected accessibility/state concepts from the former — needs Terry's confirmation.
-- [ ] **7.2 Override file format.** `client-tokens.json`, `client-tokens.css`, or both? Working assumption: JSON canonical, CSS generated from it.
-- [ ] **7.3 Where override files live.** Notion portal, local working dir, or both? Per "no clients in GitHub" rule (Part 2 Decision 2), not in repo — exact home TBD. `Client-Override-Pattern.md` documents the mechanism once decided.
-- [ ] **7.4 AEC scope definition.** Initial AEC = commercial AEC firms + custom residential builders + specialty contractors. Home services (HVAC, plumbing, electrical, roofing) treated as a separate future vertical. Confirm before AEC content commits.
-- [ ] **7.5 Component library framework.** HTML+Tailwind, React+Tailwind, Webflow-native, or all three? Working assumption: HTML/CSS/Tailwind canonical in repo, Webflow library files maintained in parallel outside git.
-- [ ] **7.6 Reference doc depth per file.** Establish Figma-style file pattern (when to use / semantic purpose / ✅❌ examples / API) on Tokens/ first, then replicate to Components and Patterns.
+- [x] ~~**7.1 Token schema philosophy.**~~ Locked: semantic-first, two-layer (primitive + semantic), ~25–30 color tokens. Components reference semantic tokens only.
+- [x] ~~**7.2 Override file format.**~~ Locked: `client-tokens.json` canonical; `client-tokens.css` generated from it via small build script.
+- [x] ~~**7.3 Where override files live.**~~ Locked: Notion canonical (decision record + archive), local working copy during build (`~/clients/[client-name]/design-tokens/`). No client data in repo (reaffirms Part 2 Decision 2).
+- [x] ~~**7.4 AEC scope definition.**~~ Locked: AEC-Commercial = commercial AEC firms + custom residential builders. Specialty-Trades and Home-Services deferred to future verticals. Folder renamed `Verticals/AEC` → `Verticals/AEC-Commercial`.
+- [x] ~~**7.5 Component library framework.**~~ Locked: HTML+Tailwind canonical in repo. Figma library + Webflow library are downstream artifacts (Frankee/Terry maintain in parallel).
+- [x] ~~**7.6 Reference doc depth per file.**~~ Locked: file structure templates set for Tokens / Components / Universal Patterns / Vertical Patterns / Archetypes. Build `colors.md` first as the working example, refine the template through use, then replicate.
+
+---
+
+## Web-Design Design-System — deferred work
+
+Items deferred from Round 1 resolutions; surface as their triggers arrive.
+
+- [ ] **`Specialty-Trades` vertical scaffold** — when first specialty trades client (cabinetry, masonry, hardscaping, pool builders, etc.) lands.
+- [ ] **`Home-Services` vertical scaffold** — when first home services client (HVAC, plumbing, electrical, roofing) lands.
+- [ ] **Token JSON→CSS build script** — generates `client-tokens.css` from `client-tokens.json` (and component utility CSS, per §7.5). ~30 lines, Python or Node. Location and language TBD.
+- [ ] **Figma library** — Frankee maintains, mirrors HTML reference. Post content commits.
+- [ ] **Webflow library** — built from HTML reference. Post content commits.
+- [ ] **`Client-Override-Pattern.md` content commit** — documents the lifecycle (Notion canonical → local working copy → archive). After token system completes.
 
 ---
 
