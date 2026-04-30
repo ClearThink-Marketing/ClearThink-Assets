@@ -49,6 +49,16 @@ Warm-gray, perceptually uniform via OKLCH, WCAG-tested. Anchors preserve ClearTh
 | `--neutral-100` | `#F5F5F4` | stone-100 |
 | `--neutral-50` | `#F6F3EF` | CREAM (ClearThink anchor) |
 
+### Channel-form variant (for shadow alpha-modulation)
+
+For use inside `rgb(R G B / alpha)` syntax — needed by shadow primitives in `shadows.md` that flex alpha via `var(--shadow-depth)`. Modern CSS Color Level 4 syntax can't slice the existing hex value at runtime, so the channel-separated form exists as a parallel primitive.
+
+| Token | Value |
+|---|---|
+| `--neutral-950-rgb` | `18 23 24` |
+
+**Bounded to `--neutral-950` only.** Other neutrals don't get parallel RGB forms ad-hoc — only `--neutral-950` is consumed inside `rgb()` for shadow color (per the shadow color decision in `shadows.md`). If a future token type needs a different anchor inside `rgb()`, that's a deliberate decision, not a pattern to replicate.
+
 ### Status — paired bg + text per status
 
 Light bg / deep text pairs (Tailwind 100 / 800 convention). All pairs pass WCAG AA on cream and on each other. Borders use the deep text tone, not the bg tone.
@@ -75,7 +85,7 @@ Hover and pressed shades are not stored as primitives. The build pipeline writes
 
 `color-mix()` has full modern-browser support since 2023. The semantic layer references these as if they were primitives.
 
-**Total stored primitives: 21** (2 brand + 11 neutral + 8 status). Plus 3 runtime-computed values.
+**Total stored primitives: 22** (2 brand + 11 neutral + 1 channel-form variant + 8 status). Plus 3 runtime-computed values.
 
 ---
 
