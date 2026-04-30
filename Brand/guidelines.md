@@ -35,7 +35,30 @@ The brand should feel: **clear, direct, grounded, and confident.** Not flashy. N
 
 ## Typography
 
-*Typography specifications to be added. Until then, deliverables should use the fonts specified in each service's template files (currently sourced from the `.docx` / `.pptx` templates in `Frameworks/` on the `Templates` branch).*
+ClearThink's default type stack:
+
+| Family | Use | License |
+|---|---|---|
+| **Fraunces** | Headlines and display | Free, Google Fonts (variable font) |
+| **Inter** | Body, UI, h4 and below | Free, Google Fonts |
+| **JetBrains Mono** | Code samples (rare in marketing copy) | Free, Google Fonts |
+
+The Fraunces + Inter pairing gives ClearThink heritage and craftsmanship at headline sizes without committing to a paid license. Inter handles all functional text where neutrality matters.
+
+### Pairing principles
+
+- Fraunces for display, h1, h2, h3 — the moments where character matters
+- Inter for h4 and everything below — body, UI, labels, captions, microcopy
+- Single emphasized-weight concept: 600 (semibold). Fraunces headlines run at 600; inline `<strong>` in body copy also runs at Inter 600
+- Don't mix more than two display weights on the same page
+
+### Web design type system
+
+Full token system, sizes, line heights, override mechanics, and consumption patterns live in [`../Services/Web-Design/Design-System/Core/Tokens/typography.md`](../Services/Web-Design/Design-System/Core/Tokens/typography.md). That doc is the source of truth for design system implementation. This section establishes the brand-level pairing decision; the design system implements it.
+
+### Non-web deliverables
+
+Until non-web typography is formalized (slide templates, document templates), keep using the fonts specified in each service's existing `.docx` / `.pptx` templates.
 
 ---
 
