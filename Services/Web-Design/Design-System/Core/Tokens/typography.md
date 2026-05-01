@@ -136,14 +136,18 @@ h5 and h6 deliberately omitted — marketing pages rarely need them. If a deeper
 
 Inline `<strong>` within body copy renders at weight 600 (Inter semibold) — same emphasized-weight concept as Fraunces headings.
 
-### UI — 4 tokens
+### UI — 6 tokens
 
 | Class | Size | Line-height | Weight | Family | Extras |
 |---|---|---|---|---|---|
+| `text-button-sm` | `xs` (13) | 1.1 | 500 | sans | — |
 | `text-button` | `sm` (14) | 1.1 | 500 | sans | — |
+| `text-button-lg` | `base` (16) | 1.1 | 500 | sans | — |
 | `text-label` | `sm` (14) | 1.25 | 500 | sans | — |
 | `text-caption` | `xs` (13) | 1.25 | 400 | sans | — |
 | `text-overline` | `xs` (13) | 1.25 | 500 | sans | tracking 0.05em, `text-transform: uppercase` |
+
+Button has three size variants (sm / md-default / lg) because button.md has three sizes; other UI tokens have a single size since the components that consume them (labels, captions, overlines) don't size-vary.
 
 ### Microcopy — 1 token
 
@@ -153,7 +157,7 @@ Inline `<strong>` within body copy renders at weight 600 (Inter semibold) — sa
 
 12px is the accessibility floor. Anything below fails Section 508 audits and high-DPI rendering tests; 12px is conventional minimum across modern systems.
 
-**Total: 13 semantic tokens.** (1 display + 4 headings + 3 body + 4 UI + 1 microcopy.)
+**Total: 15 semantic tokens.** (1 display + 4 headings + 3 body + 6 UI + 1 microcopy.)
 
 ---
 
