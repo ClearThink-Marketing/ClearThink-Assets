@@ -203,6 +203,12 @@ Components consume class composition: `class="btn btn-primary btn-md"`. Tailwind
   aspect-ratio: 1;
   padding-inline: 0;
 }
+
+/* Inline-end modifier — strips left-side border-radius for input-inline + button pairings */
+@utility btn-inline-end {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
 ```
 
 The size utilities (`btn-sm`, `btn-md`, `btn-lg`) reference `--text-button-sm`, `--text-button`, and `--text-button-lg`. All three are defined in `typography.md`.
@@ -410,6 +416,7 @@ Five non-negotiable requirements.
 
 The component system is navigable — each file cross-references siblings, even ones that don't exist yet, so the relationships are documented as the system grows.
 
+- **[Input]** — *built* (`input.md`). Pairs with `btn-inline-end` for newsletter signup, search bar, and other input + submit-button compositions. Input's `input-inline` variant strips right-side radius; `btn-inline-end` strips this button's left-side radius so they read as a single unit.
 - **[IconButton]** — *not built yet*. When the icon-only pattern grows beyond a `btn-icon` modifier (e.g., needs its own size scale, accessibility pattern), it splits into its own component file.
 - **[Link]** — *not built yet*. The element to use when the action is navigation. `<a>` styled with `text-link` token usage; never use a button for navigation.
 - **[ButtonGroup]** — *not built yet*. Joined or spaced groups of related buttons (filter selectors, segmented controls). When ButtonGroup exists, it'll set the rule for sibling-button visual coherence.
