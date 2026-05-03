@@ -93,7 +93,7 @@ Hover and pressed shades are not stored as primitives. The build pipeline writes
 
 Named slots. Components reference these. Override mechanism swaps which primitive each slot points to.
 
-### Surface (background) — 8 tokens
+### Surface (background) — 9 tokens
 
 | Semantic token | Default → primitive | Use |
 |---|---|---|
@@ -105,6 +105,7 @@ Named slots. Components reference these. Override mechanism swaps which primitiv
 | `--color-bg-inverse` | `--neutral-950` | Dark sections, inverse cards |
 | `--color-bg-accent` | `--neutral-100` (no override) → `--brand-accent` (with override) | Highlight blocks. Falls back to a soft neutral so accent regions stay visible without a client accent. |
 | `--color-bg-accent-hover` | `--neutral-200` (no override) → `--brand-accent-hover` (computed, with override) | Accent hover |
+| `--color-bg-overlay-scrim` | `rgb(var(--neutral-950-rgb) / 0.5)` | Modal backdrop scrim. Semi-transparent dark layer behind modals/dialogs to dim and focus content underneath. **Bounded to overlay scrim** — don't add similar transparent-color parallels for other surface contexts ad-hoc. |
 
 ### Text — 9 tokens
 
@@ -138,7 +139,7 @@ For each of `success`, `warning`, `danger`, `info`:
 | `--color-text-{status}` | `--status-{status}-text` |
 | `--color-border-{status}` | `--status-{status}-text` (border uses the deep tone, not the bg tone) |
 
-**Total: 32 semantic tokens** (8 surface + 9 text + 3 border + 12 status). Slightly over the ~25–30 target; `--color-text-strong` retained per review (AEC-Commercial sites lean heavy-headline).
+**Total: 33 semantic tokens** (9 surface + 9 text + 3 border + 12 status). Slightly over the ~25–30 target; `--color-text-strong` retained per review (AEC-Commercial sites lean heavy-headline). `--color-bg-overlay-scrim` added 2026-05-03 for modal backdrop usage (bounded — don't add similar transparent-color parallels ad-hoc).
 
 ---
 
