@@ -2,7 +2,7 @@
 
 Running list of known issues, gaps, and follow-ups across the ClearThink-Assets repo. Items get checked off as they're resolved.
 
-**Last updated:** 2026-04-29 (Web-Design Design-System §7 resolved; deferred work added)
+**Last updated:** 2026-05-03 (Deferred to Form.md inventory added)
 
 ---
 
@@ -112,6 +112,18 @@ Items deferred from Round 1 resolutions; surface as their triggers arrive.
 - [ ] **Figma library** — Frankee maintains, mirrors HTML reference. Post content commits.
 - [ ] **Webflow library** — built from HTML reference. Post content commits.
 - [ ] **`Client-Override-Pattern.md` content commit** — documents the lifecycle (Notion canonical → local working copy → archive). After token system completes.
+
+---
+
+## Deferred to Form.md
+
+Decisions accumulated from `Core/Components/` files (button, input) that defer to `Form.md` for resolution. Form is not yet scoped or built — chat decided (option B per process-observations 2026-05-03) to track an inventory here rather than scope Form prematurely. Each item resolves when `Form.md` is drafted.
+
+- [ ] **HTML `disabled` form-level submission exclusion.** Distinct from `aria-disabled` + `input-disabled` (visual disabled state on the input element). Form will document when to use the HTML attribute for native browser-level submission exclusion vs. the visual state utility for unavailable-but-still-focusable interactions. (Source: `input.md` §5 implementation note, §9 disabled annotation, §12 cross-reference.)
+- [ ] **Validation patterns and lifecycle.** When validation runs (on blur, on submit, debounced on change), how errors propagate to `aria-invalid` + `input-error` utility class, how error text replaces helper text. (Source: `input.md` §5 "No success state" + §10 mistake on hardcoded error colors.)
+- [ ] **Submission behavior.** Full label-input-helper-error-button composition pattern as a reusable form-field unit. (Source: `input.md` §12 [Form] cross-reference.)
+- [ ] **`autocomplete` attribute conventions.** Which values to use on which field types (`email`, `tel`, `name`, `street-address`, etc.). Conversion-rate-relevant for ClearThink lead-gen forms. (Source: `input.md` §10 mistake #5.)
+- [ ] **Form-button labeling convention.** "Send proposal" not "Submit" — action verb describing what happens, not generic submit. (Source: `button.md` §10 common mistakes.)
 
 ---
 
