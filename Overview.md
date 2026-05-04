@@ -82,8 +82,16 @@ Built primarily on **Webflow** or **Framer**. Copy, design, and development are 
 
 ---
 
+### Meta Ads — Static Creative Production
+**$1,500/month · month-to-month · client pays ad spend directly to Meta**
+
+Production and iteration of static creative for Meta (Facebook + Instagram) paid social campaigns, built around Meta's Andromeda algorithm.
+
+Scope covers creative concept ideation, ad copy production, creative critique and per-ad iteration, and campaign deployment in Meta Ads Manager. Standard volume is 25–30 concepts per round; reduced to 10–15 per round for limited-budget engagements. Strategy, concepts, and copy are produced by ClearThink; image rendering is handled via ChatGPT; deployment runs through Meta Ads Manager. Full scope documentation to follow.
+
+---
+
 ### In development
-- **Meta Ads** — scope and pricing TBD
 - **Additional service lines** — to be added as they launch
 
 ---

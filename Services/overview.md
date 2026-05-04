@@ -13,7 +13,7 @@ For company-level positioning and service pricing, see the root [`Overview.md`](
 | **ClearLaunch** — 8-week go-to-market strategy sprint | Active (live) | [`ClearLaunch/`](./ClearLaunch/) |
 | **SEO Retainer** — ongoing organic growth partnership | Active (repo content TBD) | *not yet scaffolded* |
 | **Web Design** — conversion-focused websites | Active (repo content TBD) | *not yet scaffolded* |
-| **Meta Ads** | In development | *not yet scaffolded* |
+| **Meta Ads** — static creative production for Meta paid social | Active (live) | [`Meta-Ads/`](./Meta-Ads/) |
 
 "Active (live)" means the service is both offered commercially and has delivery infrastructure in this repo. "Active (repo content TBD)" means the service is offered commercially but its folder structure and supporting material haven't been built out here yet.
 
