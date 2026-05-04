@@ -29,7 +29,7 @@ Full company detail lives in [`Overview.md`](./Overview.md). Read it once at ses
 - **ClearLaunch** — 8-week GTM strategy sprint, $1,200 flat
 - **SEO Retainer** — ongoing organic growth, $2,000/month
 - **Web Design** — conversion-focused websites, $2,500 min
-- **Meta Ads** — in development
+- **Meta Ads** — static creative production for Meta paid social, $1,500/month
 
 ### ClearLaunch 7-step process
 The master workflow. Every ClearLaunch engagement executes these in order:
@@ -101,6 +101,11 @@ Skills live in `Skills/` on the `Skill-Assets` branch today (will migrate to per
 - `ClearLaunch_UVP_Skill_v1`
 - `ClearLaunch_Offer_Dev_Skill_v1`
 - `ClearLaunch_Step6_ChannelStrategy_Skill_v1`
+
+Meta-Ads skills (per-service paths at `Services/Meta-Ads/Process/<N>/SKILL.md`):
+- `meta-static-ad-ideator`
+- `meta-static-ad-producer`
+- `meta-static-ad-critic`
 
 ### Build scripts (template generation)
 Template `.docx` / `.pptx` / `.xlsx` files are generated from Python scripts using `python-docx`, `python-pptx`, and `openpyxl`. Scripts live alongside their outputs in `Frameworks/<Step> Templates/` on the `Templates` branch. Run them from the folder they live in.

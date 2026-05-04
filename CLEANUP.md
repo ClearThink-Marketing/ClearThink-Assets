@@ -2,7 +2,7 @@
 
 Running list of known issues, gaps, and follow-ups across the ClearThink-Assets repo. Items get checked off as they're resolved.
 
-**Last updated:** 2026-05-03 (Deferred to Form.md inventory added)
+**Last updated:** 2026-05-04 (Meta Ads service launch added)
 
 ---
 
@@ -55,7 +55,7 @@ Two skills use the old framework labels (merge UVP + Offer Dev as "Step 4: Value
 
 - [ ] SEO-Retainer — folder scaffold + skills + templates + overview
 - [ ] Web-Design — folder scaffold + skills + templates + overview
-- [ ] Meta-Ads — pricing/scope decision first (see Open context items), then folder + content
+- [x] ~~Meta-Ads — pricing/scope decision first (see Open context items), then folder + content~~ — folder landed 2026-05-04, pricing set at $1,500/month. Scope refinement (what's included/excluded) carried into the new Meta Ads section below.
 
 ### Top-level folders
 
@@ -82,7 +82,7 @@ Two skills use the old framework labels (merge UVP + Offer Dev as "Step 4: Value
 
 ## Open context items (from Part 1 session brief)
 
-- [ ] Meta Ads pricing/scope — currently TBD in `Overview.md`
+- [x] ~~Meta Ads pricing/scope — currently TBD in `Overview.md`~~ — pricing locked at $1,500/month and Meta Ads moved to a live service section in `Overview.md` (2026-05-04). Scope refinement tracked under the Meta Ads section below.
 - [ ] Case studies / client wins — to be added as engagements conclude and results are documented
 - [ ] Social profiles — skipped initially; add when profiles are active
 - [ ] Typography in `Brand/guidelines.md` — currently TBD; sourced from existing `.docx` / `.pptx` template fonts
@@ -112,6 +112,21 @@ Items deferred from Round 1 resolutions; surface as their triggers arrive.
 - [ ] **Figma library** — Frankee maintains, mirrors HTML reference. Post content commits.
 - [ ] **Webflow library** — built from HTML reference. Post content commits.
 - [ ] **`Client-Override-Pattern.md` content commit** — documents the lifecycle (Notion canonical → local working copy → archive). After token system completes.
+
+---
+
+## Meta Ads
+
+Open items surfaced from the Meta-Ads service scaffold (added 2026-05-04). Track here until each is resolved through real client work.
+
+- [ ] **Scope refinement.** What's explicitly in vs. out of the $1,500/month engagement. Carryover from pricing/scope item above; pricing is set, scope language in `Overview.md` is provisional.
+- [ ] **No completed example brief on file.** Archive the first real client run as a reference example under `Services/Meta-Ads/Process/1-Brief/`.
+- [ ] **ChatGPT deployment decision.** Custom GPT vs. Project still open — see `Services/Meta-Ads/Process/5-ChatGPT-Context/overview.md` known gaps.
+- [ ] **Lookalike source heuristics per vertical** not yet codified — see `Services/Meta-Ads/Campaign-Structure.md` known gaps.
+- [ ] **Statistical-significance calculator recommendation** needed for the Campaign Structure doc.
+- [ ] **Foundational-vs-test budget allocation** logic at the scale tier still open.
+- [ ] **Andromeda playbook defaults** (25-30 concepts / 1-3 winners / 5+5+5 copy set) are Haynes-derived starting points; revisit calibration after several real ClearThink runs.
+- [ ] **Three-Axis Articulation Framework attribution.** Currently attributed to Haynes in `Meta-Ads_Methodology.md` §3; decide whether to rebrand as a ClearThink framework once it's been pressure-tested in real client work.
 
 ---
 
