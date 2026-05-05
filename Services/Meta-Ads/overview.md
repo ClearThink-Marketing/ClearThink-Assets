@@ -10,6 +10,7 @@
 |---|---|
 | `Meta-Ads_Methodology.md` | **Canonical (production layer).** Frameworks, vocabulary, vertical playbooks, visual heuristics, banned words, handoff vocabulary, the Andromeda playbook (§9), Three-Axis Articulation Framework (§3). All three skills load this before running. |
 | `Campaign-Structure.md` | **Canonical (deployment layer).** Strategist's decision guide for *deploying* campaigns in Meta Ads Manager — budget tiers, campaign structure (broad / interest stack / lookalike stack), Andromeda settings checklist, optimization cadence, reach concentration, the scaling loop, refresh/scale/kill decisions, CAC vs. LTV mindset. Read by humans, not loaded by skills. |
+| `CREATIVES_DATABASE.md` | **Workflow doc.** Notion Concepts/Creatives database pattern, schema, status lifecycle, and where the database lives in a client portal. Read by humans when starting a new campaign. |
 | `Process/` | The 5-stage production loop. See `Process/overview.md`. |
 
 **The loop in one diagram.**

@@ -32,7 +32,16 @@
 
 **Required reading before running downstream.** Both Producer and Critic load `Services/Meta-Ads/Meta-Ads_Methodology.md`. The brief's enum fields (vertical, funnel stage, primary lever, Cialdini principle) are defined there.
 
+**Intended workflow (in progress).** The brief is designed to be **semi-automated**, not fully manual. Plan:
+
+1. Client completes the **Meta Ads onboarding form** (lives in the ClearThink Forms Hub in Notion) — captures company, offer, ICP demographics, brand voice, and campaign context.
+2. Form responses **auto-populate Sections 1 (Company), 2 (Offer), most of 3 (ICP), parts of 6 (Creative Specs)**, and parts of 7 (Campaign Context).
+3. Strategist completes the **strategic sections** that require judgment, not intake: Section 4 (UVP / positioning), Section 5 (Persuasion levers — primary LF8, primary Cialdini), and the open fields in Sections 6 and 7 (test variable, creative volume target).
+4. Filled brief routes to the Ideation skill.
+
+The PTN brief was filled fully manually because the onboarding form hasn't shipped yet. Future briefs should follow the semi-automated path once the form is in place.
+
 **Known gaps.**
 
-- No real-client filled briefs archived as examples yet.
-- No automated brief-generator skill — strategist fills manually. Reconsider if volume grows.
+- **Onboarding form not yet built.** Until it ships, briefs are filled manually end-to-end. Priority: build the form in the Forms Hub and wire it to auto-populate the brief template's mechanical fields.
+- No automated brief-generator skill (downstream of the onboarding form). Reconsider once the form is in place and we have multiple campaigns of data on which fields strategists routinely override vs. accept as-is.

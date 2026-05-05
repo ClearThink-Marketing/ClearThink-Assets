@@ -258,7 +258,27 @@ Practitioner heuristics for what wins on Meta static, regardless of vertical. Ap
 
 - **Thumb-stop logic.** The focal point must be obvious within 1 second at thumbnail size. If the image requires squinting on a phone, it's already lost.
 - **Mobile-first composition.** 9:16 and 4:5 dominate. Never frame for desktop.
-- **Text overlay should be minimal.** ChatGPT image generation handles text inconsistently. Keep on-image text to 3-5 words max, or specify "no text overlay" and put copy in the ad text fields.
+- **Text overlay — the rule has nuance.** ChatGPT image generation handles text inconsistently, *and* high-text-density ads lose thumb-stop on mobile. But "minimal" is not "zero." Two principles:
+
+  - **A short hook earns on-image space.** A headline that filters the right reader (Hopkins' "headlines are filters") is the image's job — don't strip the hook trying to be minimalist. Use judgment on length; the principle is "the hook deserves space," not a fixed word count.
+  - **No supporting copy on the image.** CTA buttons (Meta adds its own), feature panels, redundant decorative banners ("Spaces filling fast," etc.) — all of that is body-copy work. Strip them. The image qualifies; the body copy delivers.
+
+- **Pick one trust display layout.** Vertical column OR horizontal strip — never both. Visual repetition without information gain hurts thumb-stop. Each row in the chosen layout should have equal visual weight.
+
+- **Lever determines density tolerance.** The same on-image text-density rule does not apply equally across all ads:
+
+  - **Loss-frame ads** can earn quantitative on-image elements (specific numbers, deadlines) because those numbers ARE the lever's argument made concrete. Without them, the loss-frame is abstract.
+  - **Burden-relief and proof-driven ads** should stay leaner — the visual itself is the proof; on-image quantification competes with the relief promise.
+
+  This is a principle, not a rule with fixed thresholds. Apply judgment per ad — what does this specific lever need on the image vs. what belongs in the copy?
+
+- **Forward-looking language for upcoming events.** When a campaign launches before its anchor event, use *"ahead of"* or *"Ready for"* — not *"during"* or *"at"*. Pre-event "during" is grammatically off (the event hasn't happened yet) and loses the scarcity nudge that "ahead of" creates naturally.
+
+- **Spell out abbreviations for cold traffic.** TOF cold viewers haven't earned the right to decode jargon. Industry shorthand belongs on MOF/BOF creative where context exists.
+
+- **The image's primary job is Hopkins-aligned.** *Scientific Advertising* (1923) is explicit: the image's purpose is to **qualify the reader and pull them into the copy** — not deliver the entire pitch. Every on-image element should answer one question: "does this make the right reader more likely to read the body copy?" If the answer is no, strip it.
+
+> **Note on patterns vs. principles.** Specific design patterns observed in individual campaigns (3-tier banner hierarchies, productized pricing tier cards on image, particular layout templates) need validation across multiple campaigns before being codified here. The methodology stays principle-level; patterns earn methodology status only after battle-testing proves them.
 - **Safe zones for stories/reels.** Top ~14% and bottom ~20% are obscured by UI. Keep critical content in the middle 66%.
 - **Contrast and color isolation.** A single bright/saturated focal element on a quieter background outperforms balanced compositions.
 - **Faces work.** Especially direct eye contact and expressive faces. UGC aesthetic outperforms studio aesthetic for cold audiences across most verticals (especially DTC and local services).

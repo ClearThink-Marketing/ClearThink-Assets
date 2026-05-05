@@ -225,4 +225,62 @@ After the render, name the v1 failures in your reply and confirm how v2 addresse
 
 ---
 
+## 10. Iteration patterns and edit-mode guidance
+
+The strategist will often iterate on a render multiple times before approving. Iterations come in two flavors: **fresh-chat regens** (Format B, see §2) and **edit-mode refinements** (incremental tweaks to an existing image). Choose the right path based on the change required.
+
+### Fresh chat vs. edit mode — decision tree
+
+| Change required | Use fresh chat (Format B regen) | Use edit mode (incremental) |
+|---|---|---|
+| Aspect ratio change | ✅ Fresh chat — edit mode often preserves the source ratio | |
+| Major composition restructure (different subject, different layout) | ✅ Fresh chat | |
+| Strip multiple panels/elements at once | ✅ Fresh chat — cleaner result | |
+| Change the hook text | | ✅ Edit mode |
+| Strip 1-2 specific elements (CTA button, single banner) | | ✅ Edit mode |
+| Diversify a visible person (gender, ethnicity) while keeping pose/composition | | ✅ Edit mode |
+| Adjust spacing, alignment, or row-leveling | | ✅ Edit mode |
+| Tweak text overlay (single sub-head swap) | | ✅ Edit mode |
+
+**Rule of thumb:** if the change preserves more than ~70% of the existing image, use edit mode. If it requires more than 30% to change, start fresh.
+
+### Aspect ratio enforcement
+
+ChatGPT image generation sometimes silently ignores aspect ratio specs and defaults to 1:1 or whatever the previous render was. **Belt-and-suspenders enforcement:**
+
+1. State the ratio explicitly in the `ASPECT RATIO` field (e.g., "4:5 vertical portrait — explicitly NOT landscape").
+2. Repeat the constraint in `MUST AVOID` (e.g., "LANDSCAPE aspect ratio (this was the v1 failure — must be 4:5 portrait)").
+3. If a render comes back wrong, the strategist will follow up with: *"Re-render at exactly 1080×1350 pixels, vertical orientation, taller than wide."* Use those literal pixel dimensions if asked — they enforce harder than ratio descriptors.
+
+### Panel-stripping pattern (the most common edit-mode pattern)
+
+When an existing render has too much on-image text density, the strategist will strip elements iteratively. Common cumulative pattern:
+
+1. **Strip CTA button** — Meta adds its own button on every ad. In-image CTAs are always redundant.
+2. **Strip decorative urgency banners** ("Spaces filling fast," etc.) IF the deadline is already represented elsewhere (e.g., a corner tag).
+3. **Strip redundant header banners** above offer elements — if the sub-head already establishes the campaign anchor, a banner above the offer is duplication.
+4. **Consolidate trust signals** — pick ONE display layout (vertical column OR horizontal strip), strip the duplicate.
+5. **Simplify multi-stat panels** (e.g., 4-block stat panels → 2 blocks) IF the lever doesn't justify keeping all of them.
+
+When you receive a series of edit-mode strip requests, expect cumulative intent — each pass cleans further. Don't re-add elements a previous pass removed unless the strategist explicitly asks.
+
+### Text-overlay rendering quirks
+
+- **Headlines with colons render cleanly** (e.g., "Atlanta Airbnb hosts: lock in turnover rates."). The colon does not garble.
+- **Trademark and registered symbols (™, ®)** render reliably. Include them when specified.
+- **Star symbols (★ / ⭐)** render cleanly as Unicode. If specified, use the Unicode character — not "5 star" written out — for crispest output.
+- **Multi-line headlines** preserve line breaks well as long as the prompt specifies the line break (e.g., "Line 1: 'YOU HOST.' / Line 2: 'WE HANDLE EVERY TURNOVER.'").
+- **3-tier banners** (pre-head / head / sub-head) require explicit size guidance. If the prompt specifies "headline ~3x the size of pre-head" but renders flat, the strategist will follow up: *"Make the headline visibly larger — clear size hierarchy required."* Honor that.
+
+### Diversification of people in renders
+
+When the prompt or follow-up edit calls for diversifying people in a scene:
+
+- **Preserve the foreground subject** if it's the campaign's strongest visual asset (the strategist will say so).
+- **Diversify background or secondary figures** by gender, ethnicity, or age — whichever the strategist specifies.
+- **Match the regional ICP** when possible. Atlanta-area campaigns benefit from Black, Hispanic, white, and Asian representation; coastal urban campaigns from broader diversity; rural campaigns may skew differently. The prompt should specify, but if not, lean toward representing the metro's actual demographics rather than defaulting to a single ethnicity.
+- **Keep the work natural.** Diverse crew members should be working, not posing. Same gloves, same uniform, same lighting — diversification is about who, not how.
+
+---
+
 *End of context.*
