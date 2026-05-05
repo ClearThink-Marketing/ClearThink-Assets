@@ -2,7 +2,7 @@
 
 Running list of known issues, gaps, and follow-ups across the ClearThink-Assets repo. Items get checked off as they're resolved.
 
-**Last updated:** 2026-05-04 (Meta Ads service launch added)
+**Last updated:** 2026-05-04 (Process observations section added; example-brief item resolved)
 
 ---
 
@@ -120,13 +120,21 @@ Items deferred from Round 1 resolutions; surface as their triggers arrive.
 Open items surfaced from the Meta-Ads service scaffold (added 2026-05-04). Track here until each is resolved through real client work.
 
 - [ ] **Scope refinement.** What's explicitly in vs. out of the $1,500/month engagement. Carryover from pricing/scope item above; pricing is set, scope language in `Overview.md` is provisional.
-- [ ] **No completed example brief on file.** Archive the first real client run as a reference example under `Services/Meta-Ads/Process/1-Brief/`.
+- [x] ~~**No completed example brief on file.** Archive the first real client run as a reference example under `Services/Meta-Ads/Process/1-Brief/`.~~ **Decision (2026-05-04):** keep filled briefs local-only, not in repo. Principle-level learnings from the PTN campaign are absorbed into the methodology (§6 expansion); specific briefs don't need to live in version control.
 - [ ] **ChatGPT deployment decision.** Custom GPT vs. Project still open — see `Services/Meta-Ads/Process/5-ChatGPT-Context/overview.md` known gaps.
 - [ ] **Lookalike source heuristics per vertical** not yet codified — see `Services/Meta-Ads/Campaign-Structure.md` known gaps.
 - [ ] **Statistical-significance calculator recommendation** needed for the Campaign Structure doc.
 - [ ] **Foundational-vs-test budget allocation** logic at the scale tier still open.
 - [ ] **Andromeda playbook defaults** (25-30 concepts / 1-3 winners / 5+5+5 copy set) are Haynes-derived starting points; revisit calibration after several real ClearThink runs.
 - [ ] **Three-Axis Articulation Framework attribution.** Currently attributed to Haynes in `Meta-Ads_Methodology.md` §3; decide whether to rebrand as a ClearThink framework once it's been pressure-tested in real client work.
+
+---
+
+## Process observations
+
+Meta-level patterns surfaced through working in the repo. Tracked here so we can revisit if they recur.
+
+- **Spec/execution divergence — Meta Ads doc-updates (2026-05-04).** A doc-update spec was written assuming `Services/Meta-Ads/Briefs/` would be a repo-tracked reference folder. Mid-execution we pivoted to keep briefs local-only. Final docs don't reference `Briefs/`, but commit `6259c48` retains the spec's original wording (the message body still mentions "first filled brief archived" and "the /Briefs/ folder"). Lesson: when a spec depends on outside-spec decisions (what-to-include, privacy calls, scope cuts), build explicit decision points into the spec rather than baking assumptions into the prose. Watch for this pattern in future spec-driven work; consider amending commit messages before push when execution diverges from the spec.
 
 ---
 
